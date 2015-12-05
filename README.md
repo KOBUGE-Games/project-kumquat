@@ -1,5 +1,5 @@
-Project Kumquart
-================
+Project Kumquat
+===============
 
 **WIP Tower Defense game - First Kobuge Hackathon**
 
