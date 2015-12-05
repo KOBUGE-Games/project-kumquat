@@ -12,7 +12,8 @@ const WALK_ANIMS = {
 }
 
 # FIXME: Move me to level scene or something
-const TILE_SIZE = 64
+const TILE_SIZE = 32
+const TILE_OFFSET = Vector2(TILE_SIZE/2, 0)
 
 # Nodes
 var level  # The level node
@@ -25,7 +26,7 @@ var motion_dir = Vector2()  # The current direction we move in
 var old_motion_dir = Vector2()  # Previous motion dir, saved for animation
 
 export var type = "enemy1"  # Enemy type
-export var speed = 1.0  # tiles/second
+export var speed = 2.0  # tiles/second
 export var hp = 100  # health points
 
 ### Callbacks ###
@@ -48,22 +49,28 @@ func _fixed_process(delta):
 		#get_node("AnimationPlayer").play("die")
 		return
 	
-	cur_tile = tilemap.world_to_map(get_pos())
-	
 	# Handle movement
+	cur_tile = tilemap.world_to_map(get_pos() - motion_dir*TILE_OFFSET)
 	
 	# Update target coordinates
 	if (cur_tile == dest_tile):
-		# Target tile reached, find the next destination
+		# Check if the tile reached is the goal
+		if (cur_tile == tilemap.world_to_map(level.get_node("goals/goal").get_pos())):
+			set_fixed_process(false)
+			get_node("AnimationPlayer").stop()
+			# FIXME: Do stuff
+			return
+		
+		# Intermediate target tile reached, find the next destination
 		var goal_dirs = level.tiles[cur_tile].goal_directions
 		var index = randi() % goal_dirs.size()
 		dest_tile = cur_tile + goal_dirs[index]
 		old_motion_dir = motion_dir
 		motion_dir = dest_tile - cur_tile
-	
-	# Update walk animation
-	if (motion_dir != old_motion_dir):
-		get_node("AnimationPlayer").play(WALK_ANIMS[motion_dir])
+		
+		# Update walk animation
+		if (motion_dir != old_motion_dir):
+			get_node("AnimationPlayer").play(WALK_ANIMS[motion_dir])
 	
 	# Move now
 	var motion = motion_dir*speed*TILE_SIZE*delta

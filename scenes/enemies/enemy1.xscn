@@ -168,17 +168,17 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="77"> 				-1, -1, 10, 0, -1, 9, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 0, 0, 0, 11, 11, -1, 8, 12, 9, 13, 7, 14, 7, 15, 10, 16, 7, 17, 3, 18, 11, 19, 9, 0, 0, 0, 20, 20, -1, 11, 21, 3, 22, 9, 23, 12, 24, 13, 25, 14, 26, 15, 27, 16, 28, 17, 29, 7, 30, 18, 31, 19, 0 </int_array>
+			<int_array  len="77"> 				-1, -1, 10, 0, -1, 9, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 0, 0, 0, 11, 11, -1, 8, 12, 9, 13, 7, 14, 7, 15, 10, 16, 7, 17, 11, 18, 12, 19, 9, 0, 0, 0, 20, 20, -1, 11, 21, 11, 22, 9, 23, 13, 24, 14, 25, 15, 26, 16, 27, 17, 28, 18, 29, 7, 30, 19, 31, 20, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="20" shared="false">
+			<array  len="21" shared="false">
 				<resource  external="0">  </resource>
 				<int> 4 </int>
 				<int> 9 </int>
-				<int> 1 </int>
+				<int> 19 </int>
 				<resource  external="1">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
@@ -323,6 +323,7 @@
 				<int> 100 </int>
 				<real> 0 </real>
 				<real> 2048 </real>
+				<int> 1 </int>
 				<resource name=""></resource>				<node_path> ".." </node_path>
 				<resource  resource_type="Animation" path="local://2">  </resource>
 				<resource  resource_type="Animation" path="local://1">  </resource>
