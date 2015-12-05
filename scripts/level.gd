@@ -10,6 +10,13 @@ class Tile:
 	var possible_directions = []
 	var goal_directions = []
 
+class Wave:
+	var enemies = []
+	var spawn_cooldown = 1
+	func _init(_enemies, _spawn_cooldown = 1):
+		enemies = _enemies
+		spawn_cooldown = _spawn_cooldown
+
 class WaveEnemy:
 	var scene
 	var count = 1 # Should it be fequency instead?
@@ -22,9 +29,16 @@ const DIRECTIONS = Vector2Array([Vector2(1,0), Vector2(-1,0), Vector2(0,1), Vect
 export var cell_size = Vector2(32,32)
 export var debug = true
 
-var wave = [
-	WaveEnemy.new(preload("res://scenes/enemies/enemy1.xscn"), 5)
+var waves = [
+	Wave.new([
+		WaveEnemy.new(preload("res://scenes/enemies/enemy1.xscn"), 5)
+	]),
+	Wave.new([
+		WaveEnemy.new(preload("res://scenes/enemies/enemy1.xscn"), 20)
+	], 1.2)
 ]
+var current_wave_index = 0
+var current_wave
 
 var tiles = {}
 var tilemap_walkable
@@ -41,8 +55,6 @@ var tile_type_override = {
 
 func _ready():
 	get_node("enemy_timer").connect("timeout", self, "spawn_enemy")
-	get_node("enemy_timer").start()
-	
 	tiles = {}
 	
 	import_tilemap(get_node("tilemap_grass"), Tile.TILE_WALKABLE)
@@ -52,6 +64,8 @@ func _ready():
 	update_tile_directions()
 	run_bfs()
 	update()
+	
+	next_wave()
 
 func import_tilemap(tilemap, default_tile_type):
 	var tileset = tilemap.get_tileset()
@@ -110,13 +124,21 @@ func run_bfs():
 				if distance[cell] > distance[other_cell]:
 					tile.goal_directions.push_back(direction)
 
+func next_wave():
+	current_wave = waves[current_wave_index]
+	get_node("enemy_timer").set_wait_time(current_wave.spawn_cooldown)
+	get_node("enemy_timer").start()
+	
+	current_wave_index += 1
+	
+
 func spawn_enemy():
 	var start = starts[randi() % starts.size()]
 	var position = start * cell_size
 	
 	var total_count = 0
 	
-	for wave_enemy in wave:
+	for wave_enemy in current_wave.enemies:
 		total_count += wave_enemy.count
 	
 	if total_count == 0:
@@ -125,7 +147,7 @@ func spawn_enemy():
 	
 	var enemy_id = randi() % total_count
 	
-	for wave_enemy in wave:
+	for wave_enemy in current_wave.enemies:
 		enemy_id -= wave_enemy.count
 		if enemy_id <= 0:
 			wave_enemy.count -= 1
