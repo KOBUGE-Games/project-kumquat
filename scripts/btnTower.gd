@@ -32,3 +32,5 @@ func _on_btnTower_pressed():
 	budget_current = get_node("/root/Game/HUD").budget_current
 	if budget_current >= tower_price:
 		get_node("/root/Game/HUD").updateBudget(-tower_price)
+		get_node("/root/Game/HUD").placeTower = true
+		get_node("/root/Game/HUD/cursor_placeholder").show()
