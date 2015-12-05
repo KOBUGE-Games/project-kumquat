@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="6" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
+<resource_file type="PackedScene" subresource_count="7" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
 	<ext_resource path="res://scripts/hud.gd" type="Script" index="0"></ext_resource>
 	<ext_resource path="res://fonts/railway.fnt" type="Font" index="2"></ext_resource>
-	<ext_resource path="res://scenes/btnTower.xscn" type="PackedScene" index="1"></ext_resource>
 	<ext_resource path="res://graphics/coin_sheet.png" type="Texture" index="3"></ext_resource>
-	<ext_resource path="res://graphics/heart.png" type="Texture" index="4"></ext_resource>
+	<ext_resource path="res://graphics/icon_next_wave.png" type="Texture" index="4"></ext_resource>
+	<ext_resource path="res://scenes/btnTower.xscn" type="PackedScene" index="1"></ext_resource>
+	<ext_resource path="res://graphics/heart.png" type="Texture" index="5"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -15,7 +16,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="43">
+			<string_array  len="44">
 				<string> "HUD" </string>
 				<string> "margin/left" </string>
 				<string> "margin/top" </string>
@@ -55,6 +56,7 @@
 				<string> "Sprite" </string>
 				<string> "next_wave" </string>
 				<string> "toggle_mode" </string>
+				<string> "icon" </string>
 				<string> "flat" </string>
 				<string> "Button" </string>
 				<string> "health_icon" </string>
@@ -66,9 +68,9 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="423"> 				-1, -1, 11, 0, -1, 10, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 6, 9, 7, 10, 8, 0, 0, 0, 11, 12, -1, 8, 2, 9, 3, 10, 4, 11, 5, 4, 6, 5, 7, 6, 8, 6, 10, 12, 0, 1, 0, 2147483647, 13, 13, 3, 1, 14, 3, 15, 14, 16, 0, 1, 0, 2147483647, 15, 13, 10, 1, 14, 2, 17, 3, 15, 4, 18, 16, 19, 14, 19, 17, 20, 18, 21, 19, 6, 20, 22, 0, 1, 0, 2147483647, 21, 13, 6, 1, 14, 2, 23, 3, 15, 4, 24, 14, 25, 20, 26, 0, 0, 0, 11, 22, -1, 7, 23, 27, 3, 10, 4, 10, 5, 4, 6, 5, 7, 6, 8, 6, 0, 5, 0, 24, 24, -1, 7, 3, 28, 4, 29, 5, 4, 6, 5, 7, 6, 8, 6, 10, 30, 0, 6, 0, 29, 14, -1, 12, 1, 31, 2, 32, 3, 33, 4, 34, 5, 5, 6, 5, 7, 6, 25, 35, 16, 16, 26, 36, 27, 37, 28, 38, 0, 6, 0, 29, 17, -1, 12, 1, 31, 2, 2, 3, 39, 4, 40, 5, 5, 6, 5, 7, 6, 25, 35, 16, 41, 26, 36, 27, 37, 28, 38, 0, 6, 0, 29, 18, -1, 12, 1, 31, 2, 42, 3, 39, 4, 3, 5, 5, 6, 5, 7, 6, 25, 35, 16, 43, 26, 36, 27, 37, 28, 38, 0, 6, 0, 29, 19, -1, 12, 1, 31, 2, 44, 3, 39, 4, 45, 5, 5, 6, 5, 7, 6, 25, 35, 16, 46, 26, 36, 27, 37, 28, 38, 0, 6, 0, 29, 20, -1, 12, 1, 31, 2, 47, 3, 39, 4, 48, 5, 5, 6, 5, 7, 6, 25, 35, 16, 49, 26, 36, 27, 37, 28, 38, 0, 0, 0, 29, 30, -1, 11, 1, 42, 2, 50, 3, 48, 4, 2, 5, 5, 6, 5, 7, 6, 16, 51, 26, 36, 27, 37, 28, 38, 0, 0, 0, 36, 31, -1, 4, 32, 52, 33, 53, 34, 5, 35, 54, 0, 0, 0, 40, 37, -1, 11, 1, 14, 2, 55, 3, 15, 4, 56, 5, 4, 6, 5, 7, 6, 8, 6, 38, 4, 16, 57, 39, 4, 0, 0, 0, 36, 41, -1, 4, 32, 58, 33, 59, 34, 5, 35, 54, 0, 0, 0, 29, 42, -1, 11, 1, 42, 2, 60, 3, 48, 4, 61, 5, 5, 6, 5, 7, 6, 16, 62, 26, 36, 27, 37, 28, 38, 0 </int_array>
+			<int_array  len="425"> 				-1, -1, 11, 0, -1, 10, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 6, 9, 7, 10, 8, 0, 0, 0, 11, 12, -1, 8, 2, 9, 3, 10, 4, 11, 5, 4, 6, 5, 7, 6, 8, 6, 10, 12, 0, 1, 0, 2147483647, 13, 13, 3, 1, 14, 3, 15, 14, 16, 0, 1, 0, 2147483647, 15, 13, 10, 1, 14, 2, 17, 3, 15, 4, 18, 16, 19, 14, 19, 17, 20, 18, 21, 19, 6, 20, 22, 0, 1, 0, 2147483647, 21, 13, 6, 1, 14, 2, 23, 3, 15, 4, 24, 14, 25, 20, 26, 0, 0, 0, 11, 22, -1, 7, 23, 27, 3, 10, 4, 10, 5, 4, 6, 5, 7, 6, 8, 6, 0, 5, 0, 24, 24, -1, 7, 3, 28, 4, 29, 5, 4, 6, 5, 7, 6, 8, 6, 10, 30, 0, 6, 0, 29, 14, -1, 12, 1, 31, 2, 32, 3, 33, 4, 34, 5, 5, 6, 5, 7, 6, 25, 35, 16, 16, 26, 36, 27, 37, 28, 38, 0, 6, 0, 29, 17, -1, 12, 1, 31, 2, 2, 3, 39, 4, 40, 5, 5, 6, 5, 7, 6, 25, 35, 16, 41, 26, 36, 27, 37, 28, 38, 0, 6, 0, 29, 18, -1, 12, 1, 31, 2, 42, 3, 39, 4, 3, 5, 5, 6, 5, 7, 6, 25, 35, 16, 43, 26, 36, 27, 37, 28, 38, 0, 6, 0, 29, 19, -1, 12, 1, 31, 2, 44, 3, 39, 4, 45, 5, 5, 6, 5, 7, 6, 25, 35, 16, 46, 26, 36, 27, 37, 28, 38, 0, 6, 0, 29, 20, -1, 12, 1, 31, 2, 47, 3, 39, 4, 48, 5, 5, 6, 5, 7, 6, 25, 35, 16, 49, 26, 36, 27, 37, 28, 38, 0, 0, 0, 29, 30, -1, 11, 1, 42, 2, 50, 3, 48, 4, 2, 5, 5, 6, 5, 7, 6, 16, 51, 26, 36, 27, 37, 28, 38, 0, 0, 0, 36, 31, -1, 4, 32, 52, 33, 53, 34, 5, 35, 54, 0, 0, 0, 41, 37, -1, 12, 1, 1, 2, 55, 3, 56, 4, 57, 5, 4, 6, 5, 7, 6, 8, 6, 38, 4, 16, 58, 39, 59, 40, 4, 0, 0, 0, 36, 42, -1, 4, 32, 60, 33, 61, 34, 5, 35, 54, 0, 0, 0, 29, 43, -1, 11, 1, 42, 2, 62, 3, 48, 4, 63, 5, 5, 6, 5, 7, 6, 16, 64, 26, 36, 27, 37, 28, 38, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="63" shared="false">
+			<array  len="65" shared="false">
 				<real> -16 </real>
 				<real> 21 </real>
 				<real> 24 </real>
@@ -79,13 +81,13 @@
 				<resource  external="0">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -33.2101, -64.7 </vector2>
+							<vector2> -218.572, 673.12 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -105,7 +107,7 @@
 							<string> "snap_step" </string>
 							<vector2> 128, 80 </vector2>
 							<string> "zoom" </string>
-							<real> 3.09087 </real>
+							<real> 1.108034 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -266,10 +268,12 @@
 				<resource  external="3">  </resource>
 				<rect2> 0, 0, 20, 20 </rect2>
 				<real> 734 </real>
+				<real> 149 </real>
 				<real> 766 </real>
 				<string> "Next Wave" </string>
-				<vector2> 28.3823, -5.02664 </vector2>
 				<resource  external="4">  </resource>
+				<vector2> 28.3823, -5.02664 </vector2>
+				<resource  external="5">  </resource>
 				<real> -14 </real>
 				<real> -1 </real>
 				<string> "Health: 100%" </string>
