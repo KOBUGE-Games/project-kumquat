@@ -13,7 +13,7 @@ const WALK_ANIMS = {
 
 # FIXME: Move me to level scene or something
 const TILE_SIZE = 32
-const TILE_OFFSET = Vector2(TILE_SIZE/2, 0)
+const TILE_OFFSET = Vector2(TILE_SIZE/2, TILE_SIZE/2)
 
 # Nodes
 var level  # The level node
@@ -38,6 +38,7 @@ func _ready():
 	cur_tile = tilemap.world_to_map(get_pos())
 	dest_tile = cur_tile
 	
+	print(get_pos())
 	set_fixed_process(true)
 
 func _fixed_process(delta):
@@ -54,15 +55,15 @@ func _fixed_process(delta):
 	
 	# Update target coordinates
 	if (cur_tile == dest_tile):
-		# Check if the tile reached is the goal
-		if (cur_tile == tilemap.world_to_map(level.get_node("goals/goal").get_pos())):
+		# Intermediate target tile reached, find the next destination
+		var goal_dirs = level.tiles[cur_tile].goal_directions
+		if (goal_dirs.size() == 0):
+			# Dead-end, assuming it's the goal
 			set_fixed_process(false)
 			get_node("AnimationPlayer").stop()
 			# FIXME: Do stuff
 			return
 		
-		# Intermediate target tile reached, find the next destination
-		var goal_dirs = level.tiles[cur_tile].goal_directions
 		var index = randi() % goal_dirs.size()
 		dest_tile = cur_tile + goal_dirs[index]
 		old_motion_dir = motion_dir
