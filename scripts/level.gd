@@ -10,10 +10,21 @@ class Tile:
 	var possible_directions = []
 	var goal_directions = []
 
+class WaveEnemy:
+	var scene
+	var count = 1 # Should it be fequency instead?
+	func _init(_scene, _count = 1):
+		scene = _scene
+		count = _count
+
 const DIRECTIONS = Vector2Array([Vector2(1,0), Vector2(-1,0), Vector2(0,1), Vector2(0,-1)])
 
 export var cell_size = Vector2(32,32)
 export var debug = true
+
+var wave = [
+	WaveEnemy.new(preload("res://scenes/enemies/enemy1.xscn"), 5)
+]
 
 var tiles = {}
 var tilemap_walkable
@@ -29,6 +40,9 @@ var tile_type_override = {
 }
 
 func _ready():
+	get_node("enemy_timer").connect("timeout", self, "spawn_enemy")
+	get_node("enemy_timer").start()
+	
 	tiles = {}
 	
 	import_tilemap(get_node("tilemap_grass"), Tile.TILE_WALKABLE)
@@ -68,7 +82,6 @@ func update_tile_directions():
 				var direction_cell = cell + direction
 				if tiles.has(direction_cell) and tiles[direction_cell].type == Tile.TILE_WALKABLE:
 					tile.possible_directions.push_back(direction)
-	
 
 func run_bfs():
 	var scanline = goals
@@ -96,6 +109,32 @@ func run_bfs():
 				var other_cell = cell + direction
 				if distance[cell] > distance[other_cell]:
 					tile.goal_directions.push_back(direction)
+
+func spawn_enemy():
+	var start = starts[randi() % starts.size()]
+	var position = start * cell_size
+	
+	var total_count = 0
+	
+	for wave_enemy in wave:
+		total_count += wave_enemy.count
+	
+	if total_count == 0:
+		get_node("enemy_timer").stop()
+		return
+	
+	var enemy_id = randi() % total_count
+	
+	for wave_enemy in wave:
+		enemy_id -= wave_enemy.count
+		if enemy_id <= 0:
+			wave_enemy.count -= 1
+			
+			var enemy = wave_enemy.scene.instance()
+			enemy.set_pos(position)
+			add_child(enemy)
+			break
+	
 
 func _draw():
 	if not debug:
