@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="4" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
-	<ext_resource path="res://scripts/game.gd" type="Script" index="0"></ext_resource>
-	<ext_resource path="res://scenes/hud.xscn" type="PackedScene" index="2"></ext_resource>
-	<ext_resource path="res://scenes/level.xscn" type="PackedScene" index="1"></ext_resource>
+<resource_file type="PackedScene" subresource_count="5" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
+	<ext_resource path="res://scripts/hud.gd" type="Script" index="0"></ext_resource>
+	<ext_resource path="res://fonts/railway.fnt" type="Font" index="2"></ext_resource>
+	<ext_resource path="res://scenes/btnTower.xscn" type="PackedScene" index="1"></ext_resource>
+	<ext_resource path="res://graphics/coin_sheet.png" type="Texture" index="3"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -13,8 +14,9 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="36">
-				<string> "Game" </string>
+			<string_array  len="41">
+				<string> "HUD" </string>
+				<string> "margin/top" </string>
 				<string> "margin/right" </string>
 				<string> "margin/bottom" </string>
 				<string> "focus/ignore_mouse" </string>
@@ -24,60 +26,66 @@
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
 				<string> "Control" </string>
-				<string> "Level" </string>
-				<string> "SamplePlayer" </string>
-				<string> "config/polyphony" </string>
-				<string> "config/samples" </string>
-				<string> "default/volume_db" </string>
-				<string> "default/pitch_scale" </string>
-				<string> "default/pan" </string>
-				<string> "default/depth" </string>
-				<string> "default/height" </string>
-				<string> "default/filter/type" </string>
-				<string> "default/filter/cutoff" </string>
-				<string> "default/filter/resonance" </string>
-				<string> "default/filter/gain" </string>
-				<string> "default/reverb_room" </string>
-				<string> "default/reverb_send" </string>
-				<string> "default/chorus_send" </string>
-				<string> "StreamPlayer" </string>
-				<string> "stream/stream" </string>
-				<string> "stream/play" </string>
-				<string> "stream/loop" </string>
-				<string> "stream/volume_db" </string>
-				<string> "stream/autoplay" </string>
-				<string> "stream/paused" </string>
-				<string> "stream/loop_restart_time" </string>
-				<string> "stream/buffering_ms" </string>
-				<string> "HUD" </string>
+				<string> "Towers" </string>
+				<string> "margin/left" </string>
+				<string> "btnTower" </string>
+				<string> "tower_name" </string>
+				<string> "btnTower 2" </string>
+				<string> "text" </string>
+				<string> "tower_damage" </string>
+				<string> "tower_range" </string>
+				<string> "tower_reload" </string>
+				<string> "tower_price" </string>
+				<string> "btnTower 3" </string>
+				<string> "Tower_desc" </string>
+				<string> "visibility/opacity" </string>
+				<string> "Panel" </string>
+				<string> "custom_fonts/font" </string>
+				<string> "percent_visible" </string>
+				<string> "lines_skipped" </string>
+				<string> "max_lines_visible" </string>
+				<string> "Label" </string>
+				<string> "Budget" </string>
+				<string> "coin_icon" </string>
+				<string> "transform/pos" </string>
+				<string> "texture" </string>
+				<string> "region" </string>
+				<string> "region_rect" </string>
+				<string> "Sprite" </string>
+				<string> "next_wave" </string>
+				<string> "toggle_mode" </string>
+				<string> "flat" </string>
+				<string> "Button" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 5 </int>
+			<int> 15 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="95"> 				-1, -1, 9, 0, -1, 8, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 5, 0, 0, 0, 2147483647, 10, 6, 0, 0, 0, 0, 11, 11, -1, 14, 12, 7, 13, 8, 14, 9, 15, 10, 16, 9, 17, 9, 18, 9, 19, 11, 20, 12, 21, 10, 22, 10, 23, 3, 24, 9, 25, 9, 0, 0, 0, 26, 26, -1, 8, 27, 8, 28, 1, 29, 1, 30, 9, 31, 1, 32, 1, 33, 9, 34, 13, 0, 0, 0, 2147483647, 35, 14, 0, 0 </int_array>
+			<int_array  len="377"> 				-1, -1, 10, 0, -1, 9, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 5, 8, 6, 9, 7, 0, 0, 0, 10, 11, -1, 8, 12, 8, 1, 8, 2, 9, 3, 9, 4, 3, 5, 4, 6, 5, 7, 5, 0, 1, 0, 2147483647, 13, 10, 1, 14, 11, 0, 1, 0, 2147483647, 15, 10, 10, 12, 12, 1, 13, 2, 14, 3, 15, 16, 16, 14, 16, 17, 17, 18, 18, 19, 5, 20, 19, 0, 1, 0, 2147483647, 21, 10, 6, 12, 12, 1, 20, 2, 14, 3, 21, 14, 22, 20, 23, 0, 0, 0, 10, 22, -1, 7, 23, 24, 2, 1, 3, 1, 4, 3, 5, 4, 6, 5, 7, 5, 0, 5, 0, 24, 24, -1, 9, 12, 25, 1, 8, 2, 26, 3, 27, 4, 3, 5, 4, 6, 5, 7, 5, 9, 28, 0, 6, 0, 29, 14, -1, 12, 12, 29, 1, 30, 2, 31, 3, 32, 4, 4, 5, 4, 6, 5, 25, 33, 16, 11, 26, 12, 27, 34, 28, 35, 0, 6, 0, 29, 17, -1, 12, 12, 29, 1, 36, 2, 37, 3, 38, 4, 4, 5, 4, 6, 5, 25, 33, 16, 39, 26, 12, 27, 34, 28, 35, 0, 6, 0, 29, 18, -1, 12, 12, 29, 1, 40, 2, 37, 3, 2, 4, 4, 5, 4, 6, 5, 25, 33, 16, 41, 26, 12, 27, 34, 28, 35, 0, 6, 0, 29, 19, -1, 12, 12, 29, 1, 42, 2, 37, 3, 43, 4, 4, 5, 4, 6, 5, 25, 33, 16, 44, 26, 12, 27, 34, 28, 35, 0, 6, 0, 29, 20, -1, 12, 12, 29, 1, 45, 2, 37, 3, 46, 4, 4, 5, 4, 6, 5, 25, 33, 16, 47, 26, 12, 27, 34, 28, 35, 0, 0, 0, 29, 30, -1, 11, 12, 1, 1, 48, 2, 49, 3, 50, 4, 4, 5, 4, 6, 5, 16, 51, 26, 12, 27, 34, 28, 35, 0, 0, 0, 36, 31, -1, 4, 32, 52, 33, 53, 34, 4, 35, 54, 0, 0, 0, 40, 37, -1, 11, 12, 55, 1, 56, 2, 57, 3, 58, 4, 3, 5, 4, 6, 5, 7, 5, 38, 3, 16, 59, 39, 3, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="15" shared="false">
+			<array  len="60" shared="false">
+				<real> 21 </real>
 				<real> 40 </real>
+				<real> 61 </real>
 				<bool> False </bool>
 				<bool> True </bool>
 				<int> 2 </int>
 				<resource  external="0">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -10.3411, -30.5138 </vector2>
+							<vector2> -129.161, 412.852 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
-							<vector2> 0, 0 </vector2>
+							<vector2> 16, 16 </vector2>
 							<string> "snap_pixel" </string>
 							<bool> False </bool>
 							<string> "snap_relative" </string>
@@ -91,9 +99,9 @@
 							<string> "snap_show_grid" </string>
 							<bool> False </bool>
 							<string> "snap_step" </string>
-							<vector2> 10, 10 </vector2>
+							<vector2> 128, 80 </vector2>
 							<string> "zoom" </string>
-							<real> 1.670183 </real>
+							<real> 1.50734 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -201,14 +209,61 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
+				<real> 16 </real>
+				<real> 56 </real>
 				<resource  external="1">  </resource>
-				<int> 1 </int>
-				<resource name=""></resource>				<real> 0 </real>
+				<string> "Tower #1" </string>
 				<real> 1 </real>
-				<int> 0 </int>
-				<real> 5000 </real>
-				<int> 500 </int>
+				<real> 69 </real>
+				<real> 129 </real>
+				<real> 133 </real>
+				<string> "Tower #2" </string>
+				<int> 200 </int>
+				<int> 123 </int>
+				<int> 150 </int>
+				<real> 138 </real>
+				<real> 202 </real>
+				<string> "Tower #3" </string>
+				<int> 1100 </int>
+				<real> 0.8 </real>
+				<real> 150 </real>
+				<real> 272 </real>
+				<real> 114 </real>
+				<dictionary  shared="false">
+					<string> "_editor_collapsed" </string>
+					<bool> True </bool>
+				</dictionary>
+				<real> 4 </real>
+				<real> 5 </real>
+				<real> 70 </real>
+				<real> 23 </real>
 				<resource  external="2">  </resource>
+				<int> 0 </int>
+				<int> -1 </int>
+				<real> 24 </real>
+				<real> 106 </real>
+				<real> 42 </real>
+				<string> "Damage: 300" </string>
+				<real> 43 </real>
+				<string> "Range: 200" </string>
+				<real> 62 </real>
+				<real> 80 </real>
+				<string> "Reload: 10 sec" </string>
+				<real> 79 </real>
+				<real> 97 </real>
+				<string> "Price: 100" </string>
+				<real> -10 </real>
+				<real> 94 </real>
+				<real> 3 </real>
+				<string> "Budget: 0" </string>
+				<vector2> 24.8714, -2.43837 </vector2>
+				<resource  external="3">  </resource>
+				<rect2> 0, 0, 20, 20 </rect2>
+				<real> 15 </real>
+				<real> 734 </real>
+				<real> 143 </real>
+				<real> 766 </real>
+				<string> "Next Wave" </string>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>
