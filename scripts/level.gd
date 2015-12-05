@@ -29,44 +29,15 @@ var tile_type_override = {
 }
 
 func _ready():
-	tilemap_walkable = get_node("tilemap_grass")
-	tilemap_buildable = get_node("tilemap_tower")
+	tiles = {}
+	
+	import_tilemap(get_node("tilemap_grass"), Tile.TILE_WALKABLE)
+	import_tilemap(get_node("tilemap_tower"), Tile.TILE_BUILDABLE)
 	
 	update_endpoints()
-	update_tiles()
+	update_tile_directions()
+	run_bfs()
 	update()
-
-func update_tiles():
-	tiles = {}
-	import_tilemap(tilemap_walkable, Tile.TILE_WALKABLE)
-	import_tilemap(tilemap_buildable, Tile.TILE_BUILDABLE)
-	
-	for cell in tiles:
-		var tile = tiles[cell]
-		
-		if tile.type == Tile.TILE_WALKABLE:
-			for direction in DIRECTIONS:
-				var direction_cell = cell + direction
-				if tiles.has(direction_cell) and tiles[direction_cell].type == Tile.TILE_WALKABLE:
-					tile.possible_directions.push_back(direction)
-	
-	var scanline = goals
-	var passed = {}
-	print(goals.size())
-	while scanline.size() > 0:
-		var new_scanline = []
-		for cell in scanline:
-			
-			for direction in tiles[cell].possible_directions:
-				var other_cell = cell + direction
-				if not passed.has(other_cell) and tiles.has(other_cell):
-					passed[other_cell] = true
-					
-					tiles[other_cell].goal_directions.push_back(-direction)
-					
-					new_scanline.push_back(other_cell)
-			
-		scanline = new_scanline
 
 func import_tilemap(tilemap, default_tile_type):
 	var tileset = tilemap.get_tileset()
@@ -88,11 +59,48 @@ func update_endpoints():
 	for start_node in get_node("starts").get_children():
 		starts.push_back((start_node.get_pos() / cell_size).floor())
 
+func update_tile_directions():
+	for cell in tiles:
+		var tile = tiles[cell]
+		
+		if tile.type == Tile.TILE_WALKABLE:
+			for direction in DIRECTIONS:
+				var direction_cell = cell + direction
+				if tiles.has(direction_cell) and tiles[direction_cell].type == Tile.TILE_WALKABLE:
+					tile.possible_directions.push_back(direction)
+	
+
+func run_bfs():
+	var scanline = goals
+	var passed = {}
+	var distance = {}
+	for goal in goals:
+		distance[goal] = 0
+	
+	while scanline.size() > 0:
+		var new_scanline = []
+		for cell in scanline:
+			
+			for direction in tiles[cell].possible_directions:
+				var other_cell = cell + direction
+				if not passed.has(other_cell) and tiles.has(other_cell):
+					passed[other_cell] = true
+					distance[other_cell] = distance[cell] + 1
+					
+					new_scanline.push_back(other_cell)
+		scanline = new_scanline
+	
+	for cell in passed:
+		var tile = tiles[cell]
+		for direction in tile.possible_directions:
+				var other_cell = cell + direction
+				if distance[cell] > distance[other_cell]:
+					tile.goal_directions.push_back(direction)
+
 func _draw():
 	if not debug:
 		return
 	# Debug overlay
-	var cell_size = tilemap_buildable.get_cell_size()
 	var colors = [Color(0,0,0, 0.5),Color(0,0,1, 0.3),Color(1,0,0, 0.3)]
 	for cell in tiles:
 		var tile = tiles[cell]
