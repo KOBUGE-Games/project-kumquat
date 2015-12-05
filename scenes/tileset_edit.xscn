@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="3" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
-	<ext_resource path="res://scripts/level.gd" type="Script" index="0"></ext_resource>
-	<ext_resource path="res://resources/terrain_tileset.xml" type="TileSet" index="1"></ext_resource>
+<resource_file type="PackedScene" subresource_count="2" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
+	<ext_resource path="res://graphics/terrain.png" type="Texture" index="0"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -12,39 +11,40 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="21">
-				<string> "Level" </string>
-				<string> "script/script" </string>
-				<string> "__meta__" </string>
+			<string_array  len="23">
 				<string> "Node2D" </string>
-				<string> "tilemap_grass" </string>
-				<string> "mode" </string>
-				<string> "tile_set" </string>
-				<string> "cell/size" </string>
-				<string> "cell/quadrant_size" </string>
-				<string> "cell/custom_transform" </string>
-				<string> "cell/half_offset" </string>
-				<string> "cell/tile_origin" </string>
-				<string> "cell/y_sort" </string>
-				<string> "collision/use_kinematic" </string>
-				<string> "collision/friction" </string>
-				<string> "collision/bounce" </string>
-				<string> "collision/layers" </string>
-				<string> "collision/mask" </string>
-				<string> "tile_data" </string>
-				<string> "TileMap" </string>
-				<string> "tilemap_tower" </string>
+				<string> "__meta__" </string>
+				<string> "grass" </string>
+				<string> "texture" </string>
+				<string> "centered" </string>
+				<string> "region" </string>
+				<string> "region_rect" </string>
+				<string> "Sprite" </string>
+				<string> "tower" </string>
+				<string> "transform/pos" </string>
+				<string> "tower_nw" </string>
+				<string> "offset" </string>
+				<string> "tower_ne" </string>
+				<string> "z/z" </string>
+				<string> "tower_sw" </string>
+				<string> "tower_se" </string>
+				<string> "wall_w" </string>
+				<string> "wall_e" </string>
+				<string> "tower_w" </string>
+				<string> "tower_e" </string>
+				<string> "tower_n" </string>
+				<string> "tower_s" </string>
+				<string> "wall_s" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 3 </int>
+			<int> 14 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="81"> 				-1, -1, 3, 0, -1, 2, 1, 0, 2, 1, 0, 0, 0, 19, 4, -1, 14, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 2, 12, 8, 13, 8, 14, 9, 15, 10, 16, 11, 17, 11, 18, 12, 0, 0, 0, 19, 20, -1, 14, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 2, 12, 8, 13, 8, 14, 9, 15, 10, 16, 11, 17, 11, 18, 13, 0 </int_array>
+			<int_array  len="242"> 				-1, -1, 0, 0, -1, 1, 1, 0, 0, 0, 0, 7, 2, -1, 4, 3, 1, 4, 2, 5, 3, 6, 4, 0, 0, 0, 7, 8, -1, 5, 9, 5, 3, 1, 4, 2, 5, 3, 6, 6, 0, 0, 0, 7, 10, -1, 6, 9, 7, 3, 1, 4, 2, 11, 8, 5, 3, 6, 9, 0, 0, 0, 7, 12, -1, 7, 9, 10, 13, 11, 3, 1, 4, 2, 11, 12, 5, 3, 6, 13, 0, 0, 0, 7, 14, -1, 6, 9, 14, 3, 1, 4, 2, 11, 15, 5, 3, 6, 16, 0, 0, 0, 7, 15, -1, 5, 9, 17, 3, 1, 4, 2, 5, 3, 6, 18, 0, 0, 0, 7, 16, -1, 6, 9, 19, 3, 1, 4, 2, 11, 15, 5, 3, 6, 20, 0, 0, 0, 7, 17, -1, 5, 9, 21, 3, 1, 4, 2, 5, 3, 6, 22, 0, 0, 0, 7, 18, -1, 6, 9, 23, 3, 1, 4, 2, 11, 15, 5, 3, 6, 24, 0, 0, 0, 7, 19, -1, 5, 9, 25, 3, 1, 4, 2, 5, 3, 6, 26, 0, 0, 0, 7, 20, -1, 6, 9, 27, 3, 1, 4, 2, 11, 12, 5, 3, 6, 28, 0, 0, 0, 7, 21, -1, 5, 9, 29, 3, 1, 4, 2, 5, 3, 6, 30, 0, 0, 0, 7, 22, -1, 5, 9, 31, 3, 1, 4, 2, 5, 3, 6, 32, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="14" shared="false">
-				<resource  external="0">  </resource>
+			<array  len="33" shared="false">
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
@@ -53,7 +53,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -34.8149, -83.0718 </vector2>
+							<vector2> -140.689, -81.6383 </vector2>
 							<string> "snap_grid" </string>
 							<bool> True </bool>
 							<string> "snap_offset" </string>
@@ -69,11 +69,11 @@
 							<string> "snap_rotation_step" </string>
 							<real> 0.261799 </real>
 							<string> "snap_show_grid" </string>
-							<bool> False </bool>
+							<bool> True </bool>
 							<string> "snap_step" </string>
 							<vector2> 32, 32 </vector2>
 							<string> "zoom" </string>
-							<real> 2.050546 </real>
+							<real> 1.670183 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -181,18 +181,38 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
-				<int> 0 </int>
-				<resource  external="1">  </resource>
-				<vector2> 32, 32 </vector2>
-				<int> 16 </int>
-				<matrix32> 1, 0, 0, 1, 0, 0 </matrix32>
-				<int> 2 </int>
+				<resource  external="0">  </resource>
 				<bool> False </bool>
-				<real> 1 </real>
-				<real> 0 </real>
+				<bool> True </bool>
+				<rect2> 48, 208, 32, 32 </rect2>
+				<vector2> 32, 0 </vector2>
+				<rect2> 48, 176, 32, 32 </rect2>
+				<vector2> 12, 44 </vector2>
+				<vector2> -16, -16 </vector2>
+				<rect2> 0, 0, 48, 48 </rect2>
+				<vector2> 64, 44 </vector2>
 				<int> 1 </int>
-				<int_array  len="44"> 					3, 0, 4, 0, 5, 0, 6, 0, 65539, 0, 65540, 0, 65542, 0, 131075, 0, 131076, 0, 131078, 0, 131079, 0, 196611, 0, 196612, 0, 196615, 0, 262147, 0, 262148, 0, 262149, 0, 262150, 0, 262151, 0, 327684, 0, 327685, 0, 327686, 0 </int_array>
-				<int_array  len="20"> 					65540, 2, 65541, 3, 131076, 4, 131077, 1, 131078, 3, 196612, 6, 196613, 4, 196614, 5, 262149, 6, 262150, 7 </int_array>
+				<vector2> 0, -16 </vector2>
+				<rect2> 48, 0, 48, 48 </rect2>
+				<vector2> 16, 96 </vector2>
+				<vector2> -16, 0 </vector2>
+				<rect2> 0, 48, 48, 32 </rect2>
+				<vector2> 64, 96 </vector2>
+				<rect2> 48, 48, 48, 32 </rect2>
+				<vector2> 16, 128 </vector2>
+				<rect2> 0, 80, 48, 32 </rect2>
+				<vector2> 64, 128 </vector2>
+				<rect2> 48, 80, 48, 32 </rect2>
+				<vector2> 16, 160 </vector2>
+				<rect2> 0, 128, 48, 32 </rect2>
+				<vector2> 64, 160 </vector2>
+				<rect2> 48, 128, 48, 32 </rect2>
+				<vector2> 0, 208 </vector2>
+				<rect2> 16, 160, 32, 48 </rect2>
+				<vector2> 0, 256 </vector2>
+				<rect2> 16, 208, 32, 32 </rect2>
+				<vector2> 0, 288 </vector2>
+				<rect2> 16, 240, 32, 32 </rect2>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>
