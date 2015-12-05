@@ -16,7 +16,7 @@ func _ready():
 		set_disabled(true)
 
 func _on_btnTower_mouse_enter():
-	tower_desc.set_pos(Vector2(get_pos().x+10,get_pos().y))
+	tower_desc.set_pos(Vector2(get_pos().x+get_size().x+10,get_parent().get_pos().y+get_pos().y))
 	get_node("/root/Game/HUD/Tower_desc/Panel/tower_name").set_text(tower_name)
 	get_node("/root/Game/HUD/Tower_desc/Panel/tower_damage").set_text("Damage: "+str(tower_damage))
 	get_node("/root/Game/HUD/Tower_desc/Panel/tower_range").set_text("Range: "+str(tower_range))
