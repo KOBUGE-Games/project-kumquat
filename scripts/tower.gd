@@ -1,7 +1,7 @@
 
 extends Node2D
 
-# Member variables
+export var damage = 3
 
 func _ready():
 	pass
