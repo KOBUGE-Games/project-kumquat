@@ -50,7 +50,9 @@ var starts = []
 var tile_type_override = {
 	"wall_s": Tile.TILE_SOLID,
 	"wall_e": Tile.TILE_SOLID,
-	"wall_w": Tile.TILE_SOLID
+	"wall_w": Tile.TILE_SOLID,
+	"wall_overlap_e": Tile.TILE_SOLID,
+	"wall_overlap_s": Tile.TILE_SOLID
 }
 
 func _ready():
