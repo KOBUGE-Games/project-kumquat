@@ -134,7 +134,7 @@ func next_wave():
 
 func spawn_enemy():
 	var start = starts[randi() % starts.size()]
-	var position = start * cell_size
+	var position = start*cell_size + cell_size/2
 	
 	var total_count = 0
 	
