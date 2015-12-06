@@ -20,6 +20,7 @@ var level_offset = Vector2()
 # Packed scens
 var tower_scene = preload("res://scenes/towers/tower1.xscn")
 
+### Callbacks ###
 
 func _ready():
 	level = get_node("/root/Game/Level")
@@ -55,7 +56,7 @@ func _input(ev):
 			get_node("cursor_placeholder").set_pos(ev.pos)
 			
 			var tile_pos = level.get_node("tilemap_tower").world_to_map(ev.pos-level_offset)
-			if (level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE):
+			if (level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE and !level.tiles[tile_pos].has_tower):
 				get_node("cursor_placeholder").set_frame(1)
 			else:
 				get_node("cursor_placeholder").set_frame(0)
@@ -64,13 +65,15 @@ func _input(ev):
 			if (ev.button_index == BUTTON_LEFT):
 				# Place a tower
 				var tile_pos = level.get_node("tilemap_tower").world_to_map(ev.pos-level_offset)
-				if (level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE):
+				if (level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE and !level.tiles[tile_pos].has_tower):
 					var new_tower = tower_scene.instance()
 					new_tower.set_pos(level.get_node("tilemap_tower").map_to_world(tile_pos) + Vector2(0.5, 0.5)*TILE_SIZE)
 					level.add_child(new_tower)
 			elif (ev.button_index == BUTTON_RIGHT):
 				# Cancel action
 				_on_cancel_pressed()
+
+### Signals ###
 
 func _on_cancel_pressed():
 	placeTower = false

@@ -1,18 +1,30 @@
 
 extends Area2D
 
+### Variables ###
+
 export var damage = 3
 
 var target = null
+var tile_pos = Vector2()
+
+# Nodes
+var level
 var attack_indicator
 var animation_player
+
+### Callbacks ###
 
 func _ready():
 	get_node("attack_timer").connect("timeout", self, "attack")
 	get_node("attack_timer").start()
 	
+	level = get_node("/root/Game/Level")
 	attack_indicator = get_node("attack_indicator")
 	animation_player = get_node("AnimationPlayer")
+	
+	tile_pos = level.get_node("tilemap_tower").world_to_map(get_pos())
+	level.tiles[tile_pos].has_tower = true
 
 func attack():
 	var enemies = get_overlapping_areas()

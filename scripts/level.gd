@@ -9,6 +9,7 @@ class Tile:
 	var type = TILE_WALKABLE
 	var possible_directions = []
 	var goal_directions = []
+	var has_tower = false
 
 class Wave:
 	var enemies = []
@@ -55,12 +56,13 @@ var tile_type_override = {
 	"wall_overlap_s": Tile.TILE_SOLID
 }
 
-func _ready():
-	get_node("enemy_timer").connect("timeout", self, "spawn_enemy")
+func _enter_tree():
 	tiles = {}
-	
 	import_tilemap(get_node("tilemap_grass"), Tile.TILE_WALKABLE)
 	import_tilemap(get_node("tilemap_tower"), Tile.TILE_BUILDABLE)
+
+func _ready():
+	get_node("enemy_timer").connect("timeout", self, "spawn_enemy")
 	
 	update_endpoints()
 	update_tile_directions()
