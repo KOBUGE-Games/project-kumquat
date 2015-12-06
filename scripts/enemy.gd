@@ -28,6 +28,7 @@ var old_motion_dir = Vector2()  # Previous motion dir, saved for animation
 export var type = "enemy1"  # Enemy type
 export var speed = 2.0  # tiles/second
 export var hp = 100  # health points
+export var damage = 10 # the damage which it gives when reaches the dest
 
 ### Callbacks ###
 
@@ -62,6 +63,7 @@ func _fixed_process(delta):
 			set_fixed_process(false)
 			get_node("AnimationPlayer").stop()
 			# FIXME: Do stuff
+			get_node("/root/Game/HUD").updateHealth(-damage)
 			return
 		
 		var index = randi() % goal_dirs.size()
