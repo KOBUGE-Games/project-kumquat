@@ -31,7 +31,7 @@ func updateHealth(amount):
 	health.set_text("Health: "+str(health_current))
 
 func _input(ev):
-	if placeTower:
+	if placeTower and ev.type == InputEvent.MOUSE_MOTION:
 		get_node("cursor_placeholder").set_pos(ev.pos)
 
 func _on_cancel_pressed():
