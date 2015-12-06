@@ -39,7 +39,6 @@ func _ready():
 	cur_tile = tilemap.world_to_map(get_pos())
 	dest_tile = cur_tile
 	
-	print(get_pos())
 	set_fixed_process(true)
 
 func _fixed_process(delta):
@@ -47,8 +46,7 @@ func _fixed_process(delta):
 	if (hp <= 0):
 		# Stop walking
 		set_fixed_process(false)
-		# FIXME: add die animation
-		#get_node("AnimationPlayer").play("die")
+		get_node("AnimationPlayer").play("die")
 		return
 	
 	# Handle movement
