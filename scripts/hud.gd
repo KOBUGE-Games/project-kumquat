@@ -14,6 +14,7 @@ var tower_desc
 
 var budget_current = 1000
 var health_current = 1000
+var last_transaction = 0
 var placeTower = false
 var level_offset = Vector2()
 
@@ -36,6 +37,7 @@ func _ready():
 	set_process_input(true)
 
 func updateBudget(amount):
+	last_transaction = -amount
 	budget_current += amount
 	budget.set_text("Budget: " + str(budget_current))
 	for button in get_node("Towers").get_children():
@@ -49,10 +51,9 @@ func updateHealth(amount):
 	health.set_text("Health: " + str(health_current))
 
 func _input(ev):
-	if (placeTower):
-		if (ev.type == InputEvent.MOUSE_MOTION
-				and ev.pos.x > level_offset.x and ev.pos.x < LEVEL_SIZE.x
-				and ev.pos.y > level_offset.y and ev.pos.y < LEVEL_SIZE.y):
+	if (placeTower and ev.pos.x > level_offset.x and ev.pos.x < LEVEL_SIZE.x
+			and ev.pos.y > level_offset.y and ev.pos.y < LEVEL_SIZE.y):
+		if (ev.type == InputEvent.MOUSE_MOTION):
 			get_node("cursor_placeholder").set_pos(ev.pos)
 			
 			var tile_pos = level.get_node("tilemap_tower").world_to_map(ev.pos-level_offset)
@@ -69,6 +70,10 @@ func _input(ev):
 					var new_tower = tower_scene.instance()
 					new_tower.set_pos(level.get_node("tilemap_tower").map_to_world(tile_pos) + Vector2(0.5, 0.5)*TILE_SIZE)
 					level.add_child(new_tower)
+					# Stop the tower placing behaviour
+					# FIXME: Check if we want to keep it on to place several towers (tower costs have then to be updated)
+					placeTower = false
+					get_node("cursor_placeholder").hide()
 			elif (ev.button_index == BUTTON_RIGHT):
 				# Cancel action
 				_on_cancel_pressed()
@@ -78,3 +83,5 @@ func _input(ev):
 func _on_cancel_pressed():
 	placeTower = false
 	get_node("cursor_placeholder").hide()
+	budget_current += last_transaction
+	budget.set_text("Budget: " + str(budget_current))
