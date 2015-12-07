@@ -19,16 +19,16 @@ class Wave:
 
 class WaveEnemy:
 	var scene
-	var count = 1 # Should it be fequency instead?
+	var count = 1 # Should it be frequency instead?
 	func _init(_scene, _count = 1):
 		scene = _scene
 		count = _count
 
-const DIRECTIONS = Vector2Array([Vector2(1,0), Vector2(-1,0), Vector2(0,1), Vector2(0,-1)])
+const DIRECTIONS = Vector2Array([Vector2(1, 0), Vector2(-1, 0), Vector2(0, 1), Vector2(0, -1)])
 
 var enemy1_scene = preload("res://scenes/enemies/enemy1.xscn")
 
-export var cell_size = Vector2(32,32)
+export var cell_size = Vector2(32, 32)
 export var debug = false
 
 var waves = [
@@ -87,10 +87,10 @@ func import_tilemap(tilemap, default_tile_type):
 
 func update_endpoints():
 	for goal_node in get_node("goals").get_children():
-		goals.push_back((goal_node.get_pos() / cell_size).floor())
+		goals.push_back((goal_node.get_pos()/cell_size).floor())
 	
 	for start_node in get_node("starts").get_children():
-		starts.push_back((start_node.get_pos() / cell_size).floor())
+		starts.push_back((start_node.get_pos()/cell_size).floor())
 
 func update_tile_directions():
 	for cell in tiles:
@@ -125,9 +125,9 @@ func run_bfs():
 	for cell in passed:
 		var tile = tiles[cell]
 		for direction in tile.possible_directions:
-				var other_cell = cell + direction
-				if distance[cell] > distance[other_cell]:
-					tile.goal_directions.push_back(direction)
+			var other_cell = cell + direction
+			if distance[cell] > distance[other_cell]:
+				tile.goal_directions.push_back(direction)
 
 func next_wave():
 	current_wave = waves[current_wave_index]
@@ -135,7 +135,6 @@ func next_wave():
 	get_node("enemy_timer").start()
 	
 	current_wave_index += 1
-	
 
 func spawn_enemy():
 	var start = starts[randi() % starts.size()]
@@ -161,26 +160,25 @@ func spawn_enemy():
 			enemy.set_pos(position)
 			add_child(enemy)
 			break
-	
 
 func _draw():
 	if not debug:
 		return
 	# Debug overlay
-	var colors = [Color(0,0,0, 0.5),Color(0,0,1, 0.3),Color(1,0,0, 0.3)]
+	var colors = [Color(0, 0, 0, 0.5), Color(0, 0, 1, 0.3), Color(1, 0, 0, 0.3)]
 	for cell in tiles:
 		var tile = tiles[cell]
 		
-		draw_rect( Rect2(cell*cell_size , cell_size), colors[tile.type])
+		draw_rect(Rect2(cell*cell_size, cell_size), colors[tile.type])
 		
 		for direction in tile.possible_directions:
-			draw_rect( Rect2(cell*cell_size + cell_size/8*3 + cell_size * direction / 3, cell_size/4), Color(1,1,1, 0.5))
+			draw_rect(Rect2(cell*cell_size + cell_size/8*3 + cell_size*direction/3, cell_size/4), Color(1, 1, 1, 0.5))
 		
 		for direction in tile.goal_directions:
-			draw_rect( Rect2(cell*cell_size + cell_size/8*3 + cell_size * direction / 4, cell_size/4), Color(1,0,1, 0.5))
+			draw_rect(Rect2(cell*cell_size + cell_size/8*3 + cell_size*direction/4, cell_size/4), Color(1, 0, 1, 0.5))
 	
 	for goal in goals:
-		draw_rect( Rect2(goal*cell_size , cell_size), Color(1,1,0, 0.6))
+		draw_rect(Rect2(goal*cell_size, cell_size), Color(1, 1, 0, 0.6))
 	
 	for start in starts:
-		draw_rect( Rect2(start*cell_size , cell_size), Color(0,1,1, 0.6))
+		draw_rect(Rect2(start*cell_size, cell_size), Color(0, 1, 1, 0.6))

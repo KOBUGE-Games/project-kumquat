@@ -22,13 +22,13 @@ func _ready():
 ### Signals ###
 
 func _on_btn_tower_mouse_enter():
-	hud.tower_desc.set_pos(Vector2(get_pos().x+get_size().x+10,get_parent().get_pos().y+get_pos().y))
+	hud.tower_desc.set_pos(get_pos() + Vector2(get_size().x + 10, get_parent().get_pos().y))
 	var panel = hud.get_node("tower_desc/panel")
 	panel.get_node("tower_name").set_text(tower_name)
-	panel.get_node("tower_damage").set_text("Damage: "+str(tower_damage))
-	panel.get_node("tower_range").set_text("Range: "+str(tower_range))
-	panel.get_node("tower_reload").set_text("Reload: "+str(tower_reload))
-	panel.get_node("tower_price").set_text("Price: "+str(tower_price))
+	panel.get_node("tower_damage").set_text("Damage: " + str(tower_damage))
+	panel.get_node("tower_range").set_text("Range: " + str(tower_range))
+	panel.get_node("tower_reload").set_text("Reload: " + str(tower_reload))
+	panel.get_node("tower_price").set_text("Price: " + str(tower_price))
 	hud.tower_desc.show()
 
 func _on_btn_tower_mouse_exit():
@@ -36,6 +36,6 @@ func _on_btn_tower_mouse_exit():
 
 func _on_btn_tower_pressed():
 	if hud.budget_current >= tower_price:
-		hud.updateBudget(-tower_price)
-		hud.placeTower = true
+		hud.update_budget(-tower_price)
+		hud.place_tower = true
 		hud.get_node("cursor_placeholder").show()

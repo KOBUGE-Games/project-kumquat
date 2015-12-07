@@ -12,22 +12,22 @@ const WALK_ANIMS = {
 
 # FIXME: Move me to level scene or something
 const TILE_SIZE = 32
-const TILE_OFFSET = Vector2(TILE_SIZE/2, TILE_SIZE/2)
+const TILE_OFFSET = Vector2(0.5, 0.5)*TILE_SIZE
 
 # Nodes
-var level  # The level node
-var tilemap  # The level's tilemap
-var hud  # The HUD node
+var level # The level node
+var tilemap # The level's tilemap
+var hud # The HUD node
 
 # Member variables
-var cur_tile  # Our current position in tilemap coordinates
-var dest_tile  # The tile we are moving to
-var motion_dir = Vector2()  # The current direction we move in
-var old_motion_dir = Vector2()  # Previous motion dir, saved for animation
+var cur_tile # Our current position in tilemap coordinates
+var dest_tile # The tile we are moving to
+var motion_dir = Vector2() # The current direction we move in
+var old_motion_dir = Vector2() # Previous motion dir, saved for animation
 
-export var type = "enemy1"  # Enemy type
-export var speed = 2.0  # tiles/second
-export var hp = 100  # health points
+export var type = "enemy1" # Enemy type
+export var speed = 2.0 # tiles/second
+export var hp = 100 # health points
 export var damage = 10 # the damage which it gives when reaches the dest
 
 ### Callbacks ###
@@ -44,7 +44,7 @@ func _ready():
 
 func _fixed_process(delta):
 	# Handle potential death
-	if (hp <= 0):
+	if hp <= 0:
 		# Stop walking
 		set_fixed_process(false)
 		get_node("animation_player").play("die")
@@ -54,14 +54,14 @@ func _fixed_process(delta):
 	cur_tile = tilemap.world_to_map(get_pos() - motion_dir*TILE_OFFSET)
 	
 	# Update target coordinates
-	if (cur_tile == dest_tile):
+	if cur_tile == dest_tile:
 		# Intermediate target tile reached, find the next destination
 		var goal_dirs = level.tiles[cur_tile].goal_directions
-		if (goal_dirs.size() == 0):
+		if goal_dirs.size() == 0:
 			# Dead-end, assuming it's the goal
 			set_fixed_process(false)
 			get_node("animation_player").stop()
-			hud.updateHealth(-damage)
+			hud.update_health(-damage)
 			return
 		
 		var index = randi() % goal_dirs.size()
@@ -70,7 +70,7 @@ func _fixed_process(delta):
 		motion_dir = dest_tile - cur_tile
 		
 		# Update walk animation
-		if (motion_dir != old_motion_dir):
+		if motion_dir != old_motion_dir:
 			get_node("animation_player").play(WALK_ANIMS[motion_dir])
 	
 	# Move now
@@ -79,7 +79,7 @@ func _fixed_process(delta):
 
 ### Signals ###
 
-func _on_AnimationPlayer_finished():
-	if (get_node("animation_player").get_current_animation() == "die"):
+func _on_animation_player_finished():
+	if get_node("animation_player").get_current_animation() == "die":
 		# We just finished playing the death animation, so free the object
 		queue_free()
