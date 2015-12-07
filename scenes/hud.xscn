@@ -4,10 +4,10 @@
 	<ext_resource path="res://graphics/coin_sheet.png" type="Texture" index="3"></ext_resource>
 	<ext_resource path="res://graphics/placing_true.png" type="Texture" index="8"></ext_resource>
 	<ext_resource path="res://scenes/btn_tower.xscn" type="PackedScene" index="1"></ext_resource>
-	<ext_resource path="res://graphics/icon_next_wave.png" type="Texture" index="5"></ext_resource>
 	<ext_resource path="res://graphics/placing.png" type="Texture" index="7"></ext_resource>
-	<ext_resource path="res://graphics/heart.png" type="Texture" index="6"></ext_resource>
 	<ext_resource path="res://fonts/railway.fnt" type="Font" index="2"></ext_resource>
+	<ext_resource path="res://graphics/heart.png" type="Texture" index="6"></ext_resource>
+	<ext_resource path="res://graphics/icon_next_wave.png" type="Texture" index="5"></ext_resource>
 	<ext_resource path="res://graphics/stick-cross.png" type="Texture" index="4"></ext_resource>
 	<resource type="SpriteFrames" path="local://1">
 		<array name="frames" len="2" shared="false">
@@ -96,7 +96,7 @@
 				<resource  external="0">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>

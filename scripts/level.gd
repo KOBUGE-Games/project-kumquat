@@ -1,4 +1,3 @@
-
 extends Node2D
 
 class Tile:
@@ -27,15 +26,17 @@ class WaveEnemy:
 
 const DIRECTIONS = Vector2Array([Vector2(1,0), Vector2(-1,0), Vector2(0,1), Vector2(0,-1)])
 
+var enemy1_scene = preload("res://scenes/enemies/enemy1.xscn")
+
 export var cell_size = Vector2(32,32)
-export var debug = true
+export var debug = false
 
 var waves = [
 	Wave.new([
-		WaveEnemy.new(preload("res://scenes/enemies/enemy1.xscn"), 5)
+		WaveEnemy.new(enemy1_scene, 5)
 	]),
 	Wave.new([
-		WaveEnemy.new(preload("res://scenes/enemies/enemy1.xscn"), 20)
+		WaveEnemy.new(enemy1_scene, 20)
 	], 1.2)
 ]
 var current_wave_index = 0

@@ -18,7 +18,7 @@ var last_transaction = 0
 var placeTower = false
 var level_offset = Vector2()
 
-# Packed scens
+# Packed scenes
 var tower_scene = preload("res://scenes/towers/tower1.xscn")
 
 ### Callbacks ###

@@ -1,4 +1,3 @@
-
 extends Node2D
 
 ### Variables ###
@@ -18,6 +17,7 @@ const TILE_OFFSET = Vector2(TILE_SIZE/2, TILE_SIZE/2)
 # Nodes
 var level  # The level node
 var tilemap  # The level's tilemap
+var hud  # The HUD node
 
 # Member variables
 var cur_tile  # Our current position in tilemap coordinates
@@ -35,6 +35,7 @@ export var damage = 10 # the damage which it gives when reaches the dest
 func _ready():
 	level = get_node("/root/game/level")
 	tilemap = level.get_node("tilemap_grass")
+	hud = get_node("/root/game/hud")
 	
 	cur_tile = tilemap.world_to_map(get_pos())
 	dest_tile = cur_tile
@@ -60,8 +61,7 @@ func _fixed_process(delta):
 			# Dead-end, assuming it's the goal
 			set_fixed_process(false)
 			get_node("animation_player").stop()
-			# FIXME: Do stuff
-			get_node("/root/game/hud").updateHealth(-damage)
+			hud.updateHealth(-damage)
 			return
 		
 		var index = randi() % goal_dirs.size()

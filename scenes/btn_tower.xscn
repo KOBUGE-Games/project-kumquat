@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="4" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
-	<ext_resource path="res://graphics/tower_sample_icon.png" type="Texture" index="1"></ext_resource>
 	<ext_resource path="res://scripts/btn_tower.gd" type="Script" index="2"></ext_resource>
 	<ext_resource path="res://fonts/railway.fnt" type="Font" index="0"></ext_resource>
+	<ext_resource path="res://graphics/tower_sample_icon.png" type="Texture" index="1"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -34,11 +34,11 @@
 				<string> "tower_reload" </string>
 				<string> "tower_price" </string>
 				<string> "Button" </string>
-				<string> "_on_btnTower_pressed" </string>
+				<string> "_on_btn_tower_pressed" </string>
 				<string> "pressed" </string>
-				<string> "_on_btnTower_mouse_enter" </string>
+				<string> "_on_btn_tower_mouse_enter" </string>
 				<string> "mouse_enter" </string>
-				<string> "_on_btnTower_mouse_exit" </string>
+				<string> "_on_btn_tower_mouse_exit" </string>
 				<string> "mouse_exit" </string>
 			</string_array>
 			<string> "node_count" </string>
