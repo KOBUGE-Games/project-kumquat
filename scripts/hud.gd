@@ -24,10 +24,10 @@ var tower_scene = preload("res://scenes/towers/tower1.xscn")
 ### Callbacks ###
 
 func _ready():
-	level = get_node("/root/Game/Level")
-	budget = get_node("Budget")
+	level = get_node("/root/game/level")
+	budget = get_node("budget")
 	health = get_node("health_label")
-	tower_desc = get_node("Tower_desc")
+	tower_desc = get_node("tower_desc")
 	
 	budget.set_text("Budget: " + str(budget_current))
 	health.set_text("Health: " + str(health_current))
@@ -40,7 +40,7 @@ func updateBudget(amount):
 	last_transaction = -amount
 	budget_current += amount
 	budget.set_text("Budget: " + str(budget_current))
-	for button in get_node("Towers").get_children():
+	for button in get_node("towers").get_children():
 		if button.tower_price > budget_current:
 			button.set_disabled(true)
 		else:

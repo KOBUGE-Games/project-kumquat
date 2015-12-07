@@ -33,7 +33,7 @@ export var damage = 10 # the damage which it gives when reaches the dest
 ### Callbacks ###
 
 func _ready():
-	level = get_node("/root/Game/Level")
+	level = get_node("/root/game/level")
 	tilemap = level.get_node("tilemap_grass")
 	
 	cur_tile = tilemap.world_to_map(get_pos())
@@ -46,7 +46,7 @@ func _fixed_process(delta):
 	if (hp <= 0):
 		# Stop walking
 		set_fixed_process(false)
-		get_node("AnimationPlayer").play("die")
+		get_node("animation_player").play("die")
 		return
 	
 	# Handle movement
@@ -59,9 +59,9 @@ func _fixed_process(delta):
 		if (goal_dirs.size() == 0):
 			# Dead-end, assuming it's the goal
 			set_fixed_process(false)
-			get_node("AnimationPlayer").stop()
+			get_node("animation_player").stop()
 			# FIXME: Do stuff
-			get_node("/root/Game/HUD").updateHealth(-damage)
+			get_node("/root/game/hud").updateHealth(-damage)
 			return
 		
 		var index = randi() % goal_dirs.size()
@@ -71,7 +71,7 @@ func _fixed_process(delta):
 		
 		# Update walk animation
 		if (motion_dir != old_motion_dir):
-			get_node("AnimationPlayer").play(WALK_ANIMS[motion_dir])
+			get_node("animation_player").play(WALK_ANIMS[motion_dir])
 	
 	# Move now
 	var motion = motion_dir*speed*TILE_SIZE*delta
@@ -80,6 +80,6 @@ func _fixed_process(delta):
 ### Signals ###
 
 func _on_AnimationPlayer_finished():
-	if (get_node("AnimationPlayer").get_current_animation() == "die"):
+	if (get_node("animation_player").get_current_animation() == "die"):
 		# We just finished playing the death animation, so free the object
 		queue_free()

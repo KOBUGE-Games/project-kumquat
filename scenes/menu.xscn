@@ -11,7 +11,7 @@
 			</array>
 			<string> "names" </string>
 			<string_array  len="9">
-				<string> "Menu" </string>
+				<string> "menu" </string>
 				<string> "margin/right" </string>
 				<string> "margin/bottom" </string>
 				<string> "focus/ignore_mouse" </string>

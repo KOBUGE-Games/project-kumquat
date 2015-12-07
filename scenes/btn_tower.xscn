@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="4" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
 	<ext_resource path="res://graphics/tower_sample_icon.png" type="Texture" index="1"></ext_resource>
-	<ext_resource path="res://scripts/btnTower.gd" type="Script" index="2"></ext_resource>
+	<ext_resource path="res://scripts/btn_tower.gd" type="Script" index="2"></ext_resource>
 	<ext_resource path="res://fonts/railway.fnt" type="Font" index="0"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
@@ -14,7 +14,7 @@
 			</array>
 			<string> "names" </string>
 			<string_array  len="26">
-				<string> "btnTower" </string>
+				<string> "btn_tower" </string>
 				<string> "margin/right" </string>
 				<string> "margin/bottom" </string>
 				<string> "focus/ignore_mouse" </string>
@@ -61,13 +61,13 @@
 				<resource  external="2">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> 2.51211, -74.2796 </vector2>
+							<vector2> -106.692, -80.7034 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>

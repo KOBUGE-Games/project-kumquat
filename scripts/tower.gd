@@ -19,9 +19,9 @@ func _ready():
 	get_node("attack_timer").connect("timeout", self, "attack")
 	get_node("attack_timer").start()
 	
-	level = get_node("/root/Game/Level")
+	level = get_node("/root/game/level")
 	attack_indicator = get_node("attack_indicator")
-	animation_player = get_node("AnimationPlayer")
+	animation_player = get_node("animation_player")
 	
 	tile_pos = level.get_node("tilemap_tower").world_to_map(get_pos())
 	level.tiles[tile_pos].has_tower = true
