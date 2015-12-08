@@ -1,4 +1,4 @@
-# Class autoloaded before instancing the first scene
+extends Node
 
 ### Variables
 
