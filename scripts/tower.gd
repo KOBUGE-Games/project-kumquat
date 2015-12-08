@@ -27,6 +27,8 @@ func _ready():
 	tile_pos = level.get_node("tilemap_tower").world_to_map(get_pos())
 	level.tiles[tile_pos].has_tower = true
 
+### Functions ###
+
 func attack():
 	var enemies = get_overlapping_areas()
 	if target == null or not (target in enemies) or target.hp <= 0:

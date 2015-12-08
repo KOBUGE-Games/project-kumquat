@@ -1,5 +1,7 @@
 extends Node2D
 
+### Classes ###
+
 class Tile:
 	const TILE_SOLID = 0
 	const TILE_WALKABLE = 1
@@ -24,9 +26,15 @@ class WaveEnemy:
 		scene = _scene
 		count = _count
 
+### Variables ###
+
+# Consts
 const DIRECTIONS = Vector2Array([Vector2(1, 0), Vector2(-1, 0), Vector2(0, 1), Vector2(0, -1)])
 
+# Nodes and resources
 var enemy1_scene = preload("res://scenes/enemies/enemy1.xscn")
+var tilemap_walkable
+var tilemap_buildable
 
 export var cell_size = Vector2(32, 32)
 export var debug = false
@@ -43,8 +51,6 @@ var current_wave_index = 0
 var current_wave
 
 var tiles = {}
-var tilemap_walkable
-var tilemap_buildable
 
 var goals = []
 var starts = []
@@ -56,6 +62,8 @@ var tile_type_override = {
 	"wall_overlap_e": Tile.TILE_SOLID,
 	"wall_overlap_s": Tile.TILE_SOLID
 }
+
+### Callbacks ###
 
 func _enter_tree():
 	tilemap_walkable = get_node("tilemap_grass")
@@ -74,6 +82,30 @@ func _ready():
 	update()
 	
 	next_wave()
+
+func _draw():
+	if not debug:
+		return
+	# Debug overlay
+	var colors = [Color(0, 0, 0, 0.5), Color(0, 0, 1, 0.3), Color(1, 0, 0, 0.3)]
+	for cell in tiles:
+		var tile = tiles[cell]
+		
+		draw_rect(Rect2(cell*cell_size, cell_size), colors[tile.type])
+		
+		for direction in tile.possible_directions:
+			draw_rect(Rect2(cell*cell_size + cell_size/8*3 + cell_size*direction/3, cell_size/4), Color(1, 1, 1, 0.5))
+		
+		for direction in tile.goal_directions:
+			draw_rect(Rect2(cell*cell_size + cell_size/8*3 + cell_size*direction/4, cell_size/4), Color(1, 0, 1, 0.5))
+	
+	for goal in goals:
+		draw_rect(Rect2(goal*cell_size, cell_size), Color(1, 1, 0, 0.6))
+	
+	for start in starts:
+		draw_rect(Rect2(start*cell_size, cell_size), Color(0, 1, 1, 0.6))
+
+### Functions ###
 
 func import_tilemap(tilemap, default_tile_type):
 	var tileset = tilemap.get_tileset()
@@ -163,25 +195,3 @@ func spawn_enemy():
 			enemy.set_pos(position)
 			add_child(enemy)
 			break
-
-func _draw():
-	if not debug:
-		return
-	# Debug overlay
-	var colors = [Color(0, 0, 0, 0.5), Color(0, 0, 1, 0.3), Color(1, 0, 0, 0.3)]
-	for cell in tiles:
-		var tile = tiles[cell]
-		
-		draw_rect(Rect2(cell*cell_size, cell_size), colors[tile.type])
-		
-		for direction in tile.possible_directions:
-			draw_rect(Rect2(cell*cell_size + cell_size/8*3 + cell_size*direction/3, cell_size/4), Color(1, 1, 1, 0.5))
-		
-		for direction in tile.goal_directions:
-			draw_rect(Rect2(cell*cell_size + cell_size/8*3 + cell_size*direction/4, cell_size/4), Color(1, 0, 1, 0.5))
-	
-	for goal in goals:
-		draw_rect(Rect2(goal*cell_size, cell_size), Color(1, 1, 0, 0.6))
-	
-	for start in starts:
-		draw_rect(Rect2(start*cell_size, cell_size), Color(0, 1, 1, 0.6))

@@ -37,20 +37,6 @@ func _ready():
 	
 	set_process_input(true)
 
-func update_budget(amount):
-	last_transaction = -amount
-	budget_current += amount
-	budget.set_text("Budget: " + str(budget_current))
-	for button in get_node("towers").get_children():
-		if button.tower_price > budget_current:
-			button.set_disabled(true)
-		else:
-			button.set_disabled(false)
-
-func update_health(amount):
-	health_current += amount
-	health.set_text("Health: " + str(health_current))
-
 func _input(ev):
 	if place_tower and ev.pos.x > level_offset.x and ev.pos.x < LEVEL_SIZE.x \
 			and ev.pos.y > level_offset.y and ev.pos.y < LEVEL_SIZE.y:
@@ -78,6 +64,22 @@ func _input(ev):
 			elif ev.button_index == BUTTON_RIGHT:
 				# Cancel action
 				_on_cancel_pressed()
+
+### Functions
+
+func update_budget(amount):
+	last_transaction = -amount
+	budget_current += amount
+	budget.set_text("Budget: " + str(budget_current))
+	for button in get_node("towers").get_children():
+		if button.tower_price > budget_current:
+			button.set_disabled(true)
+		else:
+			button.set_disabled(false)
+
+func update_health(amount):
+	health_current += amount
+	health.set_text("Health: " + str(health_current))
 
 ### Signals ###
 
