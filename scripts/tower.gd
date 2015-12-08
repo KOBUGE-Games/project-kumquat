@@ -2,15 +2,13 @@ extends Area2D
 
 ### Variables ###
 
-# FIXME: Move me to level scene or something
-const TILE_SIZE = 32
-
 export var damage = 3
 
 var target = null
 var tile_pos = Vector2()
 
 # Nodes
+var global
 var level
 var attack_indicator
 var animation_player
@@ -18,7 +16,8 @@ var animation_player
 ### Callbacks ###
 
 func _ready():
-	level = get_node("/root/game/level")
+	global = get_node("/root/global")
+	level = global.level
 	attack_indicator = get_node("attack_indicator")
 	animation_player = get_node("animation_player")
 	
@@ -42,7 +41,7 @@ func attack():
 	
 	if target != null:
 		target.hp -= damage
-		attack_indicator.set_scale(Vector2(attack_indicator.get_scale().x, target.get_pos().distance_to(get_pos())/TILE_SIZE))
+		attack_indicator.set_scale(Vector2(attack_indicator.get_scale().x, target.get_pos().distance_to(get_pos())/global.TILE_SIZE))
 		attack_indicator.set_rot(target.get_pos().angle_to_point(get_pos()))
 		attack_indicator.show()
 		animation_player.play("attack")

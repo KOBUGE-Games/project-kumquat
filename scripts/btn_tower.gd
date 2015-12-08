@@ -3,6 +3,7 @@ extends Button
 ### Variables ###
 
 # Nodes
+var global
 var hud # The HUD node
 
 # Characteristics
@@ -15,7 +16,8 @@ export var tower_price = 100
 ### Callbacks ###
 
 func _ready():
-	hud = get_node("/root/game/hud")
+	global = get_node("/root/global")
+	hud = global.hud
 	if hud.budget_current < tower_price:
 		set_disabled(true)
 

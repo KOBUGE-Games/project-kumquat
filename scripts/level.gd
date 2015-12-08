@@ -58,9 +58,12 @@ var tile_type_override = {
 }
 
 func _enter_tree():
+	tilemap_walkable = get_node("tilemap_grass")
+	tilemap_buildable = get_node("tilemap_tower")
+	
 	tiles = {}
-	import_tilemap(get_node("tilemap_grass"), Tile.TILE_WALKABLE)
-	import_tilemap(get_node("tilemap_tower"), Tile.TILE_BUILDABLE)
+	import_tilemap(tilemap_walkable, Tile.TILE_WALKABLE)
+	import_tilemap(tilemap_buildable, Tile.TILE_BUILDABLE)
 
 func _ready():
 	get_node("enemy_timer").connect("timeout", self, "spawn_enemy")

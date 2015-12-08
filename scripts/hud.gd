@@ -3,10 +3,10 @@ extends Control
 ### Variables ###
 
 # Consts
-const TILE_SIZE = 32 # FIXME , get it from level node
-const LEVEL_SIZE = Vector2(22*TILE_SIZE, 18*TILE_SIZE) # FIXME tile counts * tile size
+const LEVEL_SIZE = Vector2(22*32, 18*32) # FIXME tile counts * tile size
 
 # Nodes
+var global
 var level
 var budget
 var health
@@ -24,7 +24,8 @@ var tower_scene = preload("res://scenes/towers/tower1.xscn")
 ### Callbacks ###
 
 func _ready():
-	level = get_node("/root/game/level")
+	global = get_node("/root/global")
+	level = global.level
 	budget = get_node("budget")
 	health = get_node("health_label")
 	tower_desc = get_node("tower_desc")
@@ -68,7 +69,7 @@ func _input(ev):
 				var tile_pos = level.get_node("tilemap_tower").world_to_map(ev.pos - level_offset)
 				if level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE and !level.tiles[tile_pos].has_tower:
 					var new_tower = tower_scene.instance()
-					new_tower.set_pos(level.get_node("tilemap_tower").map_to_world(tile_pos) + Vector2(0.5, 0.5)*TILE_SIZE)
+					new_tower.set_pos(level.get_node("tilemap_tower").map_to_world(tile_pos) + global.TILE_OFFSET)
 					level.add_child(new_tower)
 					# Stop the tower placing behaviour
 					# FIXME: Check if we want to keep it on to place several towers (tower costs have then to be updated)

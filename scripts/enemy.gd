@@ -10,14 +10,10 @@ const WALK_ANIMS = {
 	Vector2(-1, 0): "walk_left"
 }
 
-# FIXME: Move me to level scene or something
-const TILE_SIZE = 32
-const TILE_OFFSET = Vector2(0.5, 0.5)*TILE_SIZE
-
 # Nodes
+var global # The global autoload
 var level # The level node
 var tilemap # The level's tilemap
-var hud # The HUD node
 
 # Member variables
 var cur_tile # Our current position in tilemap coordinates
@@ -33,9 +29,9 @@ export var damage = 10 # the damage which it gives when reaches the dest
 ### Callbacks ###
 
 func _ready():
-	level = get_node("/root/game/level")
-	tilemap = level.get_node("tilemap_grass")
-	hud = get_node("/root/game/hud")
+	global = get_node("/root/global")
+	level = global.level
+	tilemap = level.tilemap_walkable
 	
 	cur_tile = tilemap.world_to_map(get_pos())
 	dest_tile = cur_tile
@@ -51,7 +47,7 @@ func _fixed_process(delta):
 		return
 	
 	# Handle movement
-	cur_tile = tilemap.world_to_map(get_pos() - motion_dir*TILE_OFFSET)
+	cur_tile = tilemap.world_to_map(get_pos() - motion_dir*global.TILE_OFFSET)
 	
 	# Update target coordinates
 	if cur_tile == dest_tile:
@@ -61,7 +57,7 @@ func _fixed_process(delta):
 			# Dead-end, assuming it's the goal
 			set_fixed_process(false)
 			get_node("animation_player").stop()
-			hud.update_health(-damage)
+			global.hud.update_health(-damage)
 			return
 		
 		var index = randi() % goal_dirs.size()
@@ -74,7 +70,7 @@ func _fixed_process(delta):
 			get_node("animation_player").play(WALK_ANIMS[motion_dir])
 	
 	# Move now
-	var motion = motion_dir*speed*TILE_SIZE*delta
+	var motion = motion_dir*speed*global.TILE_SIZE*delta
 	set_pos(get_pos() + motion)
 
 ### Signals ###
