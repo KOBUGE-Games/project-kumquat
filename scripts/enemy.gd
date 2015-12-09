@@ -25,6 +25,7 @@ export var type = "enemy1" # Enemy type
 export var speed = 2.0 # tiles/second
 export var hp = 100 # health points
 export var damage = 10 # the damage which it gives when reaches the dest
+export var worth = 25 # the amount of money given to player after enemies death
 
 ### Callbacks ###
 
@@ -44,6 +45,7 @@ func _fixed_process(delta):
 		# Stop walking
 		set_fixed_process(false)
 		get_node("animation_player").play("die")
+		global.hud.update_budget(worth)
 		return
 	
 	# Handle movement

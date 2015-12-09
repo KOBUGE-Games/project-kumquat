@@ -22,6 +22,7 @@ func _ready():
 	global = get_node("/root/global")
 	hud = global.hud
 	tooltip = hud.get_node("tower_tooltip")
+	set_text(tower_name)
 	if hud.budget_current < tower_price:
 		set_disabled(true)
 
