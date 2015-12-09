@@ -10,7 +10,6 @@ var global
 var level
 var budget
 var health
-var tower_desc
 
 var budget_current = 1000
 var health_current = 1000
@@ -24,15 +23,13 @@ var level_offset = Vector2()
 func _ready():
 	global = get_node("/root/global")
 	level = global.level
-	budget = get_node("budget")
-	health = get_node("health_label")
-	tower_desc = get_node("tower_desc")
+	budget = get_node("stats/budget/label")
+	health = get_node("stats/health/label")
 	
 	get_node("next_wave").connect("pressed", level, "next_wave")
 	
 	budget.set_text("Budget: " + str(budget_current))
 	health.set_text("Health: " + str(health_current))
-	tower_desc.hide()
 	level_offset = level.get_pos()
 	
 	set_process_input(true)
@@ -69,7 +66,7 @@ func update_budget(amount):
 	last_transaction = -amount
 	budget_current += amount
 	budget.set_text("Budget: " + str(budget_current))
-	for button in get_node("towers").get_children():
+	for button in get_node("tower_buttons").get_children():
 		if button.tower_price > budget_current:
 			button.set_disabled(true)
 		else:

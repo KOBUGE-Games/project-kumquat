@@ -2,17 +2,17 @@
 <resource_file type="PackedScene" subresource_count="8" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
 	<ext_resource path="res://scripts/hud.gd" type="Script" index="0"></ext_resource>
 	<ext_resource path="res://fonts/railway.fnt" type="Font" index="2"></ext_resource>
-	<ext_resource path="res://graphics/coin_sheet.png" type="Texture" index="3"></ext_resource>
-	<ext_resource path="res://graphics/icon_next_wave.png" type="Texture" index="5"></ext_resource>
+	<ext_resource path="res://graphics/coin_sheet.png" type="Texture" index="4"></ext_resource>
+	<ext_resource path="res://graphics/icon_next_wave.png" type="Texture" index="6"></ext_resource>
 	<ext_resource path="res://scenes/btn_tower.xscn" type="PackedScene" index="1"></ext_resource>
-	<ext_resource path="res://graphics/heart.png" type="Texture" index="6"></ext_resource>
-	<ext_resource path="res://graphics/stick-cross.png" type="Texture" index="4"></ext_resource>
+	<ext_resource path="res://graphics/heart.png" type="Texture" index="3"></ext_resource>
+	<ext_resource path="res://graphics/stick-cross.png" type="Texture" index="5"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
 			<int> 1 </int>
 			<string> "conns" </string>
-			<int_array  len="6"> 				14, 0, 49, 48, 2, 0 </int_array>
+			<int_array  len="6"> 				18, 0, 49, 48, 2, 0 </int_array>
 			<string> "editable_instances" </string>
 			<array  len="0" shared="false">
 			</array>
@@ -28,7 +28,7 @@
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
 				<string> "Control" </string>
-				<string> "towers" </string>
+				<string> "tower_buttons" </string>
 				<string> "margin/top" </string>
 				<string> "btn_tower1" </string>
 				<string> "margin/left" </string>
@@ -37,45 +37,45 @@
 				<string> "btn_tower2" </string>
 				<string> "text" </string>
 				<string> "btn_tower3" </string>
-				<string> "tower_desc" </string>
+				<string> "tower_tooltip" </string>
 				<string> "visibility/visible" </string>
 				<string> "visibility/opacity" </string>
-				<string> "panel" </string>
 				<string> "Panel" </string>
+				<string> "name" </string>
 				<string> "custom_fonts/font" </string>
 				<string> "percent_visible" </string>
 				<string> "lines_skipped" </string>
 				<string> "max_lines_visible" </string>
 				<string> "Label" </string>
-				<string> "tower_damage" </string>
-				<string> "tower_range" </string>
-				<string> "tower_reload" </string>
-				<string> "tower_price" </string>
-				<string> "budget" </string>
-				<string> "coin_icon" </string>
+				<string> "damage" </string>
+				<string> "range" </string>
+				<string> "reload" </string>
+				<string> "price" </string>
+				<string> "stats" </string>
+				<string> "health" </string>
+				<string> "icon" </string>
 				<string> "transform/pos" </string>
 				<string> "texture" </string>
 				<string> "region" </string>
 				<string> "region_rect" </string>
 				<string> "Sprite" </string>
+				<string> "label" </string>
+				<string> "budget" </string>
 				<string> "cancel" </string>
 				<string> "toggle_mode" </string>
-				<string> "icon" </string>
 				<string> "flat" </string>
 				<string> "Button" </string>
 				<string> "next_wave" </string>
-				<string> "health_icon" </string>
-				<string> "health_label" </string>
 				<string> "_on_cancel_pressed" </string>
 				<string> "pressed" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 18 </int>
+			<int> 20 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="458"> 				-1, -1, 9, 0, -1, 8, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 5, 0, 0, 0, 9, 10, -1, 7, 11, 6, 1, 0, 2, 7, 3, 1, 4, 2, 5, 3, 6, 3, 0, 1, 0, 2147483647, 12, 8, 4, 13, 9, 1, 10, 14, 11, 15, 12, 0, 1, 0, 2147483647, 16, 8, 7, 13, 9, 11, 13, 1, 10, 2, 14, 17, 15, 14, 11, 15, 12, 0, 1, 0, 2147483647, 18, 8, 7, 13, 9, 11, 10, 1, 10, 2, 16, 17, 17, 14, 11, 15, 12, 0, 0, 0, 9, 19, -1, 8, 20, 1, 21, 18, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 0, 5, 0, 23, 22, -1, 7, 1, 19, 2, 20, 3, 1, 4, 2, 5, 3, 6, 3, 8, 21, 0, 6, 0, 28, 14, -1, 12, 13, 22, 11, 23, 1, 24, 2, 25, 3, 2, 4, 2, 5, 3, 24, 26, 17, 27, 25, 28, 26, 29, 27, 30, 0, 6, 0, 28, 29, -1, 12, 13, 22, 11, 31, 1, 32, 2, 33, 3, 2, 4, 2, 5, 3, 24, 26, 17, 34, 25, 28, 26, 29, 27, 30, 0, 6, 0, 28, 30, -1, 12, 13, 22, 11, 35, 1, 32, 2, 36, 3, 2, 4, 2, 5, 3, 24, 26, 17, 37, 25, 28, 26, 29, 27, 30, 0, 6, 0, 28, 31, -1, 12, 13, 22, 11, 6, 1, 32, 2, 38, 3, 2, 4, 2, 5, 3, 24, 26, 17, 39, 25, 28, 26, 29, 27, 30, 0, 6, 0, 28, 32, -1, 12, 13, 22, 11, 40, 1, 32, 2, 41, 3, 2, 4, 2, 5, 3, 24, 26, 17, 42, 25, 28, 26, 29, 27, 30, 0, 0, 0, 28, 33, -1, 12, 13, 43, 11, 44, 1, 45, 2, 46, 3, 2, 4, 2, 5, 3, 24, 26, 17, 47, 25, 28, 26, 29, 27, 30, 0, 0, 0, 39, 34, -1, 4, 35, 48, 36, 49, 37, 2, 38, 50, 0, 0, 0, 44, 40, -1, 13, 13, 9, 11, 51, 1, 10, 2, 52, 3, 1, 4, 2, 5, 3, 6, 3, 24, 26, 41, 1, 17, 53, 42, 54, 43, 1, 0, 0, 0, 44, 45, -1, 13, 13, 9, 11, 55, 1, 10, 2, 56, 3, 1, 4, 2, 5, 3, 6, 3, 24, 26, 41, 1, 17, 57, 42, 58, 43, 1, 0, 0, 0, 39, 46, -1, 4, 35, 59, 36, 60, 37, 2, 38, 50, 0, 0, 0, 28, 47, -1, 12, 13, 43, 11, 61, 1, 62, 2, 63, 3, 2, 4, 2, 5, 3, 24, 26, 17, 64, 25, 28, 26, 29, 27, 30, 0 </int_array>
+			<int_array  len="498"> 				-1, -1, 9, 0, -1, 8, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 5, 0, 0, 0, 9, 10, -1, 7, 11, 6, 1, 0, 2, 7, 3, 1, 4, 2, 5, 3, 6, 3, 0, 1, 0, 2147483647, 12, 8, 4, 13, 9, 1, 10, 14, 11, 15, 12, 0, 1, 0, 2147483647, 16, 8, 7, 13, 9, 11, 13, 1, 10, 2, 14, 17, 15, 14, 11, 15, 12, 0, 1, 0, 2147483647, 18, 8, 7, 13, 9, 11, 10, 1, 10, 2, 16, 17, 17, 14, 11, 15, 12, 0, 0, 0, 22, 19, -1, 10, 20, 1, 21, 18, 13, 9, 11, 19, 1, 20, 2, 21, 3, 1, 4, 2, 5, 3, 6, 3, 0, 5, 0, 28, 23, -1, 12, 13, 22, 11, 23, 1, 24, 2, 25, 3, 2, 4, 2, 5, 3, 24, 26, 17, 27, 25, 28, 26, 29, 27, 30, 0, 5, 0, 28, 29, -1, 12, 13, 22, 11, 31, 1, 32, 2, 33, 3, 2, 4, 2, 5, 3, 24, 26, 17, 34, 25, 28, 26, 29, 27, 30, 0, 5, 0, 28, 30, -1, 12, 13, 22, 11, 35, 1, 32, 2, 36, 3, 2, 4, 2, 5, 3, 24, 26, 17, 37, 25, 28, 26, 29, 27, 30, 0, 5, 0, 28, 31, -1, 12, 13, 22, 11, 6, 1, 32, 2, 38, 3, 2, 4, 2, 5, 3, 24, 26, 17, 39, 25, 28, 26, 29, 27, 30, 0, 5, 0, 28, 32, -1, 12, 13, 22, 11, 40, 1, 32, 2, 41, 3, 2, 4, 2, 5, 3, 24, 26, 17, 42, 25, 28, 26, 29, 27, 30, 0, 0, 0, 9, 33, -1, 6, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 0, 11, 0, 9, 34, -1, 6, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 0, 12, 0, 40, 35, -1, 4, 36, 43, 37, 44, 38, 2, 39, 45, 0, 12, 0, 28, 41, -1, 12, 13, 46, 11, 47, 1, 48, 2, 49, 3, 2, 4, 2, 5, 3, 24, 26, 17, 50, 25, 28, 26, 29, 27, 30, 0, 11, 0, 9, 42, -1, 6, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 0, 15, 0, 40, 35, -1, 4, 36, 51, 37, 52, 38, 2, 39, 45, 0, 15, 0, 28, 41, -1, 12, 13, 46, 11, 53, 1, 54, 2, 55, 3, 2, 4, 2, 5, 3, 24, 26, 17, 56, 25, 28, 26, 29, 27, 30, 0, 0, 0, 46, 43, -1, 13, 13, 9, 11, 57, 1, 10, 2, 58, 3, 1, 4, 2, 5, 3, 6, 3, 24, 26, 44, 1, 17, 59, 35, 60, 45, 1, 0, 0, 0, 46, 47, -1, 13, 13, 9, 11, 61, 1, 10, 2, 62, 3, 1, 4, 2, 5, 3, 6, 3, 24, 26, 44, 1, 17, 63, 35, 64, 45, 1, 0 </int_array>
 			<string> "variants" </string>
 			<array  len="65" shared="false">
 				<real> 40 </real>
@@ -85,7 +85,7 @@
 				<resource  external="0">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
@@ -232,12 +232,9 @@
 				<real> 202 </real>
 				<string> "Tower #3" </string>
 				<real> 0.8 </real>
-				<real> 122 </real>
-				<real> 98 </real>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
+				<real> 301 </real>
+				<real> 124 </real>
+				<real> 405 </real>
 				<real> 4 </real>
 				<real> 5 </real>
 				<real> 70 </real>
@@ -259,28 +256,28 @@
 				<real> 79 </real>
 				<real> 97 </real>
 				<string> "Price: 100" </string>
-				<real> 34 </real>
-				<real> 33 </real>
-				<real> 88 </real>
-				<real> 46 </real>
-				<string> "Budget: 0" </string>
-				<vector2> 19.7059, 40.2678 </vector2>
+				<vector2> 19.3823, 16.9734 </vector2>
 				<resource  external="3">  </resource>
 				<rect2> 0, 0, 20, 20 </rect2>
-				<real> 710 </real>
-				<real> 742 </real>
-				<string> "Cancel" </string>
-				<resource  external="4">  </resource>
-				<real> 750 </real>
-				<real> 782 </real>
-				<string> "Next Wave" </string>
-				<resource  external="5">  </resource>
-				<vector2> 19.3823, 16.9734 </vector2>
-				<resource  external="6">  </resource>
+				<real> 34 </real>
 				<real> 8 </real>
 				<real> 109 </real>
 				<real> 21 </real>
 				<string> "Health: 100%" </string>
+				<vector2> 19.7059, 40.2678 </vector2>
+				<resource  external="4">  </resource>
+				<real> 33 </real>
+				<real> 88 </real>
+				<real> 46 </real>
+				<string> "Budget: 0" </string>
+				<real> 710 </real>
+				<real> 742 </real>
+				<string> "Cancel" </string>
+				<resource  external="5">  </resource>
+				<real> 750 </real>
+				<real> 782 </real>
+				<string> "Next Wave" </string>
+				<resource  external="6">  </resource>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>
