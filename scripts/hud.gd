@@ -2,9 +2,6 @@ extends Control
 
 ### Variables ###
 
-# Consts
-const LEVEL_SIZE = Vector2(22*32, 18*32) # FIXME tile counts * tile size
-
 # Nodes
 var global
 var level
@@ -35,8 +32,8 @@ func _ready():
 	set_process_input(true)
 
 func _input(ev):
-	if place_tower and ev.pos.x > level_offset.x and ev.pos.x < LEVEL_SIZE.x \
-			and ev.pos.y > level_offset.y and ev.pos.y < LEVEL_SIZE.y:
+	if place_tower and ev.pos.x > level_offset.x and ev.pos.x < global.LEVEL_SIZE.x \
+			and ev.pos.y > level_offset.y and ev.pos.y < global.LEVEL_SIZE.y:
 		if ev.type == InputEvent.MOUSE_MOTION:
 			var tile_pos = level.get_node("tilemap_tower").world_to_map(ev.pos - level_offset)
 			carried_tower.set_pos(level.get_node("tilemap_tower").map_to_world(tile_pos) + global.TILE_OFFSET)

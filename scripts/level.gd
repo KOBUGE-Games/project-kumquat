@@ -83,7 +83,6 @@ func _ready():
 	update_tile_directions()
 	run_bfs()
 	update()
-	
 	next_wave()
 
 func _draw():
