@@ -4,6 +4,7 @@ extends Area2D
 
 export var damage = 3
 
+var active = false
 var target = null
 var tile_pos = Vector2()
 
@@ -30,6 +31,9 @@ func _ready():
 ### Functions ###
 
 func attack():
+	if !active:
+		return
+	
 	var enemies = get_overlapping_areas()
 	if target == null or not (target in enemies) or target.hp <= 0:
 		target = null
@@ -49,3 +53,9 @@ func attack():
 		animation_player.play("attack")
 	else:
 		attack_indicator.hide()
+
+func set_carried(carried):
+	active = !carried
+	get_node("sprite").set_opacity(1.0 - int(carried)*0.5)
+	if !carried:
+		get_node("sprite").set_modulate(Color(1.0, 1.0, 1.0))

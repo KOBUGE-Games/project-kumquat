@@ -16,10 +16,8 @@ var budget_current = 1000
 var health_current = 1000
 var last_transaction = 0
 var place_tower = false
+var carried_tower = null
 var level_offset = Vector2()
-
-# Packed scenes
-var tower_scene = preload("res://scenes/towers/tower1.xscn")
 
 ### Callbacks ###
 
@@ -43,26 +41,24 @@ func _input(ev):
 	if place_tower and ev.pos.x > level_offset.x and ev.pos.x < LEVEL_SIZE.x \
 			and ev.pos.y > level_offset.y and ev.pos.y < LEVEL_SIZE.y:
 		if ev.type == InputEvent.MOUSE_MOTION:
-			get_node("cursor_placeholder").set_pos(ev.pos)
-			
 			var tile_pos = level.get_node("tilemap_tower").world_to_map(ev.pos - level_offset)
+			carried_tower.set_pos(level.get_node("tilemap_tower").map_to_world(tile_pos) + global.TILE_OFFSET)
+			
 			if level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE and !level.tiles[tile_pos].has_tower:
-				get_node("cursor_placeholder").set_frame(1)
+				carried_tower.get_node("sprite").set_modulate(Color(0.3, 1.0, 0.3)) # Buildable, green
 			else:
-				get_node("cursor_placeholder").set_frame(0)
+				carried_tower.get_node("sprite").set_modulate(Color(1.0, 0.3, 0.3)) # Non buildable, red
 		
 		elif ev.type == InputEvent.MOUSE_BUTTON and !ev.is_echo():
 			if ev.button_index == BUTTON_LEFT:
 				# Place a tower
 				var tile_pos = level.get_node("tilemap_tower").world_to_map(ev.pos - level_offset)
 				if level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE and !level.tiles[tile_pos].has_tower:
-					var new_tower = tower_scene.instance()
-					new_tower.set_pos(level.get_node("tilemap_tower").map_to_world(tile_pos) + global.TILE_OFFSET)
-					level.add_child(new_tower)
-					# Stop the tower placing behaviour
-					# FIXME: Check if we want to keep it on to place several towers (tower costs have then to be updated)
+					# Stop the tower placing behaviour and "drop" the carried tower
 					place_tower = false
-					get_node("cursor_placeholder").hide()
+					carried_tower.set_carried(false)
+					carried_tower = null # Stop referencing this tower in the hud
+					# FIXME: Check if we want to keep it on to place several towers (tower costs have then to be updated)
 			elif ev.button_index == BUTTON_RIGHT:
 				# Cancel action
 				_on_cancel_pressed()
@@ -85,8 +81,18 @@ func update_health(amount):
 
 ### Signals ###
 
+func tower_build_mode(btn_tower):
+	if carried_tower != null:
+		carried_tower.free()
+	if budget_current >= btn_tower.tower_price:
+		update_budget(-btn_tower.tower_price)
+		place_tower = true
+		carried_tower = btn_tower.tower_scene.instance()
+		carried_tower.set_carried(true)
+		level.add_child(carried_tower)
+
 func _on_cancel_pressed():
 	place_tower = false
-	get_node("cursor_placeholder").hide()
+	carried_tower.queue_free()
 	budget_current += last_transaction
 	budget.set_text("Budget: " + str(budget_current))

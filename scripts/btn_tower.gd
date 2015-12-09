@@ -8,10 +8,12 @@ var hud # The HUD node
 
 # Characteristics
 export var tower_name = "Unnamed"
+export var tower_scene_name = "tower1"
 export var tower_damage = 100
 export var tower_range = 100
 export var tower_reload = 1
 export var tower_price = 100
+var tower_scene = load("res://scenes/towers/" + tower_scene_name + ".xscn")
 
 ### Callbacks ###
 
@@ -37,7 +39,4 @@ func _on_btn_tower_mouse_exit():
 	hud.tower_desc.hide()
 
 func _on_btn_tower_pressed():
-	if hud.budget_current >= tower_price:
-		hud.update_budget(-tower_price)
-		hud.place_tower = true
-		hud.get_node("cursor_placeholder").show()
+	hud.tower_build_mode(self)
