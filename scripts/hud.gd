@@ -45,7 +45,7 @@ func _input(ev):
 			carried_tower.set_pos(level.get_node("tilemap_tower").map_to_world(tile_pos) + global.TILE_OFFSET)
 			
 			if level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE and !level.tiles[tile_pos].has_tower:
-				carried_tower.get_node("sprite").set_modulate(Color(0.3, 1.0, 0.3)) # Buildable, green
+				carried_tower.get_node("sprite").set_modulate(Color(0.3, 1.0, 0.4)) # Buildable, green
 			else:
 				carried_tower.get_node("sprite").set_modulate(Color(1.0, 0.3, 0.3)) # Non buildable, red
 		
@@ -81,13 +81,14 @@ func update_health(amount):
 
 ### Signals ###
 
-func tower_build_mode(btn_tower):
-	if carried_tower != null:
+func tower_build_mode(tower_scene, price):
+	if carried_tower != null: # Should not happen...
 		carried_tower.free()
-	if budget_current >= btn_tower.tower_price:
-		update_budget(-btn_tower.tower_price)
+	
+	if budget_current >= price:
+		update_budget(-price)
 		place_tower = true
-		carried_tower = btn_tower.tower_scene.instance()
+		carried_tower = tower_scene.instance()
 		carried_tower.set_carried(true)
 		level.add_child(carried_tower)
 

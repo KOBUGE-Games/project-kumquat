@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="5" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
+<resource_file type="PackedScene" subresource_count="6" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
 	<ext_resource path="res://scripts/tower.gd" type="Script" index="0"></ext_resource>
-	<ext_resource path="res://graphics/towers.png" type="Texture" index="1"></ext_resource>
+	<ext_resource path="res://graphics/towers.png" type="Texture" index="2"></ext_resource>
+	<ext_resource path="res://graphics/white_circle.png" type="Texture" index="1"></ext_resource>
 	<resource type="CircleShape2D" path="local://1">
 		<real name="custom_solver_bias"> 0 </real>
 		<real name="radius"> 96 </real>
@@ -41,7 +42,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="56">
+			<string_array  len="58">
 				<string> "tower" </string>
 				<string> "input/pickable" </string>
 				<string> "shapes/0/shape" </string>
@@ -60,18 +61,20 @@
 				<string> "trigger" </string>
 				<string> "_update_shape_index" </string>
 				<string> "CollisionShape2D" </string>
-				<string> "sprite" </string>
+				<string> "range_indicator" </string>
+				<string> "visibility/visible" </string>
+				<string> "z/z" </string>
 				<string> "texture" </string>
-				<string> "vframes" </string>
+				<string> "modulate" </string>
 				<string> "Sprite" </string>
 				<string> "attack_indicator" </string>
-				<string> "visibility/visible" </string>
 				<string> "transform/scale" </string>
 				<string> "centered" </string>
 				<string> "offset" </string>
 				<string> "flip_v" </string>
+				<string> "vframes" </string>
 				<string> "frame" </string>
-				<string> "modulate" </string>
+				<string> "sprite" </string>
 				<string> "sample_player_2d" </string>
 				<string> "params/volume_db" </string>
 				<string> "params/pitch_scale" </string>
@@ -100,14 +103,14 @@
 				<string> "AnimationPlayer" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 7 </int>
+			<int> 8 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="139"> 				-1, -1, 12, 0, -1, 11, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 10, 0, 0, 0, 17, 13, -1, 3, 14, 1, 15, 3, 16, 11, 0, 0, 0, 21, 18, -1, 2, 19, 12, 20, 13, 0, 0, 0, 21, 22, -1, 9, 23, 3, 24, 14, 19, 12, 25, 3, 26, 15, 27, 0, 20, 13, 28, 16, 29, 17, 0, 0, 0, 39, 30, -1, 8, 31, 18, 32, 7, 33, 7, 34, 19, 35, 7, 36, 20, 37, 21, 38, 18, 0, 0, 0, 45, 40, -1, 4, 41, 20, 42, 22, 43, 3, 44, 3, 0, 0, 0, 55, 46, -1, 8, 47, 20, 48, 18, 49, 23, 50, 24, 51, 0, 52, 7, 53, 25, 54, 26, 0 </int_array>
+			<int_array  len="156"> 				-1, -1, 12, 0, -1, 11, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 10, 0, 0, 0, 17, 13, -1, 3, 14, 1, 15, 3, 16, 11, 0, 0, 0, 23, 18, -1, 4, 19, 3, 20, 12, 21, 13, 22, 14, 0, 0, 0, 23, 24, -1, 9, 19, 3, 25, 15, 21, 16, 26, 3, 27, 17, 28, 0, 29, 18, 30, 19, 22, 20, 0, 0, 0, 23, 31, -1, 3, 20, 12, 21, 16, 29, 18, 0, 0, 0, 41, 32, -1, 8, 33, 21, 34, 7, 35, 7, 36, 22, 37, 7, 38, 12, 39, 23, 40, 21, 0, 0, 0, 47, 42, -1, 4, 43, 12, 44, 24, 45, 3, 46, 3, 0, 0, 0, 57, 48, -1, 8, 49, 12, 50, 21, 51, 25, 52, 26, 53, 0, 54, 7, 55, 27, 56, 28, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="27" shared="false">
+			<array  len="29" shared="false">
 				<bool> True </bool>
 				<resource  resource_type="Shape2D" path="local://1">  </resource>
 				<matrix32> 1, -0, 0, 1, 0, 0 </matrix32>
@@ -119,13 +122,13 @@
 				<resource  external="0">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -192.842, -104.999 </vector2>
+							<vector2> -225.404, -137.168 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -145,7 +148,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 3.424787 </real>
+							<real> 2.78951 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -241,8 +244,14 @@
 						</dictionary>
 						<string> "Anim" </string>
 						<dictionary  shared="false">
-							<string> "visible" </string>
+							<string> "animation" </string>
+							<string> "attack" </string>
+							<string> "editing" </string>
 							<bool> False </bool>
+							<string> "player" </string>
+							<node_path> "animation_player" </node_path>
+							<string> "visible" </string>
+							<bool> True </bool>
 						</dictionary>
 					</dictionary>
 					<string> "__editor_run_settings__" </string>
@@ -255,15 +264,17 @@
 				</dictionary>
 				<int> 5 </int>
 				<int> 0 </int>
+				<int> 1 </int>
 				<resource  external="1">  </resource>
-				<int> 3 </int>
+				<color> 1, 1, 1, 0.500859 </color>
 				<vector2> 0.5, 3 </vector2>
+				<resource  external="2">  </resource>
 				<vector2> -16, 0 </vector2>
+				<int> 3 </int>
 				<int> 2 </int>
 				<color> 0.50681, 0.806578, 0.906232, 1 </color>
 				<real> 0 </real>
 				<real> 2048 </real>
-				<int> 1 </int>
 				<resource name=""></resource>				<real> 0.2 </real>
 				<node_path> ".." </node_path>
 				<resource  resource_type="Animation" path="local://2">  </resource>

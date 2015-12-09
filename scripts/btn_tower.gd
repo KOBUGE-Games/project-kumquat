@@ -39,4 +39,4 @@ func _on_btn_tower_mouse_exit():
 	hud.tower_desc.hide()
 
 func _on_btn_tower_pressed():
-	hud.tower_build_mode(self)
+	hud.tower_build_mode(tower_scene, tower_price)

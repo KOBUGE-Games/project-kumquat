@@ -22,6 +22,10 @@ func _ready():
 	attack_indicator = get_node("attack_indicator")
 	animation_player = get_node("animation_player")
 	
+	var collision_radius = get_node("collision_shape_2d").get_shape().get_radius()
+	var range_radius = get_node("range_indicator").get_texture().get_size().x/2
+	get_node("range_indicator").set_scale(Vector2(1, 1)*collision_radius/range_radius)
+	
 	get_node("attack_timer").connect("timeout", self, "attack")
 	get_node("attack_timer").start()
 	
@@ -56,6 +60,7 @@ func attack():
 
 func set_carried(carried):
 	active = !carried
-	get_node("sprite").set_opacity(1.0 - int(carried)*0.5)
+	get_node("sprite").set_opacity(1.0 - int(carried)*0.4)
+	get_node("range_indicator").set_hidden(!carried)
 	if !carried:
 		get_node("sprite").set_modulate(Color(1.0, 1.0, 1.0))
