@@ -30,6 +30,8 @@ func _ready():
 	health = get_node("health_label")
 	tower_desc = get_node("tower_desc")
 	
+	get_node("next_wave").connect("pressed", level, "next_wave")
+	
 	budget.set_text("Budget: " + str(budget_current))
 	health.set_text("Health: " + str(health_current))
 	tower_desc.hide()
