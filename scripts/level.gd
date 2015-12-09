@@ -41,10 +41,13 @@ export var debug = false
 
 var waves = [
 	Wave.new([
-		WaveEnemy.new(enemy1_scene, 5)
+		WaveEnemy.new(enemy1_scene, 10)
 	]),
 	Wave.new([
 		WaveEnemy.new(enemy1_scene, 20)
+	], 1.2),
+	Wave.new([
+		WaveEnemy.new(enemy1_scene, 30)
 	], 1.2)
 ]
 var current_wave_index = 0
@@ -165,6 +168,9 @@ func run_bfs():
 				tile.goal_directions.push_back(direction)
 
 func next_wave():
+	if current_wave_index >= waves.size():
+		print("ERROR: current_wave_index out of size.")
+		return
 	current_wave = waves[current_wave_index]
 	get_node("enemy_timer").set_wait_time(current_wave.spawn_cooldown)
 	get_node("enemy_timer").start()

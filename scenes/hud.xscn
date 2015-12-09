@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="8" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
 	<ext_resource path="res://scripts/hud.gd" type="Script" index="0"></ext_resource>
-	<ext_resource path="res://graphics/coin_sheet.png" type="Texture" index="3"></ext_resource>
-	<ext_resource path="res://scenes/btn_tower.xscn" type="PackedScene" index="1"></ext_resource>
-	<ext_resource path="res://graphics/icon_next_wave.png" type="Texture" index="5"></ext_resource>
 	<ext_resource path="res://fonts/railway.fnt" type="Font" index="2"></ext_resource>
+	<ext_resource path="res://graphics/coin_sheet.png" type="Texture" index="3"></ext_resource>
+	<ext_resource path="res://graphics/icon_next_wave.png" type="Texture" index="5"></ext_resource>
+	<ext_resource path="res://scenes/btn_tower.xscn" type="PackedScene" index="1"></ext_resource>
 	<ext_resource path="res://graphics/heart.png" type="Texture" index="6"></ext_resource>
 	<ext_resource path="res://graphics/stick-cross.png" type="Texture" index="4"></ext_resource>
 	<main_resource>
@@ -75,9 +75,9 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="450"> 				-1, -1, 9, 0, -1, 8, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 5, 0, 0, 0, 9, 10, -1, 7, 11, 6, 1, 0, 2, 7, 3, 1, 4, 2, 5, 3, 6, 3, 0, 1, 0, 2147483647, 12, 8, 4, 13, 9, 1, 10, 14, 11, 15, 12, 0, 1, 0, 2147483647, 16, 8, 7, 13, 9, 11, 13, 1, 10, 2, 14, 17, 15, 14, 16, 15, 12, 0, 1, 0, 2147483647, 18, 8, 7, 13, 9, 11, 10, 1, 10, 2, 17, 17, 18, 14, 19, 15, 12, 0, 0, 0, 9, 19, -1, 8, 20, 1, 21, 20, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 0, 5, 0, 23, 22, -1, 7, 1, 21, 2, 22, 3, 1, 4, 2, 5, 3, 6, 3, 8, 23, 0, 6, 0, 28, 14, -1, 12, 13, 24, 11, 25, 1, 26, 2, 27, 3, 2, 4, 2, 5, 3, 24, 28, 17, 29, 25, 30, 26, 31, 27, 32, 0, 6, 0, 28, 29, -1, 12, 13, 24, 11, 33, 1, 34, 2, 35, 3, 2, 4, 2, 5, 3, 24, 28, 17, 36, 25, 30, 26, 31, 27, 32, 0, 6, 0, 28, 30, -1, 12, 13, 24, 11, 37, 1, 34, 2, 38, 3, 2, 4, 2, 5, 3, 24, 28, 17, 39, 25, 30, 26, 31, 27, 32, 0, 6, 0, 28, 31, -1, 12, 13, 24, 11, 6, 1, 34, 2, 40, 3, 2, 4, 2, 5, 3, 24, 28, 17, 41, 25, 30, 26, 31, 27, 32, 0, 6, 0, 28, 32, -1, 12, 13, 24, 11, 42, 1, 34, 2, 43, 3, 2, 4, 2, 5, 3, 24, 28, 17, 44, 25, 30, 26, 31, 27, 32, 0, 0, 0, 28, 33, -1, 11, 13, 45, 11, 46, 1, 47, 2, 48, 3, 2, 4, 2, 5, 3, 17, 49, 25, 30, 26, 31, 27, 32, 0, 0, 0, 39, 34, -1, 4, 35, 50, 36, 51, 37, 2, 38, 52, 0, 0, 0, 44, 40, -1, 12, 13, 9, 11, 53, 1, 10, 2, 54, 3, 1, 4, 2, 5, 3, 6, 3, 41, 1, 17, 55, 42, 56, 43, 1, 0, 0, 0, 44, 45, -1, 12, 13, 9, 11, 57, 1, 10, 2, 58, 3, 1, 4, 2, 5, 3, 6, 3, 41, 1, 17, 59, 42, 60, 43, 1, 0, 0, 0, 39, 46, -1, 4, 35, 61, 36, 62, 37, 2, 38, 52, 0, 0, 0, 28, 47, -1, 11, 13, 45, 11, 63, 1, 64, 2, 65, 3, 2, 4, 2, 5, 3, 17, 66, 25, 30, 26, 31, 27, 32, 0 </int_array>
+			<int_array  len="458"> 				-1, -1, 9, 0, -1, 8, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 5, 0, 0, 0, 9, 10, -1, 7, 11, 6, 1, 0, 2, 7, 3, 1, 4, 2, 5, 3, 6, 3, 0, 1, 0, 2147483647, 12, 8, 4, 13, 9, 1, 10, 14, 11, 15, 12, 0, 1, 0, 2147483647, 16, 8, 7, 13, 9, 11, 13, 1, 10, 2, 14, 17, 15, 14, 11, 15, 12, 0, 1, 0, 2147483647, 18, 8, 7, 13, 9, 11, 10, 1, 10, 2, 16, 17, 17, 14, 11, 15, 12, 0, 0, 0, 9, 19, -1, 8, 20, 1, 21, 18, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 0, 5, 0, 23, 22, -1, 7, 1, 19, 2, 20, 3, 1, 4, 2, 5, 3, 6, 3, 8, 21, 0, 6, 0, 28, 14, -1, 12, 13, 22, 11, 23, 1, 24, 2, 25, 3, 2, 4, 2, 5, 3, 24, 26, 17, 27, 25, 28, 26, 29, 27, 30, 0, 6, 0, 28, 29, -1, 12, 13, 22, 11, 31, 1, 32, 2, 33, 3, 2, 4, 2, 5, 3, 24, 26, 17, 34, 25, 28, 26, 29, 27, 30, 0, 6, 0, 28, 30, -1, 12, 13, 22, 11, 35, 1, 32, 2, 36, 3, 2, 4, 2, 5, 3, 24, 26, 17, 37, 25, 28, 26, 29, 27, 30, 0, 6, 0, 28, 31, -1, 12, 13, 22, 11, 6, 1, 32, 2, 38, 3, 2, 4, 2, 5, 3, 24, 26, 17, 39, 25, 28, 26, 29, 27, 30, 0, 6, 0, 28, 32, -1, 12, 13, 22, 11, 40, 1, 32, 2, 41, 3, 2, 4, 2, 5, 3, 24, 26, 17, 42, 25, 28, 26, 29, 27, 30, 0, 0, 0, 28, 33, -1, 12, 13, 43, 11, 44, 1, 45, 2, 46, 3, 2, 4, 2, 5, 3, 24, 26, 17, 47, 25, 28, 26, 29, 27, 30, 0, 0, 0, 39, 34, -1, 4, 35, 48, 36, 49, 37, 2, 38, 50, 0, 0, 0, 44, 40, -1, 13, 13, 9, 11, 51, 1, 10, 2, 52, 3, 1, 4, 2, 5, 3, 6, 3, 24, 26, 41, 1, 17, 53, 42, 54, 43, 1, 0, 0, 0, 44, 45, -1, 13, 13, 9, 11, 55, 1, 10, 2, 56, 3, 1, 4, 2, 5, 3, 6, 3, 24, 26, 41, 1, 17, 57, 42, 58, 43, 1, 0, 0, 0, 39, 46, -1, 4, 35, 59, 36, 60, 37, 2, 38, 50, 0, 0, 0, 28, 47, -1, 12, 13, 43, 11, 61, 1, 62, 2, 63, 3, 2, 4, 2, 5, 3, 24, 26, 17, 64, 25, 28, 26, 29, 27, 30, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="67" shared="false">
+			<array  len="65" shared="false">
 				<real> 40 </real>
 				<bool> False </bool>
 				<bool> True </bool>
@@ -85,7 +85,7 @@
 				<resource  external="0">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
@@ -224,15 +224,13 @@
 				<resource  external="1">  </resource>
 				<real> 10 </real>
 				<real> 138 </real>
-				<string> "Tower 1" </string>
+				<string> "Unnamed" </string>
 				<string> "tower1" </string>
 				<real> 69 </real>
 				<real> 133 </real>
 				<string> "Tower #2" </string>
-				<string> "Tower 2" </string>
 				<real> 202 </real>
 				<string> "Tower #3" </string>
-				<string> "Tower 3" </string>
 				<real> 0.8 </real>
 				<real> 122 </real>
 				<real> 98 </real>
@@ -269,12 +267,12 @@
 				<vector2> 19.7059, 40.2678 </vector2>
 				<resource  external="3">  </resource>
 				<rect2> 0, 0, 20, 20 </rect2>
-				<real> 728 </real>
-				<real> 760 </real>
+				<real> 710 </real>
+				<real> 742 </real>
 				<string> "Cancel" </string>
 				<resource  external="4">  </resource>
-				<real> 765 </real>
-				<real> 797 </real>
+				<real> 750 </real>
+				<real> 782 </real>
 				<string> "Next Wave" </string>
 				<resource  external="5">  </resource>
 				<vector2> 19.3823, 16.9734 </vector2>
