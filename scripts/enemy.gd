@@ -60,6 +60,7 @@ func _fixed_process(delta):
 			set_fixed_process(false)
 			get_node("animation_player").stop()
 			global.hud.update_health(-damage)
+			queue_free()
 			return
 		
 		var index = randi() % goal_dirs.size()
