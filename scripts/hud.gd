@@ -10,7 +10,7 @@ var health
 
 var budget_current = 1000
 var health_current = 1000
-var last_transaction = 0
+var pending_transaction = 0
 
 var tower_placement = false
 var carried_tower = null
@@ -43,22 +43,21 @@ func _input(ev):
 		
 		elif ev.type == InputEvent.MOUSE_BUTTON and ev.is_pressed() and !ev.is_echo():
 			if ev.button_index == BUTTON_LEFT:
-				# Place a tower
+				# Place an instance of the carried tower
 				var tile_pos = level.tilemap_buildable.world_to_map(ev.pos - level.get_global_pos())
 				if level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE and !level.tiles[tile_pos].has_tower:
-					# Stop the tower placing behaviour and "drop" the carried tower
-					tower_placement = false
-					carried_tower.set_carried(false)
-					carried_tower = null # Stop referencing this tower in the hud
-					# FIXME: Check if we want to keep it on to place several towers (tower costs have then to be updated)
+					# Place the carried tower
+					update_budget(pending_transaction)
+					var placed_tower = carried_tower.duplicate()
+					level.add_child(placed_tower)
+					placed_tower.set_carried(false)
 			elif ev.button_index == BUTTON_RIGHT:
-				# Cancel action
+				# Cancel the pending placement and discard the carried tower
 				cancel_tower_placement()
 
 ### Functions
 
 func update_budget(amount):
-	last_transaction = -amount
 	budget_current += amount
 	budget.set_text("Budget: " + str(budget_current))
 	for button in get_node("tower_buttons").get_children():
@@ -73,8 +72,8 @@ func update_health(amount):
 
 func cancel_tower_placement():
 	tower_placement = false
+	pending_transaction = 0
 	carried_tower.queue_free()
-	update_budget(last_transaction)
 
 ### Signals ###
 
@@ -83,8 +82,8 @@ func tower_build_mode(tower_scene, price):
 		carried_tower.free()
 	
 	if budget_current >= price:
-		update_budget(-price)
 		tower_placement = true
+		pending_transaction = -price
 		carried_tower = tower_scene.instance()
 		level.add_child(carried_tower)
 		carried_tower.set_carried(true)
