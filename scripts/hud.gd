@@ -11,9 +11,9 @@ var health
 var budget_current = 1000
 var health_current = 1000
 var last_transaction = 0
+
 var tower_placement = false
 var carried_tower = null
-var level_offset = Vector2()
 
 ### Callbacks ###
 
@@ -27,16 +27,14 @@ func _ready():
 	
 	budget.set_text("Budget: " + str(budget_current))
 	health.set_text("Health: " + str(health_current))
-	level_offset = level.get_pos()
 	
 	set_process_input(true)
 
 func _input(ev):
-	if tower_placement and carried_tower and ev.pos.x > level_offset.x and ev.pos.x < global.LEVEL_SIZE.x \
-			and ev.pos.y > level_offset.y and ev.pos.y < global.LEVEL_SIZE.y:
+	if tower_placement and carried_tower and level.get_parent().get_global_rect().has_point(ev.pos):
 		if ev.type == InputEvent.MOUSE_MOTION:
-			var tile_pos = level.get_node("tilemap_tower").world_to_map(ev.pos - level_offset)
-			carried_tower.set_pos(level.get_node("tilemap_tower").map_to_world(tile_pos) + global.TILE_OFFSET)
+			var tile_pos = level.tilemap_buildable.world_to_map(ev.pos - level.get_global_pos())
+			carried_tower.set_pos(level.tilemap_buildable.map_to_world(tile_pos) + global.TILE_OFFSET)
 			
 			if level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE and !level.tiles[tile_pos].has_tower:
 				carried_tower.get_node("sprite").set_modulate(Color(0.3, 1.0, 0.4)) # Buildable, green
@@ -46,7 +44,7 @@ func _input(ev):
 		elif ev.type == InputEvent.MOUSE_BUTTON and ev.is_pressed() and !ev.is_echo():
 			if ev.button_index == BUTTON_LEFT:
 				# Place a tower
-				var tile_pos = level.get_node("tilemap_tower").world_to_map(ev.pos - level_offset)
+				var tile_pos = level.tilemap_buildable.world_to_map(ev.pos - level.get_global_pos())
 				if level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE and !level.tiles[tile_pos].has_tower:
 					# Stop the tower placing behaviour and "drop" the carried tower
 					tower_placement = false

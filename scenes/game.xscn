@@ -13,7 +13,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="40">
+			<string_array  len="42">
 				<string> "game" </string>
 				<string> "margin/right" </string>
 				<string> "margin/bottom" </string>
@@ -24,8 +24,10 @@
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
 				<string> "Control" </string>
+				<string> "level_control" </string>
+				<string> "margin/left" </string>
+				<string> "margin/top" </string>
 				<string> "level" </string>
-				<string> "transform/pos" </string>
 				<string> "debug" </string>
 				<string> "hud" </string>
 				<string> "sample_player" </string>
@@ -56,14 +58,14 @@
 				<string> "StreamPlayer" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 5 </int>
+			<int> 6 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="99"> 				-1, -1, 9, 0, -1, 8, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 5, 0, 0, 0, 2147483647, 10, 6, 2, 11, 7, 12, 1, 0, 0, 0, 2147483647, 13, 8, 0, 0, 0, 0, 29, 14, -1, 14, 15, 9, 16, 10, 17, 11, 18, 12, 19, 11, 20, 11, 21, 11, 22, 13, 23, 14, 24, 12, 25, 12, 26, 3, 27, 11, 28, 11, 0, 0, 0, 39, 30, -1, 8, 31, 10, 32, 1, 33, 1, 34, 11, 35, 1, 36, 1, 37, 11, 38, 15, 0 </int_array>
+			<int_array  len="122"> 				-1, -1, 9, 0, -1, 8, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 5, 0, 0, 0, 9, 10, -1, 9, 11, 6, 12, 7, 1, 8, 2, 9, 3, 1, 4, 2, 5, 3, 6, 3, 8, 10, 0, 1, 0, 2147483647, 13, 11, 1, 14, 1, 0, 0, 0, 2147483647, 15, 12, 0, 0, 0, 0, 31, 16, -1, 14, 17, 13, 18, 14, 19, 15, 20, 16, 21, 15, 22, 15, 23, 15, 24, 17, 25, 18, 26, 16, 27, 16, 28, 3, 29, 15, 30, 15, 0, 0, 0, 41, 32, -1, 8, 33, 14, 34, 1, 35, 1, 36, 15, 37, 1, 38, 1, 39, 15, 40, 19, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="16" shared="false">
+			<array  len="20" shared="false">
 				<real> 40 </real>
 				<bool> False </bool>
 				<bool> True </bool>
@@ -71,15 +73,15 @@
 				<resource  external="0">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -84.952, -61.7829 </vector2>
+							<vector2> -166.143, -66.5586 </vector2>
 							<string> "snap_grid" </string>
-							<bool> False </bool>
+							<bool> True </bool>
 							<string> "snap_offset" </string>
 							<vector2> 0, 0 </vector2>
 							<string> "snap_pixel" </string>
@@ -95,9 +97,9 @@
 							<string> "snap_show_grid" </string>
 							<bool> False </bool>
 							<string> "snap_step" </string>
-							<vector2> 10, 10 </vector2>
+							<vector2> 16, 16 </vector2>
 							<string> "zoom" </string>
-							<real> 1 </real>
+							<real> 0.814506 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -205,8 +207,15 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
+				<real> 192 </real>
+				<real> 16 </real>
+				<real> 1056 </real>
+				<real> 784 </real>
+				<dictionary  shared="false">
+					<string> "_edit_group_" </string>
+					<bool> True </bool>
+				</dictionary>
 				<resource  external="1">  </resource>
-				<vector2> 148, 0 </vector2>
 				<resource  external="2">  </resource>
 				<int> 1 </int>
 				<resource name=""></resource>				<real> 0 </real>

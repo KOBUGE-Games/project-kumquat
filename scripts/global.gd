@@ -5,7 +5,6 @@ extends Node
 # Consts
 const TILE_SIZE = 32
 const TILE_OFFSET = Vector2(0.5, 0.5)*TILE_SIZE
-const LEVEL_SIZE = Vector2(32, 24)*TILE_SIZE
 
 # Nodes
 var game
@@ -16,5 +15,5 @@ var hud
 
 func _ready():
 	game = get_node("/root/game")
-	level = game.get_node("level")
+	level = game.get_node("level_control/level")
 	hud = game.get_node("hud")
