@@ -53,7 +53,7 @@ func _input(ev):
 					# FIXME: Check if we want to keep it on to place several towers (tower costs have then to be updated)
 			elif ev.button_index == BUTTON_RIGHT:
 				# Cancel action
-				_on_cancel_pressed()
+				cancel_tower_placement()
 
 ### Functions
 
@@ -71,6 +71,11 @@ func update_health(amount):
 	health_current += amount
 	health.set_text("Health: " + str(health_current))
 
+func cancel_tower_placement():
+	carried_tower.queue_free()
+	budget_current += last_transaction
+	budget.set_text("Budget: " + str(budget_current))
+
 ### Signals ###
 
 func tower_build_mode(tower_scene, price):
@@ -80,10 +85,5 @@ func tower_build_mode(tower_scene, price):
 	if budget_current >= price:
 		update_budget(-price)
 		carried_tower = tower_scene.instance()
-		carried_tower.set_carried(true)
 		level.add_child(carried_tower)
-
-func _on_cancel_pressed():
-	carried_tower.queue_free()
-	budget_current += last_transaction
-	budget.set_text("Budget: " + str(budget_current))
+		carried_tower.set_carried(true)
