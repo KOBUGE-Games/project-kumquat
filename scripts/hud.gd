@@ -74,12 +74,14 @@ func update_health(amount):
 func cancel_tower_placement():
 	tower_placement = false
 	carried_tower.queue_free()
-	budget_current += last_transaction
-	budget.set_text("Budget: " + str(budget_current))
+	update_budget(last_transaction)
 
 ### Signals ###
 
 func tower_build_mode(tower_scene, price):
+	if tower_placement and carried_tower:
+		carried_tower.free()
+	
 	if budget_current >= price:
 		update_budget(-price)
 		tower_placement = true
