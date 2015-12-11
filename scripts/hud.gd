@@ -11,7 +11,6 @@ var health
 var budget_current = 1000
 var health_current = 1000
 var last_transaction = 0
-var place_tower = false
 var carried_tower = null
 var level_offset = Vector2()
 
@@ -32,7 +31,7 @@ func _ready():
 	set_process_input(true)
 
 func _input(ev):
-	if place_tower and ev.pos.x > level_offset.x and ev.pos.x < global.LEVEL_SIZE.x \
+	if carried_tower and ev.pos.x > level_offset.x and ev.pos.x < global.LEVEL_SIZE.x \
 			and ev.pos.y > level_offset.y and ev.pos.y < global.LEVEL_SIZE.y:
 		if ev.type == InputEvent.MOUSE_MOTION:
 			var tile_pos = level.get_node("tilemap_tower").world_to_map(ev.pos - level_offset)
@@ -49,7 +48,6 @@ func _input(ev):
 				var tile_pos = level.get_node("tilemap_tower").world_to_map(ev.pos - level_offset)
 				if level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE and !level.tiles[tile_pos].has_tower:
 					# Stop the tower placing behaviour and "drop" the carried tower
-					place_tower = false
 					carried_tower.set_carried(false)
 					carried_tower = null # Stop referencing this tower in the hud
 					# FIXME: Check if we want to keep it on to place several towers (tower costs have then to be updated)
@@ -81,13 +79,11 @@ func tower_build_mode(tower_scene, price):
 	
 	if budget_current >= price:
 		update_budget(-price)
-		place_tower = true
 		carried_tower = tower_scene.instance()
 		carried_tower.set_carried(true)
 		level.add_child(carried_tower)
 
 func _on_cancel_pressed():
-	place_tower = false
 	carried_tower.queue_free()
 	budget_current += last_transaction
 	budget.set_text("Budget: " + str(budget_current))

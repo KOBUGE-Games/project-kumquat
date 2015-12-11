@@ -30,7 +30,6 @@ func _ready():
 	get_node("attack_timer").start()
 	
 	tile_pos = level.get_node("tilemap_tower").world_to_map(get_pos())
-	level.tiles[tile_pos].has_tower = true
 
 ### Functions ###
 
@@ -61,6 +60,9 @@ func attack():
 
 func set_carried(carried):
 	active = !carried
+	if (level):
+		tile_pos = level.get_node("tilemap_tower").world_to_map(get_pos())
+		level.tiles[tile_pos].has_tower = !carried
 	get_node("sprite").set_opacity(1.0 - int(carried)*0.4)
 	get_node("range_indicator").set_hidden(!carried)
 	if !carried:
