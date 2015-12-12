@@ -45,7 +45,8 @@ func _input(ev):
 			if ev.button_index == BUTTON_LEFT:
 				# Place an instance of the carried tower
 				var tile_pos = level.tilemap_buildable.world_to_map(ev.pos - level.get_global_pos())
-				if level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE and !level.tiles[tile_pos].has_tower:
+				if level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE and !level.tiles[tile_pos].has_tower \
+						and budget_current + pending_transaction >= 0:
 					# Place the carried tower
 					update_budget(pending_transaction)
 					var placed_tower = carried_tower.duplicate()
