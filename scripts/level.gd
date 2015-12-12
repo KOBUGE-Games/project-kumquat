@@ -32,7 +32,7 @@ class WaveEnemy:
 const DIRECTIONS = Vector2Array([Vector2(1, 0), Vector2(-1, 0), Vector2(0, 1), Vector2(0, -1)])
 
 # Nodes and resources
-var enemy1_scene = preload("res://scenes/enemies/enemy1.xscn")
+var enemy1_scene = preload("res://scenes/enemies/enemy1.tscn")
 var tilemap_walkable
 var tilemap_buildable
 

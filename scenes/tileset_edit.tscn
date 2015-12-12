@@ -1,0 +1,135 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://graphics/terrain.png" type="Texture" id=1]
+
+[node name="tileset" type="Node2D"]
+
+__meta__ = { "__editor_plugin_screen__":"2D", "__editor_plugin_states__":{ "2D":{ "ofs":Vector2( -216.482, -64.6779 ), "snap_grid":true, "snap_offset":Vector2( 0, 0 ), "snap_pixel":false, "snap_relative":false, "snap_rotation":false, "snap_rotation_offset":0, "snap_rotation_step":0.261799, "snap_show_grid":true, "snap_step":Vector2( 32, 32 ), "zoom":1.50734 }, "3D":{ "ambient_light_color":Color( 0.15, 0.15, 0.15, 1 ), "default_light":true, "default_srgb":false, "deflight_rot_x":0.942478, "deflight_rot_y":0.628319, "fov":45, "show_grid":true, "show_origin":true, "viewport_mode":1, "viewports":[ { "distance":4, "listener":true, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 } ], "zfar":500, "znear":0.1 }, "Anim":{ "visible":false } }, "__editor_run_settings__":{ "custom_args":"-l $scene", "run_mode":0 } }
+
+[node name="grass" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 48, 208, 32, 32 )
+
+[node name="tower" type="Sprite" parent="."]
+
+transform/pos = Vector2( 32, 0 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 48, 176, 32, 32 )
+
+[node name="tower_nw" type="Sprite" parent="."]
+
+transform/pos = Vector2( 12, 44 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -16, -16 )
+region = true
+region_rect = Rect2( 0, 0, 48, 48 )
+
+[node name="tower_ne" type="Sprite" parent="."]
+
+transform/pos = Vector2( 64, 44 )
+z/z = 1
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 0, -16 )
+region = true
+region_rect = Rect2( 48, 0, 48, 48 )
+
+[node name="tower_sw" type="Sprite" parent="."]
+
+transform/pos = Vector2( 16, 96 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -16, 0 )
+region = true
+region_rect = Rect2( 0, 48, 48, 32 )
+
+[node name="tower_se" type="Sprite" parent="."]
+
+transform/pos = Vector2( 64, 96 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 48, 48, 48, 32 )
+
+[node name="wall_w" type="Sprite" parent="."]
+
+transform/pos = Vector2( 16, 128 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -16, 0 )
+region = true
+region_rect = Rect2( 0, 80, 48, 32 )
+
+[node name="wall_e" type="Sprite" parent="."]
+
+transform/pos = Vector2( 64, 128 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 48, 80, 48, 32 )
+
+[node name="tower_w" type="Sprite" parent="."]
+
+transform/pos = Vector2( 16, 160 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -16, 0 )
+region = true
+region_rect = Rect2( 0, 128, 48, 32 )
+
+[node name="tower_e" type="Sprite" parent="."]
+
+transform/pos = Vector2( 64, 160 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 48, 128, 48, 32 )
+
+[node name="tower_n" type="Sprite" parent="."]
+
+transform/pos = Vector2( 0, 208 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 0, -16 )
+region = true
+region_rect = Rect2( 16, 160, 32, 48 )
+
+[node name="tower_s" type="Sprite" parent="."]
+
+transform/pos = Vector2( 0, 256 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 16, 208, 32, 32 )
+
+[node name="wall_s" type="Sprite" parent="."]
+
+transform/pos = Vector2( 0, 288 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 16, 240, 32, 32 )
+
+[node name="wall_overlap_e" type="Sprite" parent="."]
+
+transform/pos = Vector2( 64, 288 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 48, 240, 48, 32 )
+
+[node name="wall_overlap_s" type="Sprite" parent="."]
+
+transform/pos = Vector2( 32, 320 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 16, 272, 32, 32 )
+
+

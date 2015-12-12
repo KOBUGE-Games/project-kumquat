@@ -14,7 +14,7 @@ export var tower_damage = 100
 export var tower_range = 100
 export var tower_reload = 1
 export var tower_price = 100
-var tower_scene = load("res://scenes/towers/" + tower_scene_name + ".xscn")
+var tower_scene = load("res://scenes/towers/" + tower_scene_name + ".tscn")
 
 ### Callbacks ###
 
