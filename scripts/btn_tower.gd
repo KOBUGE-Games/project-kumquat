@@ -14,7 +14,7 @@ export var tower_damage = 100
 export var tower_range = 100
 export var tower_reload = 1
 export var tower_price = 100
-var tower_scene = load("res://scenes/towers/" + tower_scene_name + ".tscn")
+var tower_scene
 
 ### Callbacks ###
 
@@ -22,7 +22,11 @@ func _ready():
 	global = get_node("/root/global")
 	hud = global.hud
 	tooltip = hud.get_node("tower_tooltip")
+
+	tower_scene = load("res://scenes/towers/" + tower_scene_name + ".xscn")
+	get_node("icon").set_texture(load("res://graphics/towers/" + tower_scene_name + ".png"))
 	set_text(tower_name)
+	
 	if hud.budget_current < tower_price:
 		set_disabled(true)
 

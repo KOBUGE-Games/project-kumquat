@@ -87,4 +87,5 @@ func tower_build_mode(tower_scene, price):
 		pending_transaction = -price
 		carried_tower = tower_scene.instance()
 		level.add_child(carried_tower)
+		carried_tower.set_pos(Vector2(48, 48))
 		carried_tower.set_carried(true)

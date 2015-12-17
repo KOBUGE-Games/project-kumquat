@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://scripts/btn_tower.gd" type="Script" id=3]
+[ext_resource path="res://scripts/btn_tower.gd" type="Script" id=2]
 [ext_resource path="res://fonts/railway.fnt" type="Font" id=1]
-[ext_resource path="res://graphics/tower_sample_icon.png" type="Texture" id=2]
+[ext_resource path="res://graphics/towers/tower1.png" type="Texture" id=3]
 
 [node name="btn_tower" type="Button"]
 
@@ -15,16 +15,22 @@ size_flags/vertical = 2
 custom_fonts/font = ExtResource( 1 )
 toggle_mode = false
 text = "Tower #1"
-icon = ExtResource( 2 )
 flat = false
-script/script = ExtResource( 3 )
-__meta__ = { "__editor_plugin_screen__":"2D", "__editor_plugin_states__":{ "2D":{ "ofs":Vector2( -106.692, -80.7034 ), "snap_grid":false, "snap_offset":Vector2( 16, 16 ), "snap_pixel":false, "snap_relative":false, "snap_rotation":false, "snap_rotation_offset":0, "snap_rotation_step":0.261799, "snap_show_grid":true, "snap_step":Vector2( 128, 80 ), "zoom":3.42479 }, "3D":{ "ambient_light_color":Color( 0.15, 0.15, 0.15, 1 ), "default_light":true, "default_srgb":false, "deflight_rot_x":0.942478, "deflight_rot_y":0.628319, "fov":45, "show_grid":true, "show_origin":true, "viewport_mode":1, "viewports":[ { "distance":4, "listener":true, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 } ], "zfar":500, "znear":0.1 }, "Anim":{ "visible":false } }, "__editor_run_settings__":{ "custom_args":"-l $scene", "run_mode":0 } }
+align = 2
+script/script = ExtResource( 2 )
+__meta__ = { "__editor_plugin_screen__":"Script", "__editor_plugin_states__":{ "2D":{ "ofs":Vector2( -71.8426, -85.9557 ), "snap_grid":false, "snap_offset":Vector2( 16, 16 ), "snap_pixel":false, "snap_relative":false, "snap_rotation":false, "snap_rotation_offset":0, "snap_rotation_step":0.261799, "snap_show_grid":true, "snap_step":Vector2( 128, 80 ), "zoom":3.79478 }, "3D":{ "ambient_light_color":Color( 0.15, 0.15, 0.15, 1 ), "default_light":true, "default_srgb":false, "deflight_rot_x":0.942478, "deflight_rot_y":0.628319, "fov":45, "show_grid":true, "show_origin":true, "viewport_mode":1, "viewports":[ { "distance":4, "listener":true, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 } ], "zfar":500, "znear":0.1 }, "Anim":{ "visible":false } }, "__editor_run_settings__":{ "custom_args":"-l $scene", "run_mode":0 } }
 tower_name = "Tower"
 tower_scene_name = "tower1"
 tower_damage = 100
 tower_range = 100
 tower_reload = 1
 tower_price = 100
+
+[node name="icon" type="Sprite" parent="."]
+
+transform/pos = Vector2( 24, 32 )
+texture = ExtResource( 3 )
+vframes = 3
 
 [connection signal="pressed" from="." to="." method="_on_btn_tower_pressed"]
 
