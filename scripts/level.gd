@@ -41,14 +41,20 @@ export var debug = false
 
 var waves = [
 	Wave.new([
-		WaveEnemy.new(enemy1_scene, 10)
-	]),
-	Wave.new([
 		WaveEnemy.new(enemy1_scene, 20)
 	], 1.2),
 	Wave.new([
-		WaveEnemy.new(enemy1_scene, 30)
-	], 1.2)
+		WaveEnemy.new(enemy1_scene, 40)
+	], 1.2),
+	Wave.new([
+		WaveEnemy.new(enemy1_scene, 80)
+	], 0.4),
+	Wave.new([
+		WaveEnemy.new(enemy1_scene, 100)
+	], 0.02),
+	Wave.new([
+		WaveEnemy.new(enemy1_scene, 400)
+	], 0.01)
 ]
 var current_wave_index = 0
 var current_wave
