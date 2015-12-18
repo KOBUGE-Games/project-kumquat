@@ -37,6 +37,8 @@ func _ready():
 	cur_tile = tilemap.world_to_map(get_pos())
 	dest_tile = cur_tile
 	
+	get_node("animation_player").connect("finished", self, "_on_animation_player_finished")
+	
 	set_fixed_process(true)
 
 func _fixed_process(delta):
