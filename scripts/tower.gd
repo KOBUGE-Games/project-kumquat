@@ -49,11 +49,11 @@ func set_carried(carried):
 func attack():
 	pass
 
-func display_attack(should_show):
-	if should_show:
-		attack_indicator.show()
-	else:
-		attack_indicator.hide()
+func display_attack():
+	attack_indicator.show()
+
+func hide_attack():
+	attack_indicator.hide()
 
 ### Signal handlers ###
 

@@ -44,6 +44,3 @@ func display_attack():
 	attack_indicator.set_rot(target.get_pos().angle_to_point(get_pos()))
 	attack_indicator.show()
 	animation_player.play("attack")
-
-func hide_attack():
-	attack_indicator.hide()
