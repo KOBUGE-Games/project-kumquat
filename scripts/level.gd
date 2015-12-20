@@ -33,8 +33,7 @@ const DIRECTIONS = Vector2Array([Vector2(1, 0), Vector2(-1, 0), Vector2(0, 1), V
 
 # Nodes and resources
 var enemy1_scene = preload("res://scenes/enemies/enemy1.tscn")
-var tilemap_walkable
-var tilemap_buildable
+var tilemap
 
 export var cell_size = Vector2(32, 32)
 export var debug = false
@@ -64,23 +63,22 @@ var tiles = {}
 var goals = []
 var starts = []
 
-var tile_type_override = {
-	"wall_s": Tile.TILE_SOLID,
-	"wall_e": Tile.TILE_SOLID,
-	"wall_w": Tile.TILE_SOLID,
-	"wall_overlap_e": Tile.TILE_SOLID,
-	"wall_overlap_s": Tile.TILE_SOLID
+# Dictionary containing tile types. They are formed by taking the first part of the tilename.
+var tile_types = {
+	"grass": Tile.TILE_WALKABLE,
+	"dirt": Tile.TILE_WALKABLE,
+	
+	"tower": Tile.TILE_BUILDABLE,
+	"wall": Tile.TILE_SOLID
 }
 
 ### Callbacks ###
 
 func _enter_tree():
-	tilemap_walkable = get_node("tilemap_grass")
-	tilemap_buildable = get_node("tilemap_tower")
+	tilemap = get_node("tilemap")
 	
 	tiles = {}
-	import_tilemap(tilemap_walkable, Tile.TILE_WALKABLE)
-	import_tilemap(tilemap_buildable, Tile.TILE_BUILDABLE)
+	import_tilemap(tilemap, Tile.TILE_WALKABLE)
 
 func _ready():
 	get_node("enemy_timer").connect("timeout", self, "spawn_enemy")
@@ -121,8 +119,11 @@ func import_tilemap(tilemap, default_tile_type):
 		var new_tile = Tile.new()
 		var cell_type = tilemap.get_cell(cell.x, cell.y)
 		var cell_name = tileset.tile_get_name(cell_type)
-		if tile_type_override.has(cell_name):
-			new_tile.type = tile_type_override[cell_name]
+		var cell_name_first_part = cell_name.left(cell_name.find("_"))
+		if tile_types.has(cell_name_first_part):
+			new_tile.type = tile_types[cell_name_first_part]
+		elif tile_types.has(cell_name):
+			new_tile.type = tile_types[cell_name]
 		else:
 			new_tile.type = default_tile_type
 		

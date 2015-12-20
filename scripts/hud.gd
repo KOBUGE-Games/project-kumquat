@@ -33,8 +33,8 @@ func _ready():
 func _input(ev):
 	if tower_placement and carried_tower:
 		if ev.type == InputEvent.MOUSE_MOTION:
-			var tile_pos = level.tilemap_buildable.world_to_map(ev.pos - level.get_global_pos())
-			carried_tower.set_pos(level.tilemap_buildable.map_to_world(tile_pos) + global.TILE_OFFSET + Vector2(0,-8))
+			var tile_pos = level.tilemap.world_to_map(ev.pos - level.get_global_pos())
+			carried_tower.set_pos(level.tilemap.map_to_world(tile_pos) + global.TILE_OFFSET + Vector2(0,-8))
 			
 			if level.tiles.has(tile_pos) and level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE \
 					and !level.tiles[tile_pos].has_tower:
@@ -45,7 +45,7 @@ func _input(ev):
 		elif ev.type == InputEvent.MOUSE_BUTTON and ev.is_pressed() and !ev.is_echo():
 			if ev.button_index == BUTTON_LEFT:
 				# Place an instance of the carried tower
-				var tile_pos = level.tilemap_buildable.world_to_map(ev.pos - level.get_global_pos())
+				var tile_pos = level.tilemap.world_to_map(ev.pos - level.get_global_pos())
 				if level.tiles.has(tile_pos) and level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE and !level.tiles[tile_pos].has_tower \
 						and budget_current + pending_transaction >= 0:
 					# Place the carried tower

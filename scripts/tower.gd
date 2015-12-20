@@ -37,7 +37,7 @@ func _ready():
 
 func set_carried(carried):
 	active = !carried
-	tile_pos = level.get_node("tilemap_tower").world_to_map(get_pos())
+	tile_pos = level.tilemap.world_to_map(get_pos())
 	level.tiles[tile_pos].has_tower = !carried
 	get_node("sprite").set_opacity(1.0 - int(carried)*0.4)
 	get_node("range_indicator").set_hidden(!carried)

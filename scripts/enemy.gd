@@ -32,7 +32,7 @@ export var worth = 25 # the amount of money given to player after enemies death
 func _ready():
 	global = get_node("/root/global")
 	level = global.level
-	tilemap = level.tilemap_walkable
+	tilemap = level.tilemap
 	
 	cur_tile = tilemap.world_to_map(get_pos())
 	dest_tile = cur_tile
