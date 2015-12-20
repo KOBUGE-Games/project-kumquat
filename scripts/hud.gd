@@ -8,8 +8,8 @@ var level
 var budget
 var health
 
-var budget_current = 1000
-var health_current = 1000
+export var budget_current = 1000
+export var health_current = 1000
 var pending_transaction = 0
 
 var tower_placement = false
@@ -31,12 +31,13 @@ func _ready():
 	set_process_input(true)
 
 func _input(ev):
-	if tower_placement and carried_tower and level.get_parent().get_global_rect().has_point(ev.pos):
+	if tower_placement and carried_tower:
 		if ev.type == InputEvent.MOUSE_MOTION:
 			var tile_pos = level.tilemap_buildable.world_to_map(ev.pos - level.get_global_pos())
 			carried_tower.set_pos(level.tilemap_buildable.map_to_world(tile_pos) + global.TILE_OFFSET + Vector2(0,-8))
 			
-			if level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE and !level.tiles[tile_pos].has_tower:
+			if level.tiles.has(tile_pos) and level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE \
+					and !level.tiles[tile_pos].has_tower:
 				carried_tower.get_node("sprite").set_modulate(Color(0.3, 1.0, 0.4)) # Buildable, green
 			else:
 				carried_tower.get_node("sprite").set_modulate(Color(1.0, 0.3, 0.3)) # Non buildable, red
@@ -45,7 +46,7 @@ func _input(ev):
 			if ev.button_index == BUTTON_LEFT:
 				# Place an instance of the carried tower
 				var tile_pos = level.tilemap_buildable.world_to_map(ev.pos - level.get_global_pos())
-				if level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE and !level.tiles[tile_pos].has_tower \
+				if level.tiles.has(tile_pos) and level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE and !level.tiles[tile_pos].has_tower \
 						and budget_current + pending_transaction >= 0:
 					# Place the carried tower
 					update_budget(pending_transaction)
