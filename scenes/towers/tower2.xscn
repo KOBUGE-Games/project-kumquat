@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="5" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
-	<ext_resource path="res://scripts/tower_single_target_missle.gd" type="Script" index="1"></ext_resource>
-	<ext_resource path="res://scenes/towers/tower.xscn" type="PackedScene" index="0"></ext_resource>
 	<ext_resource path="res://graphics/towers/tower2.png" type="Texture" index="3"></ext_resource>
+	<ext_resource path="res://scenes/towers/tower.xscn" type="PackedScene" index="0"></ext_resource>
+	<ext_resource path="res://scripts/tower_single_target_missle.gd" type="Script" index="1"></ext_resource>
 	<ext_resource path="res://scenes/towers/missles/missle.xscn" type="PackedScene" index="2"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
@@ -47,12 +47,12 @@
 				<resource  external="0">  </resource>
 				<real> 0.1 </real>
 				<resource  external="1">  </resource>
-				<int> 3 </int>
+				<int> 1 </int>
 				<resource  external="2">  </resource>
 				<bool> True </bool>
 				<real> 0 </real>
 				<resource  external="3">  </resource>
-				<real> 0.2 </real>
+				<real> 1 </real>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>

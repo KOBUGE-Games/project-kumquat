@@ -42,9 +42,9 @@
 				<resource  external="0">  </resource>
 				<real> 0.1 </real>
 				<resource  external="1">  </resource>
-				<int> 3 </int>
+				<int> 2 </int>
 				<real> 0 </real>
-				<real> 0.2 </real>
+				<real> 1 </real>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>
