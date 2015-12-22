@@ -8,10 +8,13 @@ func _ready():
 ### Functions ###
 
 func display_attack():
-	attack_indicator.set_scale(Vector2(attack_indicator.get_scale().x, target.get_pos().distance_to(get_pos()) / global.TILE_SIZE))
-	attack_indicator.set_rot(target.get_pos().angle_to_point(get_pos()))
-	get_node("rotator").set_rot(target.get_pos().angle_to_point(get_pos()))
+	var attack_indicator = tower.attack_indicator
+	
+	var scale_y = target.get_pos().distance_to(tower.get_pos()) / tower.global.TILE_SIZE
+	attack_indicator.set_scale(Vector2(attack_indicator.get_scale().x, scale_y))
+	
+	attack_indicator.set_rot(target.get_pos().angle_to_point(tower.get_pos()))
 
 	attack_indicator.show()
-	animation_player.play("attack")
+	tower.animation_player.play("attack")
 

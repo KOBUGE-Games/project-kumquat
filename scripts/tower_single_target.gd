@@ -12,7 +12,7 @@ func _ready():
 ### Functions ###
 
 func attack():
-	var enemies = get_overlapping_areas()
+	var enemies = tower.get_overlapping_areas()
 	if (target == null or not keep_target()) or not (target in enemies) or not target.get("hp") or target.hp <= 0:
 		target = null
 		pick_target(enemies)
@@ -32,7 +32,7 @@ func pick_target(enemies):
 	var min_squared_distance = null
 	for enemy in enemies:
 		if enemy.get("hp"):
-			var distance = enemy.get_pos().distance_squared_to(get_pos())
+			var distance = enemy.get_pos().distance_squared_to(tower.get_pos())
 			if min_squared_distance == null or distance < min_squared_distance:
 				target = enemy
 				min_squared_distance = distance
@@ -41,6 +41,7 @@ func keep_target():
 	return true
 
 func display_attack():
-	attack_indicator.set_rot(target.get_pos().angle_to_point(get_pos()))
-	attack_indicator.show()
-	animation_player.play("attack")
+	tower.attack_indicator.set_rot(target.get_pos().angle_to_point(tower.get_pos()))
+	tower.attack_indicator.show()
+	
+	tower.animation_player.play("attack")
