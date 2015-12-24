@@ -36,17 +36,16 @@ func _input(ev):
 			var tile_pos = level.tilemap.world_to_map(ev.pos - level.get_global_pos())
 			carried_tower.set_pos(level.tilemap.map_to_world(tile_pos) + global.TILE_OFFSET + Vector2(0,-8))
 			
-			if level.tiles.has(tile_pos) and level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE \
-					and !level.tiles[tile_pos].has_tower:
-				carried_tower.get_node("sprite").set_modulate(Color(0.3, 1.0, 0.4)) # Buildable, green
+			if level.tiles.has(tile_pos):
+				carried_tower.update_status(level.tiles[tile_pos].type, level.tiles[tile_pos].tower)
 			else:
-				carried_tower.get_node("sprite").set_modulate(Color(1.0, 0.3, 0.3)) # Non buildable, red
+				carried_tower.update_status(level.Tile.TILE_SOLID, null)
 		
 		elif ev.type == InputEvent.MOUSE_BUTTON and ev.is_pressed() and !ev.is_echo():
 			if ev.button_index == BUTTON_LEFT:
 				# Place an instance of the carried tower
 				var tile_pos = level.tilemap.world_to_map(ev.pos - level.get_global_pos())
-				if level.tiles.has(tile_pos) and level.tiles[tile_pos].type == level.Tile.TILE_BUILDABLE and !level.tiles[tile_pos].has_tower \
+				if level.tiles.has(tile_pos) and carried_tower.can_place(level.tiles[tile_pos].type, level.tiles[tile_pos].tower) \
 						and budget_current + pending_transaction >= 0:
 					# Place the carried tower
 					update_budget(pending_transaction)
@@ -63,7 +62,8 @@ func update_budget(amount):
 	budget_current += amount
 	budget.set_text("Budget: " + str(budget_current))
 	for button in get_node("tower_buttons").get_children():
-		if button.tower_price > budget_current:
+		if (button.get('tower_price') and button.tower_price > budget_current) or \
+				(button.get('upgrade_price') and button.upgrade_price > budget_current):
 			button.set_disabled(true)
 		else:
 			button.set_disabled(false)
@@ -87,6 +87,18 @@ func tower_build_mode(tower_scene, price):
 		tower_placement = true
 		pending_transaction = -price
 		carried_tower = tower_scene.instance()
+		level.add_child(carried_tower)
+		carried_tower.set_pos(Vector2(48, 48))
+		carried_tower.set_carried(true)
+
+func tower_upgrade_mode(upgrade_scene, price):
+	if tower_placement and carried_tower:
+		carried_tower.free()
+	
+	if budget_current >= price:
+		tower_placement = true
+		pending_transaction = -price
+		carried_tower = upgrade_scene.instance()
 		level.add_child(carried_tower)
 		carried_tower.set_pos(Vector2(48, 48))
 		carried_tower.set_carried(true)

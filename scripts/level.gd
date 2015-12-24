@@ -10,7 +10,7 @@ class Tile:
 	var type = TILE_WALKABLE
 	var possible_directions = []
 	var goal_directions = []
-	var has_tower = false
+	var tower = null
 
 class Wave:
 	var enemies = []

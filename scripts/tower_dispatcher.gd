@@ -27,8 +27,8 @@ func _ready():
 	get_node("attack_timer").connect("timeout", self, "_attack")
 	get_node("attack_timer").start()
 	
-	connect("mouse_enter", self, "_mouse_enter")
-	connect("mouse_exit", self, "_mouse_exit")
+	get_node("hover").connect("mouse_enter", self, "_mouse_enter")
+	get_node("hover").connect("mouse_exit", self, "_mouse_exit")
 	
 	set_tier(1)
 	
@@ -79,18 +79,29 @@ func set_carried(carried):
 	
 	if !carried:
 		get_node("sprite").set_modulate(Color(1.0, 1.0, 1.0))
-		level.tiles[tile_pos].has_tower = true
+		level.tiles[tile_pos].tower = self
 
 func set_show_info(show_info):
 	reach_indicator.set_hidden(!show_info)
 
+func update_status(tile_type, tile_tower):
+	if can_place(tile_type, tile_tower):
+		get_node("sprite").set_modulate(Color(0.3, 1.0, 0.4)) # Buildable, green
+	else:
+		get_node("sprite").set_modulate(Color(1.0, 0.3, 0.3)) # Non buildable, red
+
+func can_place(tile_type, tile_tower):
+	return tile_type == level.Tile.TILE_BUILDABLE and tile_tower == null
+
 ### Signal handlers ###
 
 func _mouse_enter():
-	set_show_info(true)
+	if active:
+		set_show_info(true)
 
 func _mouse_exit():
-	set_show_info(false)
+	if active:
+		set_show_info(false)
 
 func _attack():
 	if !active:
