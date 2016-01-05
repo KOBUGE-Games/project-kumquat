@@ -1,0 +1,258 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://main/hud.gd" type="Script" id=1]
+[ext_resource path="res://shared/fonts/railway.fnt" type="Font" id=4]
+[ext_resource path="res://main/coin_sheet.png" type="Texture" id=6]
+[ext_resource path="res://main/icon_next_wave.png" type="Texture" id=7]
+[ext_resource path="res://main/heart.png" type="Texture" id=5]
+[ext_resource path="res://main/buttons/btn_tower.tscn" type="PackedScene" id=3]
+[ext_resource path="res://main/buttons/btn_upgrade.tscn" type="PackedScene" id=2]
+
+[node name="hud" type="Control"]
+
+margin/right = 40
+margin/bottom = 40
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+script/script = ExtResource( 1 )
+__meta__ = { "__editor_plugin_screen__":"Script", "__editor_plugin_states__":{ "2D":{ "ofs":Vector2( -129.88, -58.2231 ), "snap_grid":true, "snap_offset":Vector2( 10, 63 ), "snap_pixel":false, "snap_relative":false, "snap_rotation":false, "snap_rotation_offset":0, "snap_rotation_step":0.261799, "snap_show_grid":true, "snap_step":Vector2( 128, 68 ), "zoom":2.78951 }, "3D":{ "ambient_light_color":Color( 0.15, 0.15, 0.15, 1 ), "default_light":true, "default_srgb":false, "deflight_rot_x":0.942478, "deflight_rot_y":0.628319, "fov":45, "show_grid":true, "show_origin":true, "viewport_mode":1, "viewports":[ { "distance":4, "listener":true, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 } ], "zfar":500, "znear":0.1 }, "Anim":{ "visible":false } }, "__editor_run_settings__":{ "custom_args":"-l $scene", "run_mode":0 } }
+budget_current = 1000
+health_current = 1000
+
+[node name="tower_buttons" type="Control" parent="."]
+
+margin/top = 62
+margin/right = 40
+margin/bottom = 102
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="btn_upgrade" parent="tower_buttons" instance=ExtResource( 2 )]
+
+margin/left = 10
+margin/top = 1
+margin/right = 138
+margin/bottom = 65
+upgrade_price = 100
+
+[node name="btn_tower1" parent="tower_buttons" instance=ExtResource( 3 )]
+
+margin/left = 10
+margin/top = 69
+margin/right = 138
+margin/bottom = 133
+tower_name = "Type #1"
+tower_scene_name = "tower_sniper"
+tower_damage = 100
+tower_range = 100
+tower_reload = 1
+tower_price = 100
+
+[node name="btn_tower2" parent="tower_buttons" instance=ExtResource( 3 )]
+
+margin/left = 10
+margin/top = 137
+margin/right = 138
+margin/bottom = 201
+text = "Tower #2"
+tower_name = "Type #2"
+tower_scene_name = "tower_fireball"
+tower_damage = 100
+tower_range = 100
+tower_reload = 1
+tower_price = 100
+
+[node name="btn_tower3" parent="tower_buttons" instance=ExtResource( 3 )]
+
+margin/left = 10
+margin/top = 205
+margin/right = 138
+margin/bottom = 269
+text = "Tower #3"
+tower_name = "Type #3"
+tower_scene_name = "tower_slow"
+tower_damage = 100
+tower_range = 100
+tower_reload = 1
+tower_price = 100
+
+[node name="tower_tooltip" type="Panel" parent="."]
+
+visibility/visible = false
+visibility/opacity = 0.8
+margin/left = 10
+margin/top = 301
+margin/right = 124
+margin/bottom = 405
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="name" type="Label" parent="tower_tooltip"]
+
+margin/left = 4
+margin/top = 5
+margin/right = 70
+margin/bottom = 23
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 4 )
+text = "Tower #1"
+percent_visible = 1
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="damage" type="Label" parent="tower_tooltip"]
+
+margin/left = 4
+margin/top = 24
+margin/right = 106
+margin/bottom = 42
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 4 )
+text = "Damage: 300"
+percent_visible = 1
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="range" type="Label" parent="tower_tooltip"]
+
+margin/left = 4
+margin/top = 43
+margin/right = 106
+margin/bottom = 61
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 4 )
+text = "Range: 200"
+percent_visible = 1
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="reload" type="Label" parent="tower_tooltip"]
+
+margin/left = 4
+margin/top = 62
+margin/right = 106
+margin/bottom = 80
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 4 )
+text = "Reload: 10 sec"
+percent_visible = 1
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="price" type="Label" parent="tower_tooltip"]
+
+margin/left = 4
+margin/top = 79
+margin/right = 106
+margin/bottom = 97
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 4 )
+text = "Price: 100"
+percent_visible = 1
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="stats" type="Control" parent="."]
+
+margin/right = 40
+margin/bottom = 40
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="health" type="Control" parent="stats"]
+
+margin/right = 40
+margin/bottom = 40
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="icon" type="Sprite" parent="stats/health"]
+
+transform/pos = Vector2( 19.3823, 16.9734 )
+texture = ExtResource( 5 )
+region = true
+region_rect = Rect2( 0, 0, 20, 20 )
+
+[node name="label" type="Label" parent="stats/health"]
+
+margin/left = 34
+margin/top = 8
+margin/right = 109
+margin/bottom = 21
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 4 )
+text = "Health: 100%"
+percent_visible = 1
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="budget" type="Control" parent="stats"]
+
+margin/right = 40
+margin/bottom = 40
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="icon" type="Sprite" parent="stats/budget"]
+
+transform/pos = Vector2( 19.7059, 40.2678 )
+texture = ExtResource( 6 )
+region = true
+region_rect = Rect2( 0, 0, 20, 20 )
+
+[node name="label" type="Label" parent="stats/budget"]
+
+margin/left = 34
+margin/top = 33
+margin/right = 88
+margin/bottom = 46
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 4 )
+text = "Budget: 0"
+percent_visible = 1
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="next_wave" type="Button" parent="."]
+
+margin/left = 10
+margin/top = 750
+margin/right = 138
+margin/bottom = 782
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+custom_fonts/font = ExtResource( 4 )
+toggle_mode = false
+text = "Next Wave"
+icon = ExtResource( 7 )
+flat = false
+
+
