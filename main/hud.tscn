@@ -1,12 +1,27 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://main/hud.gd" type="Script" id=1]
-[ext_resource path="res://shared/fonts/railway.fnt" type="Font" id=4]
-[ext_resource path="res://main/coin_sheet.png" type="Texture" id=6]
-[ext_resource path="res://main/icon_next_wave.png" type="Texture" id=7]
-[ext_resource path="res://main/heart.png" type="Texture" id=5]
-[ext_resource path="res://main/buttons/btn_tower.tscn" type="PackedScene" id=3]
 [ext_resource path="res://main/buttons/btn_upgrade.tscn" type="PackedScene" id=2]
+[ext_resource path="res://towers/drop_upgrade/drop_upgrade.tscn" type="PackedScene" id=3]
+[ext_resource path="res://main/buttons/btn_tower.tscn" type="PackedScene" id=4]
+[ext_resource path="res://towers/tower_sniper/tower_sniper.xscn" type="PackedScene" id=5]
+[ext_resource path="res://towers/tower_fireball/tower_fireball.xscn" type="PackedScene" id=6]
+[ext_resource path="res://towers/tower_slow/tower_slow.xscn" type="PackedScene" id=7]
+[ext_resource path="res://shared/fonts/railway.fnt" type="Font" id=8]
+[ext_resource path="res://main/heart.png" type="Texture" id=9]
+[ext_resource path="res://main/coin_sheet.png" type="Texture" id=10]
+[ext_resource path="res://main/icon_next_wave.png" type="Texture" id=11]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "no_money"
+length = 1.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:frame")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1 ), "values":[ 0, 1, 2, 3, 4, 5, 0 ] }
 
 [node name="hud" type="Control"]
 
@@ -17,7 +32,7 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"Script", "__editor_plugin_states__":{ "2D":{ "ofs":Vector2( -129.88, -58.2231 ), "snap_grid":true, "snap_offset":Vector2( 10, 63 ), "snap_pixel":false, "snap_relative":false, "snap_rotation":false, "snap_rotation_offset":0, "snap_rotation_step":0.261799, "snap_show_grid":true, "snap_step":Vector2( 128, 68 ), "zoom":2.78951 }, "3D":{ "ambient_light_color":Color( 0.15, 0.15, 0.15, 1 ), "default_light":true, "default_srgb":false, "deflight_rot_x":0.942478, "deflight_rot_y":0.628319, "fov":45, "show_grid":true, "show_origin":true, "viewport_mode":1, "viewports":[ { "distance":4, "listener":true, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 } ], "zfar":500, "znear":0.1 }, "Anim":{ "visible":false } }, "__editor_run_settings__":{ "custom_args":"-l $scene", "run_mode":0 } }
+__meta__ = { "__editor_plugin_screen__":"Script" }
 budget_current = 1000
 health_current = 1000
 
@@ -37,48 +52,31 @@ margin/left = 10
 margin/top = 1
 margin/right = 138
 margin/bottom = 65
-upgrade_price = 100
+upgrade_scene = ExtResource( 3 )
 
-[node name="btn_tower1" parent="tower_buttons" instance=ExtResource( 3 )]
+[node name="btn_tower1" parent="tower_buttons" instance=ExtResource( 4 )]
 
 margin/left = 10
 margin/top = 69
 margin/right = 138
 margin/bottom = 133
-tower_name = "Type #1"
-tower_scene_name = "tower_sniper"
-tower_damage = 100
-tower_range = 100
-tower_reload = 1
-tower_price = 100
+tower_scene = ExtResource( 5 )
 
-[node name="btn_tower2" parent="tower_buttons" instance=ExtResource( 3 )]
+[node name="btn_tower2" parent="tower_buttons" instance=ExtResource( 4 )]
 
 margin/left = 10
 margin/top = 137
 margin/right = 138
 margin/bottom = 201
-text = "Tower #2"
-tower_name = "Type #2"
-tower_scene_name = "tower_fireball"
-tower_damage = 100
-tower_range = 100
-tower_reload = 1
-tower_price = 100
+tower_scene = ExtResource( 6 )
 
-[node name="btn_tower3" parent="tower_buttons" instance=ExtResource( 3 )]
+[node name="btn_tower3" parent="tower_buttons" instance=ExtResource( 4 )]
 
 margin/left = 10
 margin/top = 205
 margin/right = 138
 margin/bottom = 269
-text = "Tower #3"
-tower_name = "Type #3"
-tower_scene_name = "tower_slow"
-tower_damage = 100
-tower_range = 100
-tower_reload = 1
-tower_price = 100
+tower_scene = ExtResource( 7 )
 
 [node name="tower_tooltip" type="Panel" parent="."]
 
@@ -102,7 +100,7 @@ margin/bottom = 23
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 8 )
 text = "Tower #1"
 percent_visible = 1
 lines_skipped = 0
@@ -117,7 +115,7 @@ margin/bottom = 42
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 8 )
 text = "Damage: 300"
 percent_visible = 1
 lines_skipped = 0
@@ -132,7 +130,7 @@ margin/bottom = 61
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 8 )
 text = "Range: 200"
 percent_visible = 1
 lines_skipped = 0
@@ -147,7 +145,7 @@ margin/bottom = 80
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 8 )
 text = "Reload: 10 sec"
 percent_visible = 1
 lines_skipped = 0
@@ -162,7 +160,7 @@ margin/bottom = 97
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 8 )
 text = "Price: 100"
 percent_visible = 1
 lines_skipped = 0
@@ -189,7 +187,7 @@ size_flags/vertical = 2
 [node name="icon" type="Sprite" parent="stats/health"]
 
 transform/pos = Vector2( 19.3823, 16.9734 )
-texture = ExtResource( 5 )
+texture = ExtResource( 9 )
 region = true
 region_rect = Rect2( 0, 0, 20, 20 )
 
@@ -197,12 +195,12 @@ region_rect = Rect2( 0, 0, 20, 20 )
 
 margin/left = 34
 margin/top = 8
-margin/right = 109
-margin/bottom = 21
+margin/right = 126
+margin/bottom = 26
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 8 )
 text = "Health: 100%"
 percent_visible = 1
 lines_skipped = 0
@@ -220,24 +218,35 @@ size_flags/vertical = 2
 [node name="icon" type="Sprite" parent="stats/budget"]
 
 transform/pos = Vector2( 19.7059, 40.2678 )
-texture = ExtResource( 6 )
-region = true
+texture = ExtResource( 10 )
+hframes = 6
 region_rect = Rect2( 0, 0, 20, 20 )
 
 [node name="label" type="Label" parent="stats/budget"]
 
 margin/left = 34
-margin/top = 33
-margin/right = 88
-margin/bottom = 46
+margin/top = 32
+margin/right = 126
+margin/bottom = 26
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 8 )
 text = "Budget: 0"
 percent_visible = 1
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="animation_player" type="AnimationPlayer" parent="stats/budget"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0
+root/root = NodePath("..")
+anims/no_money = SubResource( 1 )
+playback/active = true
+playback/speed = 1
+blend_times = [  ]
+autoplay = ""
 
 [node name="next_wave" type="Button" parent="."]
 
@@ -249,10 +258,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 8 )
 toggle_mode = false
 text = "Next Wave"
-icon = ExtResource( 7 )
+icon = ExtResource( 11 )
 flat = false
 
 

@@ -8,13 +8,12 @@ var hud # The HUD node
 var tooltip # The tower tooltip
 
 # Characteristics
-export var tower_name = "Unnamed"
-export var tower_scene_name = "tower1"
-export var tower_damage = 100
-export var tower_range = 100
-export var tower_reload = 1
-export var tower_price = 100
-var tower_scene
+export(PackedScene) var tower_scene
+var tower_name = "Unnamed"
+var tower_damage = 100
+var tower_range = 100
+var tower_price = 100
+var tower_reload = 1
 
 ### Callbacks ###
 
@@ -23,12 +22,24 @@ func _ready():
 	hud = global.hud
 	tooltip = hud.get_node("tower_tooltip")
 
-	tower_scene = load("res://towers/" + tower_scene_name + "/" + tower_scene_name + ".xscn")
-	get_node("icon").set_texture(load("res://towers/" + tower_scene_name + "/" + tower_scene_name + ".png"))
-	set_text(tower_name)
+	set_attributes_from_tower_scene(tower_scene)
+	get_node("label").set_text(tower_name)
 	
 	if hud.budget_current < tower_price:
 		set_disabled(true)
+
+### Functions ###
+
+func set_attributes_from_tower_scene(tower_scene):
+	var tower = tower_scene.instance()
+	get_node("icon").set_texture(tower.get_node("sprite").get_texture())
+	
+	var tier = tower.get_tier(1)
+	tower_name = tier.name
+	tower_damage = tier.damage
+	tower_range = tier.reach
+	tower_reload = tier.frequency
+	tower_price = tier.price
 
 ### Signals ###
 
@@ -45,4 +56,4 @@ func _on_btn_tower_mouse_exit():
 	tooltip.hide()
 
 func _on_btn_tower_pressed():
-	hud.tower_build_mode(tower_scene, tower_price)
+	hud.tower_build_mode(tower_scene)

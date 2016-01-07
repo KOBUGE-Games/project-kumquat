@@ -36,8 +36,10 @@ func _ready():
 
 ### Functions ###
 
-func has_tier(tier):
-	return has_node(str("tier_", tier))
+# Tier-related functions
+
+func get_tier(tier):
+	return get_node(str("tier_", tier))
 
 func set_tier(tier):
 	tower_tier = get_node(str("tier_", tier))
@@ -51,11 +53,25 @@ func set_tier(tier):
 	set_attack_time(1/tower_tier.frequency)
 	get_node("sprite").set_frame(tier - 1)
 
+func has_tier(tier):
+	return has_node(str("tier_", tier))
+
 func can_upgrade_tier():
 	return has_tier(current_tier + 1)
 
 func upgrade_tier():
 	set_tier(current_tier + 1)
+
+func get_next_tier_price():
+	if can_upgrade_tier():
+		return get_tier(current_tier + 1).price
+	else:
+		return 0
+
+func get_price(tile_pos):
+	return get_tier(1).price
+
+# Helper functions that manage configuration
 
 func set_reach(reach):
 	reach = reach + 0.5
@@ -71,6 +87,8 @@ func set_reach(reach):
 func set_attack_time(time):
 	get_node("attack_timer").set_wait_time(time)
 
+# Helper functions related to tower dropping
+
 func set_carried(carried):
 	active = !carried
 	tile_pos = level.tilemap.world_to_map(get_pos())
@@ -84,8 +102,8 @@ func set_carried(carried):
 func set_show_info(show_info):
 	reach_indicator.set_hidden(!show_info)
 
-func update_status(tile_type, tile_tower):
-	if can_place(tile_type, tile_tower):
+func update_status(tile_type, tile_tower, budget):
+	if can_place(tile_type, tile_tower) and get_price(tile_pos) <= budget:
 		get_node("sprite").set_modulate(Color(0.3, 1.0, 0.4)) # Buildable, green
 	else:
 		get_node("sprite").set_modulate(Color(1.0, 0.3, 0.3)) # Non buildable, red

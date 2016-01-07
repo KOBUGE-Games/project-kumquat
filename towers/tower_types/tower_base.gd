@@ -5,6 +5,8 @@ extends Node
 export var damage = 1
 export var frequency = 1.0
 export var reach = 4.0
+export var name = "Unnamed"
+export var price = 100
 
 var tower # Tower dispatcher node
 

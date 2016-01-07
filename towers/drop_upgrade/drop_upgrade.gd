@@ -26,8 +26,9 @@ func set_carried(carried):
 		level.tiles[tile_pos].tower.upgrade_tier()
 		queue_free()
 
-func update_status(tile_type, tile_tower):
-	if can_place(tile_type, tile_tower):
+func update_status(tile_type, tile_tower, budget):
+	var tile_pos = level.tilemap.world_to_map(get_pos())
+	if can_place(tile_type, tile_tower) and get_price(tile_pos) <= budget:
 		get_node("sprite").set_modulate(Color(0.3, 1.0, 0.4)) # Buildable, green
 	else:
 		get_node("sprite").set_modulate(Color(1.0, 0.3, 0.3)) # Non buildable, red
@@ -35,3 +36,7 @@ func update_status(tile_type, tile_tower):
 func can_place(tile_type, tile_tower):
 	return tile_type == level.Tile.TILE_BUILDABLE and tile_tower != null and tile_tower.can_upgrade_tier()
 
+func get_price(tile_pos):
+	if level.tiles[tile_pos].tower != null:
+		return level.tiles[tile_pos].tower.get_next_tier_price()
+	return 0
