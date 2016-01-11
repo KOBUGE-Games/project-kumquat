@@ -27,6 +27,9 @@ export var hp = 100 # health points
 export var damage = 10 # the damage which it gives when reaches the dest
 export var worth = 25 # the amount of money given to player after enemies death
 
+var speed_multiplier = 1
+var speed_multiplier_reset = 0
+
 ### Callbacks ###
 
 func _ready():
@@ -49,6 +52,11 @@ func _fixed_process(delta):
 		get_node("animation_player").play("die")
 		global.hud.update_budget(worth)
 		return
+	
+	# Handle slowness
+	speed_multiplier_reset -= delta
+	if speed_multiplier_reset < 0:
+		speed_multiplier = 1
 	
 	# Handle movement
 	cur_tile = tilemap.world_to_map(get_pos() - motion_dir*global.TILE_OFFSET)
@@ -75,7 +83,7 @@ func _fixed_process(delta):
 			get_node("animation_player").play(WALK_ANIMS[motion_dir])
 	
 	# Move now
-	var motion = motion_dir*speed*global.TILE_SIZE*delta
+	var motion = motion_dir*speed*speed_multiplier*global.TILE_SIZE*delta
 	set_pos(get_pos() + motion)
 
 ### Signals ###

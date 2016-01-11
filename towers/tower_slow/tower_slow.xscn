@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="3" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
+<resource_file type="PackedScene" subresource_count="4" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
 	<ext_resource path="res://towers/tower.xscn" type="PackedScene" index="0"></ext_resource>
-	<ext_resource path="res://towers/tower_slow/tower_slow.png" type="Texture" index="1"></ext_resource>
+	<ext_resource path="res://towers/tower_types/tower_single_target_laser.gd" type="Script" index="1"></ext_resource>
+	<ext_resource path="res://towers/tower_slow/tower_slow.png" type="Texture" index="2"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "base_scene" </string>
@@ -14,11 +15,15 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="18">
+			<string_array  len="24">
 				<string> "tower" </string>
+				<string> "transform/pos" </string>
 				<string> "linear_damp" </string>
 				<string> "tier_1" </string>
+				<string> "script/script" </string>
 				<string> "damage" </string>
+				<string> "damage_duration" </string>
+				<string> "damage_type" </string>
 				<string> "frequency" </string>
 				<string> "reach" </string>
 				<string> "name" </string>
@@ -26,6 +31,8 @@
 				<string> "collision_shape_2d" </string>
 				<string> "reach_indicator" </string>
 				<string> "attack_indicator" </string>
+				<string> "visibility/opacity" </string>
+				<string> "modulate" </string>
 				<string> "sprite" </string>
 				<string> "texture" </string>
 				<string> "sample_player_2d" </string>
@@ -35,22 +42,27 @@
 				<string> "hover" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 4 </int>
+			<int> 5 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="44"> 				-1, -1, 2147483647, 0, -1, 1, 1, 1, 0, 0, 0, 2147483647, 2, -1, 5, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 0, 0, 0, 2147483647, 11, -1, 1, 12, 7, 0, 0, 0, 2147483647, 15, -1, 1, 16, 8, 0 </int_array>
+			<int_array  len="63"> 				-1, -1, 2147483647, 0, -1, 2, 1, 1, 2, 2, 0, 0, 0, 2147483647, 3, -1, 8, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 10, 0, 0, 0, 2147483647, 14, -1, 2, 15, 7, 16, 11, 0, 0, 0, 2147483647, 17, -1, 1, 18, 12, 0, 0, 0, 2147483647, 21, -1, 1, 22, 13, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="9" shared="false">
+			<array  len="14" shared="false">
 				<resource  external="0">  </resource>
+				<vector2> 0, 1 </vector2>
 				<real> 0.1 </real>
+				<resource  external="1">  </resource>
+				<int> 2 </int>
+				<real> 2 </real>
 				<int> 1 </int>
 				<real> 1 </real>
 				<real> 4 </real>
 				<string> "Tar" </string>
-				<int> 0 </int>
-				<resource  external="1">  </resource>
+				<int> 100 </int>
+				<color> 0, 0, 0, 1 </color>
+				<resource  external="2">  </resource>
 				<real> 0.2 </real>
 			</array>
 			<string> "version" </string>
