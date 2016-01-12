@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://towers/tower.tscn" type="PackedScene" id=1]
+[ext_resource path="res://towers/tower_types/tower_single_target_missle.gd" type="Script" id=2]
+[ext_resource path="res://towers/tower_fireball/fireball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://towers/tower_fireball/tower_fireball.png" type="Texture" id=4]
+
+[node name="tower" instance=ExtResource( 1 )]
+
+linear_damp = 0.1
+
+[node name="tier_1" parent="."]
+
+script/script = ExtResource( 2 )
+damage = 1
+damage_duration = 1.0
+damage_type = 0
+frequency = 1.5
+reach = 2.0
+name = "Fireball"
+price = 150
+missle_scene = ExtResource( 3 )
+
+[node name="attack_indicator" parent="."]
+
+visibility/visible = true
+visibility/self_opacity = 0.0
+
+[node name="sprite" parent="."]
+
+texture = ExtResource( 4 )
+
+[node name="attack_timer" parent="."]
+
+wait_time = 1.0
+
+[node name="tier_2" type="Node" parent="."]
+
+script/script = ExtResource( 2 )
+damage = 2
+damage_duration = 1.0
+damage_type = 0
+frequency = 2.0
+reach = 3.0
+name = "Cannon"
+price = 150
+missle_scene = ExtResource( 3 )
+
+

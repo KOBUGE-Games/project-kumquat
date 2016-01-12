@@ -1,0 +1,140 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://towers/missle.gd" type="Script" id=1]
+[ext_resource path="res://towers/tower_fireball/particle.png" type="Texture" id=2]
+[ext_resource path="res://towers/tower_fireball/fireball.png" type="Texture" id=3]
+[ext_resource path="res://towers/tower_fireball/explosion_48.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 16.0
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "burn"
+length = 0.6
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("missile_sprite:frame")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.6 ), "transitions":FloatArray( 1, 1 ), "values":[ 0, 5 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("missile_sprite:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/keys = { "cont":true, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ 1.0 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("explosion_sprite:visibility/opacity")
+tracks/2/interp = 1
+tracks/2/keys = { "cont":true, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ 0.0 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("missile_particles:visibility/opacity")
+tracks/3/interp = 1
+tracks/3/keys = { "cont":true, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ 1.0 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("missile_particles:config/emitting")
+tracks/4/interp = 1
+tracks/4/keys = { "cont":false, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ true ] }
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "explode"
+length = 0.4
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("explosion_sprite:frame")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.35 ), "transitions":FloatArray( 1, 1 ), "values":[ 0, 7 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("explosion_sprite:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/keys = { "cont":true, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ 1.0 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("missile_sprite:visibility/opacity")
+tracks/2/interp = 1
+tracks/2/keys = { "cont":true, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ 0.0 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("missile_particles:visibility/opacity")
+tracks/3/interp = 1
+tracks/3/keys = { "cont":true, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ 0.0 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("missile_particles:config/emitting")
+tracks/4/interp = 1
+tracks/4/keys = { "cont":false, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ false ] }
+
+[node name="missle" type="Area2D"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+__meta__ = { "__editor_plugin_screen__":"2D" }
+speed = 2.0
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="missile_particles" type="Particles2D" parent="."]
+
+config/amount = 32
+config/lifetime = 0.5
+config/preprocess = 0.1
+config/half_extents = Vector2( 5, 5 )
+config/local_space = false
+config/texture = ExtResource( 2 )
+config/h_frames = 8
+params/direction = 0.0
+params/spread = 20.0
+params/linear_velocity = 0.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.8
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/direction = 0.001662
+randomness/spread = -0.003656
+randomness/linear_velocity = 0.2
+
+[node name="missile_sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 3 )
+hframes = 6
+
+[node name="explosion_sprite" type="Sprite" parent="."]
+
+visibility/opacity = 0.0
+texture = ExtResource( 4 )
+hframes = 8
+frame = 7
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/burn = SubResource( 2 )
+anims/explode = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "burn"
+
+
