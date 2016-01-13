@@ -14,6 +14,11 @@ export var health_current = 1000
 var tower_placement = false
 var carried_tower = null
 
+var damage_per_last_second = 0
+var damage_per_second = 0
+var damage_total = 0
+var second_left = 0
+
 ### Callbacks ###
 
 func _ready():
@@ -28,6 +33,20 @@ func _ready():
 	health.set_text("Health: " + str(health_current))
 	
 	set_process_input(true)
+	set_fixed_process(true)
+
+func _fixed_process(delta):
+	second_left -= delta
+	if second_left < 0:
+		second_left += 1
+		damage_per_last_second = damage_per_second
+		damage_per_second = 0
+		add_damage(0)
+
+func add_damage(amount):
+	damage_total += amount
+	damage_per_second += amount
+	get_node("stats/damage/label").set_text(str("Damage:\n  Total: ", damage_total, "\n  Per second: ", damage_per_last_second))
 
 func _input(ev):
 	if tower_placement and carried_tower:

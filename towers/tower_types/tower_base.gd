@@ -29,6 +29,7 @@ func _ready():
 func deal_damage(target):
 	if damage_type == DAMAGE_DIRECT:
 		target.hp -= damage
+		tower.global.hud.add_damage(damage)
 	elif damage_type == DAMAGE_SLOW:
 		target.speed_multiplier = min(target.speed_multiplier, 1/float(damage))
 		target.speed_multiplier_reset = max(target.speed_multiplier_reset, damage_duration)
