@@ -15,6 +15,7 @@ export var frequency = 1.0
 export var reach = 4.0
 export var name = "Unnamed"
 export var price = 100
+export var show_attack_indicator = true
 
 var tower # Tower dispatcher node
 
@@ -38,7 +39,8 @@ func attack():
 	pass
 
 func display_attack():
-	tower.attack_indicator.show()
+	if show_attack_indicator:
+		tower.attack_indicator.show()
 
 func hide_attack():
 	tower.attack_indicator.hide()

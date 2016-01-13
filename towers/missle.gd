@@ -8,7 +8,7 @@ var exploded = false
 
 # Set by the tower class
 var direction = Vector2()
-var damage = 1.0
+var damage_funcref
 var distance_left = 1.0
 
 # Nodes
@@ -49,7 +49,7 @@ func explode(enemies):
 	# Decrease health
 	for enemy in enemies:
 		if enemy.get("hp"):
-			enemy.hp -= damage
+			damage_funcref.call_func(enemy)
 	
 	# Play animation
 	get_node("animation_player").play("explode")

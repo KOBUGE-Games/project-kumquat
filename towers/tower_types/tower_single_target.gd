@@ -53,7 +53,11 @@ func keep_target():
 	return damage_type == DAMAGE_DIRECT
 
 func display_attack():
-	tower.attack_indicator.set_rot(target.get_pos().angle_to_point(tower.get_pos()))
-	tower.attack_indicator.show()
+	if show_attack_indicator:
+		tower.attack_indicator.set_rot(target.get_pos().angle_to_point(tower.get_pos()))
+		tower.attack_indicator.show()
+	else:
+		tower.attack_indicator.hide()
+		
 	
 	tower.animation_player.play("attack")

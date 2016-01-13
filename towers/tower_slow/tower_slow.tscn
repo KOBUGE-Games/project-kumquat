@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://towers/tower.tscn" type="PackedScene" id=1]
 [ext_resource path="res://towers/tower_types/tower_single_target_laser.gd" type="Script" id=2]
 [ext_resource path="res://towers/tower_slow/tower_slow.png" type="Texture" id=3]
+[ext_resource path="res://towers/tower_types/tower_single_target_missle.gd" type="Script" id=4]
+[ext_resource path="res://towers/tower_slow/frostball.tscn" type="PackedScene" id=5]
 
 [node name="tower" instance=ExtResource( 1 )]
 
@@ -13,12 +15,13 @@ linear_damp = 0.1
 
 script/script = ExtResource( 2 )
 damage = 2
-damage_duration = 2.0
+damage_duration = 4.0
 damage_type = 1
 frequency = 1.0
-reach = 4.0
+reach = 2.0
 name = "Tar"
 price = 100
+show_attack_indicator = true
 
 [node name="attack_indicator" parent="."]
 
@@ -32,5 +35,18 @@ texture = ExtResource( 3 )
 [node name="attack_timer" parent="."]
 
 wait_time = 0.2
+
+[node name="tier_2" type="Node" parent="."]
+
+script/script = ExtResource( 4 )
+damage = 2
+damage_duration = 10.0
+damage_type = 1
+frequency = 1.0
+reach = 2.0
+name = "Forst"
+price = 120
+show_attack_indicator = false
+missle_scene = ExtResource( 5 )
 
 

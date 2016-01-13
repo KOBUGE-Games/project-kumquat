@@ -6,8 +6,8 @@
 
 [node name="game" type="Control"]
 
-margin/right = 40
-margin/bottom = 40
+margin/right = 40.0
+margin/bottom = 40.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -17,10 +17,10 @@ __meta__ = { "__editor_plugin_screen__":"Script" }
 
 [node name="level_control" type="Control" parent="."]
 
-margin/left = 192
-margin/top = 16
-margin/right = 1056
-margin/bottom = 784
+margin/left = 192.0
+margin/top = 16.0
+margin/right = 1056.0
+margin/bottom = 784.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -41,28 +41,28 @@ health_current = 1000
 
 config/polyphony = 1
 config/samples = null
-default/volume_db = 0
-default/pitch_scale = 1
-default/pan = 0
-default/depth = 0
-default/height = 0
+default/volume_db = 0.0
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
 default/filter/type = 0
-default/filter/cutoff = 5000
-default/filter/resonance = 1
-default/filter/gain = 1
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
 default/reverb_room = 2
-default/reverb_send = 0
-default/chorus_send = 0
+default/reverb_send = 0.0
+default/chorus_send = 0.0
 
 [node name="stream_player" type="StreamPlayer" parent="."]
 
 stream/stream = null
 stream/play = false
 stream/loop = false
-stream/volume_db = 0
+stream/volume_db = 0.0
 stream/autoplay = false
 stream/paused = false
-stream/loop_restart_time = 0
+stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
 
