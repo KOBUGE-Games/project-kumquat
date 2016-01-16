@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://nexus/beacon.png" type="Texture" id=1]
+[ext_resource path="res://nexus/beacon_red.png" type="Texture" id=1]
 
 [sub_resource type="Animation" id=1]
 
@@ -9,15 +9,19 @@ length = 0.8
 loop = true
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "values":[ 0, 4 ] }
 
-[node name="temple" type="Sprite"]
+[node name="Position2D" type="Position2D"]
+
+__meta__ = { "__editor_plugin_screen__":"2D" }
+
+[node name="Sprite" type="Sprite" parent="."]
 
 texture = ExtResource( 1 )
 hframes = 5
-__meta__ = { "__editor_plugin_screen__":"2D" }
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://levels/level.gd" type="Script" id=1]
 [ext_resource path="res://levels/tilesets/ground_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://nexus/temple.tscn" type="PackedScene" id=3]
+[ext_resource path="res://nexus/start.tscn" type="PackedScene" id=4]
 
 [node name="level" type="YSort"]
 
@@ -24,8 +25,8 @@ cell/half_offset = 2
 cell/tile_origin = 0
 cell/y_sort = false
 collision/use_kinematic = false
-collision/friction = 1
-collision/bounce = 0
+collision/friction = 1.0
+collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
@@ -42,40 +43,34 @@ transform/pos = Vector2( 240, 432 )
 
 [node name="starts" type="Node2D" parent="."]
 
-[node name="start1" type="Position2D" parent="starts"]
+[node name="start1" parent="starts" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 848, 304 )
-transform/scale = Vector2( 3.2, 3.2 )
 
-[node name="start2" type="Position2D" parent="starts"]
+[node name="start2" parent="starts" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 208, 752 )
-transform/scale = Vector2( 3.2, 3.2 )
 
-[node name="start3" type="Position2D" parent="starts"]
+[node name="start3" parent="starts" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 752, 688 )
-transform/scale = Vector2( 3.2, 3.2 )
 
-[node name="start4" type="Position2D" parent="starts"]
+[node name="start4" parent="starts" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 208, 48 )
-transform/scale = Vector2( 3.2, 3.2 )
 
-[node name="start5" type="Position2D" parent="starts"]
+[node name="start5" parent="starts" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 48, 560 )
-transform/scale = Vector2( 3.2, 3.2 )
 
-[node name="start6" type="Position2D" parent="starts"]
+[node name="start6" parent="starts" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 720, 144 )
-transform/scale = Vector2( 3.2, 3.2 )
 
 [node name="enemy_timer" type="Timer" parent="."]
 
 process_mode = 1
-wait_time = 1
+wait_time = 1.0
 one_shot = false
 autostart = false
 
