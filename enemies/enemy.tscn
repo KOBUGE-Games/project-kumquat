@@ -1,0 +1,130 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://enemies/enemy.gd" type="Script" id=1]
+[ext_resource path="res://enemies/enemy_skeleton/enemy_skeleton.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[sub_resource type="Animation" id=2]
+
+length = 0.8
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1 ), "values":[ 10, 11, 12, 13, 14, 15, 16, 17 ] }
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "die"
+length = 0.5
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":true, "times":FloatArray( 0.35, 0.5 ), "transitions":FloatArray( 1, 1 ), "values":[ 1, 0 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/keys = { "cont":false, "times":FloatArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "values":[ 36, 37, 38, 39, 40, 41 ] }
+
+[sub_resource type="Animation" id=4]
+
+length = 0.8
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1 ), "values":[ 19, 20, 21, 22, 23, 24, 25, 26 ] }
+
+[sub_resource type="Animation" id=5]
+
+length = 0.8
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1 ), "values":[ 28, 29, 30, 31, 32, 33, 34, 35 ] }
+
+[sub_resource type="Animation" id=6]
+
+resource/name = "walk_up"
+length = 0.8
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1 ), "values":[ 1, 2, 3, 4, 5, 6, 7, 8 ] }
+
+[node name="enemy" type="Area2D"]
+
+transform/pos = Vector2( 0, 1 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 12 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+monitoring = false
+script/script = ExtResource( 1 )
+__meta__ = { "__editor_plugin_screen__":"2D" }
+type = "enemy1"
+speed = 2.0
+hp = 100
+damage = 10
+worth = 25
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( 0, 12 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+offset = Vector2( 0, -16 )
+vframes = 5
+hframes = 9
+frame = 18
+
+[node name="sample_player_2d" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = null
+config/pitch_random = 0.0
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("../sprite")
+anims/walk_left = SubResource( 2 )
+anims/die = SubResource( 3 )
+anims/walk_down = SubResource( 4 )
+anims/walk_right = SubResource( 5 )
+anims/walk_up = SubResource( 6 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[connection signal="finished" from="animation_player" to="." method="_on_AnimationPlayer_finished"]
+
+

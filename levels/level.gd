@@ -33,6 +33,7 @@ const DIRECTIONS = Vector2Array([Vector2(1, 0), Vector2(-1, 0), Vector2(0, 1), V
 
 # Nodes and resources
 var enemy1_scene = preload("res://enemies/enemy_skeleton/enemy_skeleton.tscn")
+var enemy2_scene = preload("res://enemies/enemy_spider/enemy_spider.tscn")
 var tilemap
 
 export var cell_size = Vector2(32, 32)
@@ -40,19 +41,30 @@ export var debug = false
 
 var waves = [
 	Wave.new([
-		WaveEnemy.new(enemy1_scene, 20)
+		WaveEnemy.new(enemy1_scene, 20),
+		WaveEnemy.new(enemy2_scene, 5)
 	], 1.2),
 	Wave.new([
-		WaveEnemy.new(enemy1_scene, 40)
+		WaveEnemy.new(enemy1_scene, 40),
+		WaveEnemy.new(enemy2_scene, 20)
 	], 1.2),
 	Wave.new([
-		WaveEnemy.new(enemy1_scene, 80)
+		WaveEnemy.new(enemy1_scene, 40),
+		WaveEnemy.new(enemy2_scene, 40)
 	], 0.4),
 	Wave.new([
-		WaveEnemy.new(enemy1_scene, 100)
+		WaveEnemy.new(enemy1_scene, 100),
+		WaveEnemy.new(enemy2_scene, 10)
+	], 0.02),
+	Wave.new([
+		WaveEnemy.new(enemy1_scene, 10),
+		WaveEnemy.new(enemy2_scene, 100)
 	], 0.02),
 	Wave.new([
 		WaveEnemy.new(enemy1_scene, 400)
+	], 0.01),
+	Wave.new([
+		WaveEnemy.new(enemy2_scene, 400)
 	], 0.01)
 ]
 var current_wave_index = 0

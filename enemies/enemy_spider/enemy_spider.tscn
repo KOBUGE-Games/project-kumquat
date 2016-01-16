@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://enemies/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/enemy_spider/spider.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 12.0
+
+[sub_resource type="Animation" id=2]
+
+length = 0.5
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4 ), "transitions":FloatArray( 1, 1, 1, 1, 1 ), "values":[ 15, 16, 17, 18, 19 ] }
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "die"
+length = 0.5
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":true, "times":FloatArray( 0.35, 0.5 ), "transitions":FloatArray( 1, 1 ), "values":[ 1, 0 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3 ), "transitions":FloatArray( 1, 1, 1, 1 ), "values":[ 40, 41, 42, 43 ] }
+
+[sub_resource type="Animation" id=4]
+
+length = 0.5
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4 ), "transitions":FloatArray( 1, 1, 1, 1, 1 ), "values":[ 25, 26, 27, 28, 29 ] }
+
+[sub_resource type="Animation" id=5]
+
+length = 0.5
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4 ), "transitions":FloatArray( 1, 1, 1, 1, 1 ), "values":[ 35, 36, 37, 38, 39 ] }
+
+[sub_resource type="Animation" id=6]
+
+resource/name = "walk_up"
+length = 0.6
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "values":[ 4, 5, 6, 7, 8, 9 ] }
+
+[node name="enemy" instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 0, 0 )
+linear_damp = 0.1
+type = "enemy2"
+speed = 1.7
+hp = 20
+damage = 10
+worth = 25
+
+[node name="collision_shape_2d" parent="."]
+
+transform/pos = Vector2( 0, 0 )
+shape = SubResource( 1 )
+
+[node name="sprite" parent="."]
+
+texture = ExtResource( 2 )
+offset = Vector2( 0, 0 )
+hframes = 10
+frame = 4
+region_rect = Rect2( 0, 0, 640, 320 )
+
+[node name="sample_player_2d" parent="."]
+
+transform/pos = Vector2( 2.46224, 0.769449 )
+
+[node name="animation_player" parent="."]
+
+anims/walk_left = SubResource( 2 )
+anims/die = SubResource( 3 )
+anims/walk_down = SubResource( 4 )
+anims/walk_right = SubResource( 5 )
+anims/walk_up = SubResource( 6 )
+
+[connection signal="finished" from="animation_player" to="." method="_on_AnimationPlayer_finished"]
+
+

@@ -82,6 +82,9 @@ func _fixed_process(delta):
 		if motion_dir != old_motion_dir:
 			get_node("animation_player").play(WALK_ANIMS[motion_dir])
 	
+	# Update animation speed
+	get_node("animation_player").set_speed(speed_multiplier)
+	
 	# Move now
 	var motion = motion_dir*speed*speed_multiplier*global.TILE_SIZE*delta
 	set_pos(get_pos() + motion)
