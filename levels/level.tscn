@@ -2,7 +2,7 @@
 
 [ext_resource path="res://levels/level.gd" type="Script" id=1]
 [ext_resource path="res://levels/tilesets/ground_tiles.tres" type="TileSet" id=2]
-[ext_resource path="res://nexus/temple.tscn" type="PackedScene" id=3]
+[ext_resource path="res://nexus/goal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://nexus/start.tscn" type="PackedScene" id=4]
 
 [node name="level" type="YSort"]
@@ -35,11 +35,9 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="goals" type="Node2D" parent="."]
 
-[node name="goal" type="Position2D" parent="goals"]
+[node name="goal" parent="goals" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 240, 432 )
-
-[node name="temple" parent="goals/goal" instance=ExtResource( 3 )]
+transform/pos = Vector2( 240, 430 )
 
 [node name="starts" type="Node2D" parent="."]
 
