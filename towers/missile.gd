@@ -44,7 +44,7 @@ func _fixed_process(delta):
 ### Functions ###
 
 func explode(enemies):
-	exploded = true # Mark the missle as exploded, so it won't explode again
+	exploded = true # Mark the missile as exploded, so it won't explode again
 	
 	# Decrease health
 	for enemy in enemies:

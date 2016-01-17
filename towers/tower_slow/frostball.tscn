@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=1]
 
-[ext_resource path="res://towers/missle.gd" type="Script" id=1]
+[ext_resource path="res://towers/missile.gd" type="Script" id=1]
 [ext_resource path="res://towers/tower_fireball/particle.png" type="Texture" id=2]
 [ext_resource path="res://towers/tower_fireball/fireball.png" type="Texture" id=3]
 [ext_resource path="res://towers/tower_fireball/explosion_48.png" type="Texture" id=4]
@@ -64,7 +64,7 @@ tracks/4/path = NodePath("missile_particles:config/emitting")
 tracks/4/interp = 1
 tracks/4/keys = { "cont":false, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ false ] }
 
-[node name="missle" type="Area2D"]
+[node name="missile" type="Area2D"]
 
 input/pickable = true
 shapes/0/shape = SubResource( 1 )

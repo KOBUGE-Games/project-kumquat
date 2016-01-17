@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://towers/tower.tscn" type="PackedScene" id=1]
-[ext_resource path="res://towers/tower_types/tower_single_target_missle.gd" type="Script" id=2]
+[ext_resource path="res://towers/tower_types/tower_single_target_missile.gd" type="Script" id=2]
 [ext_resource path="res://towers/tower_fireball/fireball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://towers/tower_fireball/tower_fireball.png" type="Texture" id=4]
 
@@ -19,7 +19,7 @@ frequency = 1.5
 reach = 2.0
 name = "Fireball"
 price = 150
-missle_scene = ExtResource( 3 )
+missile_scene = ExtResource( 3 )
 
 [node name="attack_indicator" parent="."]
 
@@ -44,6 +44,6 @@ frequency = 2.0
 reach = 3.0
 name = "Cannon"
 price = 150
-missle_scene = ExtResource( 3 )
+missile_scene = ExtResource( 3 )
 
 
