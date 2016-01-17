@@ -99,6 +99,5 @@ anims/walk_down = SubResource( 4 )
 anims/walk_right = SubResource( 5 )
 anims/walk_up = SubResource( 6 )
 
-[connection signal="finished" from="animation_player" to="." method="_on_AnimationPlayer_finished"]
 
 

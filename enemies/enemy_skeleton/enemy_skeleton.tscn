@@ -11,6 +11,5 @@ hp = 30
 damage = 10
 worth = 25
 
-[connection signal="finished" from="animation_player" to="." method="_on_AnimationPlayer_finished"]
 
 
