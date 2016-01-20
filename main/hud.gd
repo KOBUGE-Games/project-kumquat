@@ -43,26 +43,13 @@ func _fixed_process(delta):
 		damage_per_second = 0
 		add_damage(0)
 
-func add_damage(amount):
-	damage_total += amount
-	damage_per_second += amount
-	get_node("stats/damage/label").set_text(str("Damage:\n  Total: ", damage_total, "\n  Per second: ", damage_per_last_second))
-
 func _input(ev):
 	if tower_placement and carried_tower:
 		if ev.type == InputEvent.MOUSE_MOTION:
 			var tile_pos = level.tilemap.world_to_map(ev.pos - level.get_global_pos())
 			carried_tower.set_pos(level.tilemap.map_to_world(tile_pos) + global.TILE_OFFSET + Vector2(0,-8))
 			
-			if level.tiles.has(tile_pos):
-				carried_tower.update_status(level.tiles[tile_pos].type, level.tiles[tile_pos].tower, budget_current)
-				var price =  carried_tower.get_price(tile_pos)
-				budget.set_text(str("Budget: ", budget_current, " - ", price))
-				if price > budget_current:
-					budget.get_node("../animation_player").play("no_money")
-			else:
-				carried_tower.update_status(level.Tile.TILE_SOLID, null, budget_current)
-				budget.set_text(str("Budget: ", budget_current))
+			update_budget_text()
 		
 		elif ev.type == InputEvent.MOUSE_BUTTON and ev.is_pressed() and !ev.is_echo():
 			if ev.button_index == BUTTON_LEFT:
@@ -81,14 +68,29 @@ func _input(ev):
 
 ### Functions
 
+func add_damage(amount):
+	damage_total += amount
+	damage_per_second += amount
+	get_node("stats/damage/label").set_text(str("Damage:\n  Total: ", damage_total, "\n  Per second: ", damage_per_last_second))
+
 func update_budget(amount):
 	budget_current += amount
-	budget.set_text("Budget: " + str(budget_current))
-	for button in get_node("tower_buttons").get_children():
-		if button.get('tower_price') and button.tower_price > budget_current:
-			button.set_disabled(true)
+	update_budget_text()
+
+func update_budget_text():
+	if tower_placement and carried_tower:
+		var tile_pos = level.tilemap.world_to_map(carried_tower.get_pos() - global.TILE_OFFSET - Vector2(0,-8))
+		if level.tiles.has(tile_pos):
+			carried_tower.update_status(level.tiles[tile_pos].type, level.tiles[tile_pos].tower, budget_current)
+			var price = carried_tower.get_price(tile_pos)
+			budget.set_text(str("Budget: ", budget_current, " - ", price))
+			if price > budget_current:
+				budget.get_node("../animation_player").play("no_money")
 		else:
-			button.set_disabled(false)
+			carried_tower.update_status(level.Tile.TILE_SOLID, null, budget_current)
+			budget.set_text(str("Budget: ", budget_current))
+	else:
+		budget.set_text(str("Budget: ", budget_current))
 
 func update_health(amount):
 	health_current += amount

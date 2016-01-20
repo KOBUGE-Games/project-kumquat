@@ -24,9 +24,6 @@ func _ready():
 
 	set_attributes_from_tower_scene(tower_scene)
 	get_node("label").set_text(tower_name)
-	
-	if hud.budget_current < tower_price:
-		set_disabled(true)
 
 ### Functions ###
 
