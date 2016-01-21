@@ -20,27 +20,6 @@ tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.3 ), "transitions":Float
 
 [sub_resource type="Animation" id=3]
 
-resource/name = "walk_up"
-length = 0.6
-loop = true
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "values":[ 0, 3 ] }
-
-[sub_resource type="Animation" id=4]
-
-length = 0.6
-loop = true
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "values":[ 8, 11 ] }
-
-[sub_resource type="Animation" id=5]
-
 length = 0.7
 loop = false
 step = 0.1
@@ -57,7 +36,17 @@ tracks/2/path = NodePath(".:offset")
 tracks/2/interp = 1
 tracks/2/keys = { "cont":true, "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "values":[ Vector2( 0, 0 ), Vector2( 0, 18 ) ] }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
+
+length = 0.6
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "values":[ 0, 3 ] }
+
+[sub_resource type="Animation" id=5]
 
 length = 0.6
 loop = true
@@ -67,15 +56,25 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "values":[ 4, 7 ] }
 
+[sub_resource type="Animation" id=6]
+
+length = 0.6
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "values":[ 8, 11 ] }
+
 [node name="enemy" instance=ExtResource( 1 )]
 
 transform/pos = Vector2( 0, 0 )
 linear_damp = 0.1
 type = "enemy2"
-speed = 1.7
-hp = 20
-damage = 10
-worth = 25
+speed = 2.1
+hp = 15
+damage = 6
+worth = 14
 
 [node name="collision_shape_2d" parent="."]
 
@@ -97,9 +96,9 @@ transform/pos = Vector2( 2.46224, 0.769449 )
 [node name="animation_player" parent="."]
 
 anims/walk_right = SubResource( 2 )
-anims/walk_up = SubResource( 3 )
-anims/walk_down = SubResource( 4 )
-anims/die = SubResource( 5 )
-anims/walk_left = SubResource( 6 )
+anims/die = SubResource( 3 )
+anims/walk_up = SubResource( 4 )
+anims/walk_left = SubResource( 5 )
+anims/walk_down = SubResource( 6 )
 
 

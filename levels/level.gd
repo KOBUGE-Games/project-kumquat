@@ -32,8 +32,9 @@ class WaveEnemy:
 const DIRECTIONS = Vector2Array([Vector2(1, 0), Vector2(-1, 0), Vector2(0, 1), Vector2(0, -1)])
 
 # Nodes and resources
-var enemy1_scene = preload("res://enemies/enemy_skeleton/enemy_skeleton.tscn")
-var enemy2_scene = preload("res://enemies/enemy_spider/enemy_spider.tscn")
+var enemy_skeleton_scene = preload("res://enemies/enemy_skeleton/enemy_skeleton.tscn")
+var enemy_spider_scene = preload("res://enemies/enemy_spider/enemy_spider.tscn")
+var enemy_bat_scene = preload("res://enemies/enemy_bat/enemy_bat.tscn")
 var tilemap
 
 export var cell_size = Vector2(32, 32)
@@ -41,30 +42,38 @@ export var debug = false
 
 var waves = [
 	Wave.new([
-		WaveEnemy.new(enemy1_scene, 20),
-		WaveEnemy.new(enemy2_scene, 5)
+		WaveEnemy.new(enemy_skeleton_scene, 20),
+		WaveEnemy.new(enemy_spider_scene, 5),
+		WaveEnemy.new(enemy_bat_scene, 10)
 	], 1.2),
 	Wave.new([
-		WaveEnemy.new(enemy1_scene, 40),
-		WaveEnemy.new(enemy2_scene, 20)
+		WaveEnemy.new(enemy_skeleton_scene, 40),
+		WaveEnemy.new(enemy_spider_scene, 10),
+		WaveEnemy.new(enemy_bat_scene, 20)
 	], 1.2),
 	Wave.new([
-		WaveEnemy.new(enemy1_scene, 40),
-		WaveEnemy.new(enemy2_scene, 40)
+		WaveEnemy.new(enemy_skeleton_scene, 40),
+		WaveEnemy.new(enemy_spider_scene, 40),
+		WaveEnemy.new(enemy_bat_scene, 40)
 	], 0.4),
 	Wave.new([
-		WaveEnemy.new(enemy1_scene, 100),
-		WaveEnemy.new(enemy2_scene, 10)
+		WaveEnemy.new(enemy_skeleton_scene, 20),
+		WaveEnemy.new(enemy_spider_scene, 60),
+		WaveEnemy.new(enemy_bat_scene, 20)
 	], 0.02),
 	Wave.new([
-		WaveEnemy.new(enemy1_scene, 10),
-		WaveEnemy.new(enemy2_scene, 100)
+		WaveEnemy.new(enemy_skeleton_scene, 20),
+		WaveEnemy.new(enemy_spider_scene, 20),
+		WaveEnemy.new(enemy_bat_scene, 60)
 	], 0.02),
 	Wave.new([
-		WaveEnemy.new(enemy1_scene, 400)
+		WaveEnemy.new(enemy_skeleton_scene, 400)
 	], 0.01),
 	Wave.new([
-		WaveEnemy.new(enemy2_scene, 400)
+		WaveEnemy.new(enemy_spider_scene, 400)
+	], 0.01),
+	Wave.new([
+		WaveEnemy.new(enemy_bat_scene, 400)
 	], 0.01)
 ]
 var current_wave_index = 0
