@@ -34,7 +34,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 script/script = ExtResource( 1 )
 __meta__ = { "__editor_plugin_screen__":"2D" }
-budget_current = 1000
+budget_current = 2000
 health_current = 1000
 
 [node name="tower_buttons" type="Control" parent="."]
@@ -69,6 +69,7 @@ alignment = 0
 size_flags/horizontal = 3
 tower_scene = ExtResource( 5 )
 tower_tier = 1
+unlocked = true
 
 [node name="tier2" parent="tower_buttons/tower_sniper" instance=ExtResource( 4 )]
 
@@ -77,6 +78,7 @@ margin/right = 90.0
 size_flags/horizontal = 3
 tower_scene = ExtResource( 5 )
 tower_tier = 2
+unlocked = false
 
 [node name="tier3" parent="tower_buttons/tower_sniper" instance=ExtResource( 4 )]
 
@@ -85,6 +87,7 @@ margin/right = 140.0
 size_flags/horizontal = 3
 tower_scene = ExtResource( 5 )
 tower_tier = 3
+unlocked = false
 
 [node name="tower_fireball" type="HBoxContainer" parent="tower_buttons"]
 
@@ -103,6 +106,7 @@ alignment = 0
 size_flags/horizontal = 3
 tower_scene = ExtResource( 6 )
 tower_tier = 1
+unlocked = true
 
 [node name="tier2" parent="tower_buttons/tower_fireball" instance=ExtResource( 4 )]
 
@@ -111,6 +115,7 @@ margin/right = 90.0
 size_flags/horizontal = 3
 tower_scene = ExtResource( 6 )
 tower_tier = 2
+unlocked = false
 
 [node name="tier3" parent="tower_buttons/tower_fireball" instance=ExtResource( 4 )]
 
@@ -119,6 +124,7 @@ margin/right = 140.0
 size_flags/horizontal = 3
 tower_scene = ExtResource( 6 )
 tower_tier = 3
+unlocked = false
 
 [node name="tower_slow" type="HBoxContainer" parent="tower_buttons"]
 
@@ -137,6 +143,7 @@ alignment = 0
 size_flags/horizontal = 3
 tower_scene = ExtResource( 7 )
 tower_tier = 1
+unlocked = true
 
 [node name="tier2" parent="tower_buttons/tower_slow" instance=ExtResource( 4 )]
 
@@ -145,6 +152,7 @@ margin/right = 90.0
 size_flags/horizontal = 3
 tower_scene = ExtResource( 7 )
 tower_tier = 2
+unlocked = false
 
 [node name="tier3" parent="tower_buttons/tower_slow" instance=ExtResource( 4 )]
 
@@ -153,6 +161,7 @@ margin/right = 140.0
 size_flags/horizontal = 3
 tower_scene = ExtResource( 7 )
 tower_tier = 3
+unlocked = false
 
 [node name="tower_tooltip" type="Panel" parent="."]
 

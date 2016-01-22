@@ -45,6 +45,7 @@ frequency = 1.0
 reach = 4.0
 name = "Unnamed"
 price = 100
+unlock_price = 100
 show_attack_indicator = true
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="."]

@@ -34,7 +34,7 @@ debug = false
 
 [node name="hud" parent="." instance=ExtResource( 3 )]
 
-budget_current = 1000
+budget_current = 2000
 health_current = 1000
 
 [node name="sample_player" type="SamplePlayer" parent="."]

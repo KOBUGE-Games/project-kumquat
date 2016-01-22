@@ -17,6 +17,7 @@ frequency = 0.8
 reach = 2.0
 name = "Fireball"
 price = 180
+unlock_price = 150
 show_attack_indicator = true
 missile_scene = ExtResource( 3 )
 
@@ -43,6 +44,7 @@ frequency = 1.1
 reach = 2.5
 name = "Cannon"
 price = 350
+unlock_price = 500
 show_attack_indicator = true
 missile_scene = ExtResource( 3 )
 
@@ -56,6 +58,7 @@ frequency = 1.3
 reach = 2.5
 name = "Plasma Cannon"
 price = 800
+unlock_price = 1100
 show_attack_indicator = true
 missile_scene = ExtResource( 3 )
 

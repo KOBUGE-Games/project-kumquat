@@ -15,6 +15,7 @@ export var frequency = 1.0
 export var reach = 4.0
 export var name = "Unnamed"
 export var price = 100
+export var unlock_price = 100
 export var show_attack_indicator = true
 
 var tower # Tower dispatcher node

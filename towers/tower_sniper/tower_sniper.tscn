@@ -15,6 +15,7 @@ frequency = 1.0
 reach = 3.0
 name = "Arrow"
 price = 100
+unlock_price = 100
 show_attack_indicator = true
 
 [node name="tier_2" type="Node" parent="."]
@@ -27,6 +28,7 @@ frequency = 1.4
 reach = 3.6
 name = "Sniper"
 price = 200
+unlock_price = 400
 show_attack_indicator = true
 
 [node name="tier_3" type="Node" parent="."]
@@ -39,6 +41,7 @@ frequency = 1.7
 reach = 4.0
 name = "Laserbeam"
 price = 400
+unlock_price = 800
 show_attack_indicator = true
 
 

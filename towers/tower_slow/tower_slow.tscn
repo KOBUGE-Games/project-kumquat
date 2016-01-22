@@ -20,6 +20,7 @@ frequency = 1.0
 reach = 2.0
 name = "Tar"
 price = 150
+unlock_price = 120
 show_attack_indicator = true
 
 [node name="attack_indicator" parent="."]
@@ -41,6 +42,7 @@ frequency = 1.1
 reach = 2.0
 name = "Frost"
 price = 320
+unlock_price = 450
 show_attack_indicator = false
 missile_scene = ExtResource( 5 )
 
@@ -54,6 +56,7 @@ frequency = 1.2
 reach = 2.0
 name = "Forst"
 price = 550
+unlock_price = 900
 show_attack_indicator = false
 missile_scene = ExtResource( 5 )
 
