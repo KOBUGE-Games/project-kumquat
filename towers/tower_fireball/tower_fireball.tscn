@@ -7,8 +7,6 @@
 
 [node name="tower" instance=ExtResource( 1 )]
 
-linear_damp = 0.1
-
 [node name="tier_1" parent="."]
 
 script/script = ExtResource( 2 )
@@ -19,6 +17,7 @@ frequency = 1.5
 reach = 2.0
 name = "Fireball"
 price = 150
+show_attack_indicator = true
 missile_scene = ExtResource( 3 )
 
 [node name="attack_indicator" parent="."]
@@ -44,6 +43,20 @@ frequency = 2.0
 reach = 3.0
 name = "Cannon"
 price = 150
+show_attack_indicator = true
+missile_scene = ExtResource( 3 )
+
+[node name="tier_3" type="Node" parent="."]
+
+script/script = ExtResource( 2 )
+damage = 2
+damage_duration = 1.0
+damage_type = 0
+frequency = 2.0
+reach = 3.0
+name = "Cannon"
+price = 150
+show_attack_indicator = true
 missile_scene = ExtResource( 3 )
 
 

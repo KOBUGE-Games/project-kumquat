@@ -4,7 +4,7 @@ extends Area2D
 
 var active = false
 var tile_pos = Vector2()
-var current_tier = 0
+var current_tier = 1
 
 # Nodes
 var global
@@ -30,7 +30,7 @@ func _ready():
 	get_node("hover").connect("mouse_enter", self, "_mouse_enter")
 	get_node("hover").connect("mouse_exit", self, "_mouse_exit")
 	
-	set_tier(1)
+	set_tier(current_tier)
 	
 	set_carried(false)
 

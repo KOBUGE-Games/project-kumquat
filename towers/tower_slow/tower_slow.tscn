@@ -9,7 +9,6 @@
 [node name="tower" instance=ExtResource( 1 )]
 
 transform/pos = Vector2( 0, 1 )
-linear_damp = 0.1
 
 [node name="tier_1" parent="."]
 
@@ -32,11 +31,20 @@ modulate = Color( 0, 0, 0, 1 )
 
 texture = ExtResource( 3 )
 
-[node name="attack_timer" parent="."]
-
-wait_time = 0.2
-
 [node name="tier_2" type="Node" parent="."]
+
+script/script = ExtResource( 4 )
+damage = 2
+damage_duration = 10.0
+damage_type = 1
+frequency = 1.0
+reach = 2.0
+name = "Forst"
+price = 120
+show_attack_indicator = false
+missile_scene = ExtResource( 5 )
+
+[node name="tier_3" type="Node" parent="."]
 
 script/script = ExtResource( 4 )
 damage = 2

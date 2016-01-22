@@ -9,6 +9,7 @@ var tooltip # The tower tooltip
 
 # Characteristics
 export(PackedScene) var tower_scene
+export(int, 1, 3) var tower_tier = 1
 var tower_name = "Unnamed"
 var tower_damage = 100
 var tower_range = 100
@@ -23,15 +24,15 @@ func _ready():
 	tooltip = hud.get_node("tower_tooltip")
 
 	set_attributes_from_tower_scene(tower_scene)
-	get_node("label").set_text(tower_name)
 
 ### Functions ###
 
 func set_attributes_from_tower_scene(tower_scene):
 	var tower = tower_scene.instance()
 	get_node("icon").set_texture(tower.get_node("sprite").get_texture())
+	get_node("icon").set_frame(tower_tier - 1)
 	
-	var tier = tower.get_tier(1)
+	var tier = tower.get_tier(tower_tier)
 	tower_name = tier.name
 	tower_damage = tier.damage
 	tower_range = tier.reach
@@ -53,4 +54,4 @@ func _on_btn_tower_mouse_exit():
 	tooltip.hide()
 
 func _on_btn_tower_pressed():
-	hud.tower_build_mode(tower_scene)
+	hud.tower_build_mode(tower_scene, tower_tier)

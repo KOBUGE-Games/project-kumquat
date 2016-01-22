@@ -13,19 +13,19 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"Script" }
+__meta__ = { "__editor_plugin_screen__":"2D" }
 
 [node name="level_control" type="Control" parent="."]
 
-margin/left = 192.0
+margin/left = 208.0
 margin/top = 16.0
-margin/right = 1056.0
+margin/right = 1072.0
 margin/bottom = 784.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "_edit_group_":true }
+__meta__ = { "_edit_group_":true, "_editor_collapsed":true }
 
 [node name="level" parent="level_control" instance=ExtResource( 2 )]
 

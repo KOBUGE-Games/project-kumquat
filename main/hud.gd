@@ -60,6 +60,8 @@ func _input(ev):
 					# Place the carried tower
 					update_budget(-carried_tower.get_price(tile_pos))
 					var placed_tower = carried_tower.duplicate()
+					# Apparently state is lost upon duplicate...
+					placed_tower.current_tier = carried_tower.current_tier
 					level.add_child(placed_tower)
 					placed_tower.set_carried(false)
 			elif ev.button_index == BUTTON_RIGHT:
@@ -103,13 +105,13 @@ func cancel_tower_placement():
 
 ### Signals ###
 
-func tower_build_mode(tower_scene):
+func tower_build_mode(tower_scene, tower_tier):
 	if tower_placement and carried_tower:
 		carried_tower.free()
 	
-	#if budget_current >= price:
 	tower_placement = true
 	carried_tower = tower_scene.instance()
+	carried_tower.current_tier = tower_tier
 	level.add_child(carried_tower)
 	carried_tower.set_pos(Vector2(48, 48))
 	carried_tower.set_carried(true)

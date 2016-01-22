@@ -1,13 +1,12 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://main/buttons/btn_tower.gd" type="Script" id=1]
 [ext_resource path="res://towers/tower_sniper/tower_sniper.png" type="Texture" id=2]
-[ext_resource path="res://shared/fonts/railway.fnt" type="Font" id=3]
 
 [node name="btn_tower" type="Button"]
 
-margin/right = 128
-margin/bottom = 64
+margin/right = 40.0
+margin/bottom = 56.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -15,30 +14,15 @@ size_flags/vertical = 2
 toggle_mode = false
 flat = false
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"Script" }
+__meta__ = { "__editor_plugin_screen__":"2D" }
 tower_scene = null
+tower_tier = 1
 
 [node name="icon" type="Sprite" parent="."]
 
-transform/pos = Vector2( 24, 32 )
+transform/pos = Vector2( 20, 28 )
 texture = ExtResource( 2 )
 vframes = 3
-
-[node name="label" type="Label" parent="."]
-
-anchor/right = 1
-anchor/bottom = 1
-margin/left = 43
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 3 )
-text = "Name"
-align = 1
-valign = 1
-percent_visible = 1
-lines_skipped = 0
-max_lines_visible = -1
 
 [connection signal="pressed" from="." to="." method="_on_btn_tower_pressed"]
 
