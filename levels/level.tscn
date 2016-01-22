@@ -9,7 +9,7 @@
 
 sort/enabled = true
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"2D" }
+__meta__ = { "__editor_plugin_screen__":"Script" }
 cell_size = Vector2( 32, 32 )
 debug = true
 

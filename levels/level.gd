@@ -35,6 +35,7 @@ const DIRECTIONS = Vector2Array([Vector2(1, 0), Vector2(-1, 0), Vector2(0, 1), V
 var enemy_skeleton_scene = preload("res://enemies/enemy_skeleton/enemy_skeleton.tscn")
 var enemy_spider_scene = preload("res://enemies/enemy_spider/enemy_spider.tscn")
 var enemy_bat_scene = preload("res://enemies/enemy_bat/enemy_bat.tscn")
+var enemy_dragoon_scene = preload("res://enemies/enemy_dragoon/enemy_dragoon.tscn")
 var tilemap
 
 export var cell_size = Vector2(32, 32)
@@ -44,27 +45,32 @@ var waves = [
 	Wave.new([
 		WaveEnemy.new(enemy_skeleton_scene, 20),
 		WaveEnemy.new(enemy_spider_scene, 5),
-		WaveEnemy.new(enemy_bat_scene, 10)
+		WaveEnemy.new(enemy_bat_scene, 10),
+		WaveEnemy.new(enemy_dragoon_scene, 5)
 	], 1.2),
 	Wave.new([
 		WaveEnemy.new(enemy_skeleton_scene, 40),
 		WaveEnemy.new(enemy_spider_scene, 10),
-		WaveEnemy.new(enemy_bat_scene, 20)
+		WaveEnemy.new(enemy_bat_scene, 20),
+		WaveEnemy.new(enemy_dragoon_scene, 10)
 	], 1.2),
 	Wave.new([
 		WaveEnemy.new(enemy_skeleton_scene, 40),
 		WaveEnemy.new(enemy_spider_scene, 40),
-		WaveEnemy.new(enemy_bat_scene, 40)
+		WaveEnemy.new(enemy_bat_scene, 40),
+		WaveEnemy.new(enemy_dragoon_scene, 20)
 	], 0.4),
 	Wave.new([
 		WaveEnemy.new(enemy_skeleton_scene, 20),
 		WaveEnemy.new(enemy_spider_scene, 60),
-		WaveEnemy.new(enemy_bat_scene, 20)
+		WaveEnemy.new(enemy_bat_scene, 20),
+		WaveEnemy.new(enemy_dragoon_scene, 40)
 	], 0.02),
 	Wave.new([
 		WaveEnemy.new(enemy_skeleton_scene, 20),
 		WaveEnemy.new(enemy_spider_scene, 20),
-		WaveEnemy.new(enemy_bat_scene, 60)
+		WaveEnemy.new(enemy_bat_scene, 60),
+		WaveEnemy.new(enemy_dragoon_scene, 60)
 	], 0.02),
 	Wave.new([
 		WaveEnemy.new(enemy_skeleton_scene, 400)
@@ -74,6 +80,9 @@ var waves = [
 	], 0.01),
 	Wave.new([
 		WaveEnemy.new(enemy_bat_scene, 400)
+	], 0.01),
+	Wave.new([
+		WaveEnemy.new(enemy_dragoon_scene, 400)
 	], 0.01)
 ]
 var current_wave_index = 0
