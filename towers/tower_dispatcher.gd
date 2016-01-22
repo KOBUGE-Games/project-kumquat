@@ -2,6 +2,7 @@ extends Area2D
 
 ### Variables ###
 
+export var tower_type = "tower_base"
 var active = false
 var tile_pos = Vector2()
 var current_tier = 1
@@ -57,7 +58,10 @@ func has_tier(tier):
 	return has_node(str("tier_", tier))
 
 func can_upgrade_tier():
-	return has_tier(current_tier + 1)
+	if has_tier(current_tier + 1):
+		return global.hud.get_node("tower_buttons/" + tower_type + "/tier" + str(current_tier + 1)).unlocked
+	else:
+		return false
 
 func upgrade_tier():
 	set_tier(current_tier + 1)

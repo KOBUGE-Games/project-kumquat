@@ -7,6 +7,8 @@
 
 [node name="tower" instance=ExtResource( 1 )]
 
+tower_type = "tower_fireball"
+
 [node name="tier_1" parent="."]
 
 script/script = ExtResource( 2 )

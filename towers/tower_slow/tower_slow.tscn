@@ -9,6 +9,7 @@
 [node name="tower" instance=ExtResource( 1 )]
 
 transform/pos = Vector2( 0, 1 )
+tower_type = "tower_slow"
 
 [node name="tier_1" parent="."]
 
