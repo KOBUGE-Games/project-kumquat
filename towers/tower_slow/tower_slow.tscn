@@ -19,7 +19,7 @@ damage_type = 1
 frequency = 1.0
 reach = 2.0
 name = "Tar"
-price = 100
+price = 150
 show_attack_indicator = true
 
 [node name="attack_indicator" parent="."]
@@ -34,26 +34,26 @@ texture = ExtResource( 3 )
 [node name="tier_2" type="Node" parent="."]
 
 script/script = ExtResource( 4 )
-damage = 2
-damage_duration = 10.0
+damage = 3
+damage_duration = 5.0
 damage_type = 1
-frequency = 1.0
+frequency = 1.1
 reach = 2.0
-name = "Forst"
-price = 120
+name = "Frost"
+price = 320
 show_attack_indicator = false
 missile_scene = ExtResource( 5 )
 
 [node name="tier_3" type="Node" parent="."]
 
 script/script = ExtResource( 4 )
-damage = 2
+damage = 3
 damage_duration = 10.0
 damage_type = 1
-frequency = 1.0
+frequency = 1.2
 reach = 2.0
 name = "Forst"
-price = 120
+price = 550
 show_attack_indicator = false
 missile_scene = ExtResource( 5 )
 

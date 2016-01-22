@@ -23,22 +23,22 @@ script/script = ExtResource( 2 )
 damage = 3
 damage_duration = 1.0
 damage_type = 0
-frequency = 1.5
-reach = 4.0
+frequency = 1.4
+reach = 3.6
 name = "Sniper"
-price = 100
+price = 200
 show_attack_indicator = true
 
 [node name="tier_3" type="Node" parent="."]
 
 script/script = ExtResource( 2 )
-damage = 3
+damage = 4
 damage_duration = 1.0
 damage_type = 0
-frequency = 1.5
+frequency = 1.7
 reach = 4.0
-name = "Sniper"
-price = 100
+name = "Laserbeam"
+price = 400
 show_attack_indicator = true
 
 

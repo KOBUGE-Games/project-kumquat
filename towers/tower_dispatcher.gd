@@ -69,7 +69,7 @@ func get_next_tier_price():
 		return 0
 
 func get_price(tile_pos):
-	return get_tier(1).price
+	return get_tier(current_tier).price
 
 # Helper functions that manage configuration
 
