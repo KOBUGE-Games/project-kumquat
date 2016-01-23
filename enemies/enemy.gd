@@ -99,6 +99,9 @@ func _fixed_process(delta):
 func take_damage(damage):
 	hp -= damage
 	global.hud.add_damage(damage)
+	# Play hurt anim unless already playing poisoned anim
+	if not poison_duration > 0:
+		get_node("effect_anim").play("hurt")
 
 func set_poisoned(damage, duration):
 	poison_damage = damage

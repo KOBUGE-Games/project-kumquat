@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://enemies/enemy.gd" type="Script" id=1]
 [ext_resource path="res://enemies/enemy_skeleton/enemy_skeleton.png" type="Texture" id=2]
@@ -74,6 +74,17 @@ tracks/0/path = NodePath("sprite:modulate")
 tracks/0/interp = 1
 tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.5, 1 ), "transitions":FloatArray( 1, 1, 1 ), "values":[ Color( 1, 1, 1, 1 ), Color( 0.192894, 0.753906, 0.188477, 1 ), Color( 1, 1, 1, 1 ) ] }
 
+[sub_resource type="Animation" id=8]
+
+resource/name = "hurt"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:modulate")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.1, 0.2 ), "transitions":FloatArray( 1, 1, 1 ), "values":[ Color( 1, 1, 1, 1 ), Color( 0.582031, 0.111404, 0.111404, 1 ), Color( 1, 1, 1, 1 ) ] }
+
 [node name="enemy" type="Area2D"]
 
 transform/pos = Vector2( 0, 1 )
@@ -141,6 +152,7 @@ playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/poison = SubResource( 7 )
+anims/hurt = SubResource( 8 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
