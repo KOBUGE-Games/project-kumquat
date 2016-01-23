@@ -107,6 +107,7 @@ func set_poisoned(damage, duration):
 	poison_damage = damage
 	poison_duration = duration
 	get_node("effect_timer").start()
+	get_node("effect_anim").get_animation("poison").set_loop(true)
 	get_node("effect_anim").play("poison")
 
 ### Signals ###
@@ -122,4 +123,5 @@ func _on_effect_timer_timeout():
 		take_damage(poison_damage)
 		get_node("effect_timer").start()
 	else:
-		get_node("effect_anim").stop(true)
+		# Disable looping so that the last animation plays and the effect goes back to normal
+		get_node("effect_anim").get_animation("poison").set_loop(false)
