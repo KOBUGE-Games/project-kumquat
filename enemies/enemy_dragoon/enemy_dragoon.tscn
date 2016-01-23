@@ -92,7 +92,7 @@ region_rect = Rect2( 0, 0, 640, 320 )
 
 transform/pos = Vector2( 2.46224, 0.769449 )
 
-[node name="animation_player" parent="."]
+[node name="movement_anim" parent="."]
 
 anims/die = SubResource( 3 )
 anims/walk_left = SubResource( 7 )

@@ -43,7 +43,7 @@ func _ready():
 	cur_tile = tilemap.world_to_map(get_pos())
 	dest_tile = cur_tile
 	
-	get_node("animation_player").connect("finished", self, "_on_animation_player_finished")
+	get_node("movement_anim").connect("finished", self, "_on_movement_anim_finished")
 	get_node("effect_timer").connect("timeout", self, "_on_effect_timer_timeout")
 	
 	set_fixed_process(true)
@@ -53,7 +53,7 @@ func _fixed_process(delta):
 	if hp <= 0:
 		# Stop walking
 		set_fixed_process(false)
-		get_node("animation_player").play("die")
+		get_node("movement_anim").play("die")
 		global.hud.update_budget(worth)
 		return
 	
@@ -72,7 +72,8 @@ func _fixed_process(delta):
 		if goal_dirs.size() == 0:
 			# Dead-end, assuming it's the goal
 			set_fixed_process(false)
-			get_node("animation_player").stop()
+			get_node("movement_anim").stop()
+			get_node("effect_anim").stop()
 			global.hud.update_health(-damage)
 			queue_free()
 			return
@@ -84,10 +85,10 @@ func _fixed_process(delta):
 		
 		# Update walk animation
 		if motion_dir != old_motion_dir:
-			get_node("animation_player").play(WALK_ANIMS[motion_dir])
+			get_node("movement_anim").play(WALK_ANIMS[motion_dir])
 	
 	# Update animation speed
-	get_node("animation_player").set_speed(speed_multiplier)
+	get_node("movement_anim").set_speed(speed_multiplier)
 	
 	# Move now
 	var motion = motion_dir*speed*speed_multiplier*global.TILE_SIZE*delta
@@ -103,17 +104,19 @@ func set_poisoned(damage, duration):
 	poison_damage = damage
 	poison_duration = duration
 	get_node("effect_timer").start()
+	get_node("effect_anim").play("poison")
 
 ### Signals ###
 
-func _on_animation_player_finished():
-	if get_node("animation_player").get_current_animation() == "die":
+func _on_movement_anim_finished():
+	if get_node("movement_anim").get_current_animation() == "die":
 		# We just finished playing the death animation, so free the object
 		queue_free()
 
 func _on_effect_timer_timeout():
 	poison_duration -= get_node("effect_timer").get_wait_time()
-	print(get_node("effect_timer").get_wait_time())
 	if poison_duration > 0:
 		take_damage(poison_damage)
 		get_node("effect_timer").start()
+	else:
+		get_node("effect_anim").stop(true)
