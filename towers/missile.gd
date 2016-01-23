@@ -6,7 +6,7 @@ export var speed = 2.0 # Speed in tiles/second
 
 var exploded = false
 
-# Set by the tower class
+# Set by the tower class by calling setup()
 var direction = Vector2()
 var damage_funcref
 var distance_left = 1.0
@@ -42,6 +42,12 @@ func _fixed_process(delta):
 		set_pos(get_pos() + motion)
 
 ### Functions ###
+
+func setup(_direction, _damage_funcref, _distance_left):
+	"""Static init function as PackedScenes can't be passed arguments for _init"""
+	direction = _direction
+	damage_funcref = _damage_funcref
+	distance_left = _distance_left
 
 func explode(enemies):
 	exploded = true # Mark the missile as exploded, so it won't explode again
