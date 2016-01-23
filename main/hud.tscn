@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=16 format=1]
 
 [ext_resource path="res://main/hud.gd" type="Script" id=1]
 [ext_resource path="res://main/buttons/btn_upgrade.tscn" type="PackedScene" id=2]
@@ -8,11 +8,12 @@
 [ext_resource path="res://towers/tower_fireball/tower_fireball.tscn" type="PackedScene" id=6]
 [ext_resource path="res://towers/tower_slow/tower_slow.tscn" type="PackedScene" id=7]
 [ext_resource path="res://towers/tower_poison/tower_poison.tscn" type="PackedScene" id=8]
-[ext_resource path="res://shared/fonts/railway.fnt" type="Font" id=9]
-[ext_resource path="res://main/heart.png" type="Texture" id=10]
-[ext_resource path="res://main/coin_sheet.png" type="Texture" id=11]
-[ext_resource path="res://main/stick-cross.png" type="Texture" id=12]
-[ext_resource path="res://main/icon_next_wave.png" type="Texture" id=13]
+[ext_resource path="res://towers/tower_boost/tower_boost.tscn" type="PackedScene" id=9]
+[ext_resource path="res://shared/fonts/railway.fnt" type="Font" id=10]
+[ext_resource path="res://main/heart.png" type="Texture" id=11]
+[ext_resource path="res://main/coin_sheet.png" type="Texture" id=12]
+[ext_resource path="res://main/stick-cross.png" type="Texture" id=13]
+[ext_resource path="res://main/icon_next_wave.png" type="Texture" id=14]
 
 [sub_resource type="Animation" id=1]
 
@@ -201,6 +202,43 @@ tower_scene = ExtResource( 8 )
 tower_tier = 3
 unlocked = false
 
+[node name="tower_boost" type="HBoxContainer" parent="tower_buttons"]
+
+margin/top = 360.0
+margin/right = 140.0
+margin/bottom = 416.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+custom_constants/separation = 10
+alignment = 0
+
+[node name="tier1" parent="tower_buttons/tower_boost" instance=ExtResource( 4 )]
+
+size_flags/horizontal = 3
+tower_scene = ExtResource( 9 )
+tower_tier = 1
+unlocked = true
+
+[node name="tier2" parent="tower_buttons/tower_boost" instance=ExtResource( 4 )]
+
+margin/left = 50.0
+margin/right = 90.0
+size_flags/horizontal = 3
+tower_scene = ExtResource( 9 )
+tower_tier = 2
+unlocked = false
+
+[node name="tier3" parent="tower_buttons/tower_boost" instance=ExtResource( 4 )]
+
+margin/left = 100.0
+margin/right = 140.0
+size_flags/horizontal = 3
+tower_scene = ExtResource( 9 )
+tower_tier = 3
+unlocked = false
+
 [node name="tower_tooltip" type="Panel" parent="."]
 
 visibility/visible = false
@@ -224,7 +262,7 @@ margin/bottom = 23.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 10 )
 text = "Tower #1"
 percent_visible = 1.0
 lines_skipped = 0
@@ -239,7 +277,7 @@ margin/bottom = 42.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 10 )
 text = "Damage: 300"
 percent_visible = 1.0
 lines_skipped = 0
@@ -254,7 +292,7 @@ margin/bottom = 61.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 10 )
 text = "Range: 200"
 percent_visible = 1.0
 lines_skipped = 0
@@ -269,7 +307,7 @@ margin/bottom = 80.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 10 )
 text = "Reload: 10 sec"
 percent_visible = 1.0
 lines_skipped = 0
@@ -284,7 +322,7 @@ margin/bottom = 97.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 10 )
 text = "Price: 100"
 percent_visible = 1.0
 lines_skipped = 0
@@ -312,7 +350,7 @@ size_flags/vertical = 2
 
 [node name="icon" type="Sprite" parent="stats/health"]
 
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 centered = false
 region = true
 region_rect = Rect2( 0, 0, 20, 20 )
@@ -325,7 +363,7 @@ margin/right = 126.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 10 )
 text = "Health: 100%"
 percent_visible = 1.0
 lines_skipped = 0
@@ -344,7 +382,7 @@ size_flags/vertical = 2
 
 [node name="icon" type="Sprite" parent="stats/budget"]
 
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 centered = false
 hframes = 6
 region_rect = Rect2( 0, 0, 20, 20 )
@@ -357,7 +395,7 @@ margin/right = 126.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 10 )
 text = "Budget: 0"
 percent_visible = 1.0
 lines_skipped = 0
@@ -387,7 +425,7 @@ size_flags/vertical = 2
 
 [node name="icon" type="Sprite" parent="stats/damage"]
 
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 centered = false
 region_rect = Rect2( 0, 0, 20, 20 )
 
@@ -400,7 +438,7 @@ margin/bottom = -35.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 10 )
 text = "Damage:\n  0 Total\n  0 Per second"
 percent_visible = 1.0
 lines_skipped = 0
@@ -416,10 +454,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 10 )
 toggle_mode = false
 text = "Next Wave"
-icon = ExtResource( 13 )
+icon = ExtResource( 14 )
 flat = false
 
 

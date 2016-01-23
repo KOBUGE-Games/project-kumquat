@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://towers/tower.tscn" type="PackedScene" id=1]
+[ext_resource path="res://towers/tower_boost/tower_boost.png" type="Texture" id=2]
+[ext_resource path="res://towers/tower_types/tower_base.gd" type="Script" id=3]
+
+[node name="tower" instance=ExtResource( 1 )]
+
+linear_damp = 0.1
+tower_type = "tower_base"
+
+[node name="tier_1" parent="."]
+
+damage = 1
+damage_duration = 1.0
+damage_type = 0
+frequency = 1.0
+reach = 4.0
+name = "Church"
+price = 100
+unlock_price = 100
+show_attack_indicator = true
+
+[node name="sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+[node name="attack_timer" parent="."]
+
+wait_time = 0.2
+
+[node name="tier_2" type="Node" parent="."]
+
+script/script = ExtResource( 3 )
+damage = 1
+damage_duration = 1.0
+damage_type = 0
+frequency = 1.0
+reach = 4.0
+name = "Factory"
+price = 5
+unlock_price = 5
+show_attack_indicator = true
+
+[node name="tier_3" type="Node" parent="."]
+
+script/script = ExtResource( 3 )
+damage = 1
+damage_duration = 1.0
+damage_type = 0
+frequency = 1.0
+reach = 4.0
+name = "Replicator"
+price = 5
+unlock_price = 5
+show_attack_indicator = true
+
+
