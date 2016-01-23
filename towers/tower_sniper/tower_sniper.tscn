@@ -5,28 +5,33 @@
 
 [node name="tower" instance=ExtResource( 1 )]
 
+linear_damp = 0.1
 tower_type = "tower_sniper"
 
 [node name="tier_1" parent="."]
 
 script/script = ExtResource( 2 )
-damage = 2
+damage = 8
 damage_duration = 1.0
 damage_type = 0
-frequency = 1.0
+frequency = 0.8
 reach = 3.0
 name = "Arrow"
 price = 100
 unlock_price = 100
 show_attack_indicator = true
 
+[node name="attack_timer" parent="."]
+
+wait_time = 0.2
+
 [node name="tier_2" type="Node" parent="."]
 
 script/script = ExtResource( 2 )
-damage = 3
+damage = 12
 damage_duration = 1.0
 damage_type = 0
-frequency = 1.4
+frequency = 1.1
 reach = 3.6
 name = "Sniper"
 price = 200
@@ -36,10 +41,10 @@ show_attack_indicator = true
 [node name="tier_3" type="Node" parent="."]
 
 script/script = ExtResource( 2 )
-damage = 4
+damage = 15
 damage_duration = 1.0
 damage_type = 0
-frequency = 1.7
+frequency = 1.3
 reach = 4.0
 name = "Laserbeam"
 price = 400

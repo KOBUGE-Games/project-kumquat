@@ -7,9 +7,8 @@
 linear_damp = 0.1
 type = "enemy1"
 speed = 1.0
-hp = 30
+hp = 80
 damage = 10
-worth = 25
-
+worth = 30
 
 

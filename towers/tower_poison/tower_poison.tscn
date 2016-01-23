@@ -13,7 +13,7 @@ tower_type = "tower_poison"
 [node name="tier_1" parent="."]
 
 script/script = ExtResource( 2 )
-damage = 1
+damage = 3
 damage_duration = 5.0
 damage_type = 2
 frequency = 0.5
@@ -35,7 +35,7 @@ wait_time = 0.2
 [node name="tier_2" type="Node" parent="."]
 
 script/script = ExtResource( 2 )
-damage = 1
+damage = 4
 damage_duration = 5.0
 damage_type = 2
 frequency = 0.7
@@ -49,7 +49,7 @@ missile_scene = ExtResource( 3 )
 [node name="tier_3" type="Node" parent="."]
 
 script/script = ExtResource( 2 )
-damage = 1
+damage = 4
 damage_duration = 8.0
 damage_type = 2
 frequency = 0.8
