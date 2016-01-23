@@ -30,6 +30,9 @@ export var worth = 25 # the amount of money given to player after enemies death
 var speed_multiplier = 1
 var speed_multiplier_reset = 0
 
+var poison_damage = 0
+var poison_duration = 0
+
 ### Callbacks ###
 
 func _ready():
@@ -41,6 +44,7 @@ func _ready():
 	dest_tile = cur_tile
 	
 	get_node("animation_player").connect("finished", self, "_on_animation_player_finished")
+	get_node("effect_timer").connect("timeout", self, "_on_effect_timer_timeout")
 	
 	set_fixed_process(true)
 
@@ -89,9 +93,27 @@ func _fixed_process(delta):
 	var motion = motion_dir*speed*speed_multiplier*global.TILE_SIZE*delta
 	set_pos(get_pos() + motion)
 
+### Functions ###
+
+func take_damage(damage):
+	hp -= damage
+	global.hud.add_damage(damage)
+
+func set_poisoned(damage, duration):
+	poison_damage = damage
+	poison_duration = duration
+	get_node("effect_timer").start()
+
 ### Signals ###
 
 func _on_animation_player_finished():
 	if get_node("animation_player").get_current_animation() == "die":
 		# We just finished playing the death animation, so free the object
 		queue_free()
+
+func _on_effect_timer_timeout():
+	poison_duration -= get_node("effect_timer").get_wait_time()
+	print(get_node("effect_timer").get_wait_time())
+	if poison_duration > 0:
+		take_damage(poison_damage)
+		get_node("effect_timer").start()

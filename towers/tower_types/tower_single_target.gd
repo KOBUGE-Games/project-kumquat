@@ -37,13 +37,17 @@ func pick_target(enemies):
 				if min_squared_distance == null or distance < min_squared_distance:
 					target = enemy
 					min_squared_distance = distance
-	elif damage_type == DAMAGE_SLOW:
+	elif damage_type == DAMAGE_SLOW or DAMAGE_POISON:
 		var min_squared_distance = null
 		var min_duration = null
 		for enemy in enemies:
 			if enemy.get("hp"):
 				var distance = enemy.get_pos().distance_squared_to(tower.get_pos())
-				var duration = enemy.speed_multiplier_reset
+				var duration = 1.0
+				if damage_type == DAMAGE_SLOW:
+					var duration = enemy.speed_multiplier_reset
+				elif damage_type == DAMAGE_POISON:
+					var duration = enemy.poison_duration
 				if min_duration == null or min_squared_distance == null or duration < min_duration or (distance < min_squared_distance and duration == min_duration):
 					target = enemy
 					min_squared_distance = distance
@@ -58,6 +62,5 @@ func display_attack():
 		tower.attack_indicator.show()
 	else:
 		tower.attack_indicator.hide()
-		
 	
 	tower.animation_player.play("attack")
