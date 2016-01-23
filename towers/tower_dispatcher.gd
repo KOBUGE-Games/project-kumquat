@@ -68,7 +68,7 @@ func upgrade_tier():
 
 func get_next_tier_price():
 	if can_upgrade_tier():
-		return get_tier(current_tier + 1).price
+		return get_tier(current_tier + 1).price - get_tier(current_tier).price
 	else:
 		return 0
 

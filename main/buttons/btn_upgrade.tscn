@@ -7,8 +7,8 @@
 
 [node name="btn_upgrade" type="Button"]
 
-margin/right = 128
-margin/bottom = 64
+margin/right = 128.0
+margin/bottom = 64.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
