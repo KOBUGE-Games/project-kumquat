@@ -12,80 +12,17 @@ class Tile:
 	var goal_directions = []
 	var tower = null
 
-class Wave:
-	var enemies = []
-	var spawn_cooldown = 1
-	func _init(_enemies, _spawn_cooldown = 1):
-		enemies = _enemies
-		spawn_cooldown = _spawn_cooldown
-
-class WaveEnemy:
-	var scene
-	var count = 1 # Should it be frequency instead?
-	func _init(_scene, _count = 1):
-		scene = _scene
-		count = _count
-
 ### Variables ###
 
 # Consts
 const DIRECTIONS = Vector2Array([Vector2(1, 0), Vector2(-1, 0), Vector2(0, 1), Vector2(0, -1)])
 
 # Nodes and resources
-var enemy_skeleton_scene = preload("res://enemies/enemy_skeleton/enemy_skeleton.tscn")
-var enemy_spider_scene = preload("res://enemies/enemy_spider/enemy_spider.tscn")
-var enemy_bat_scene = preload("res://enemies/enemy_bat/enemy_bat.tscn")
-var enemy_dragoon_scene = preload("res://enemies/enemy_dragoon/enemy_dragoon.tscn")
 var tilemap
 
 export var cell_size = Vector2(32, 32)
 export var debug = false
-
-var waves = [
-	Wave.new([
-		WaveEnemy.new(enemy_skeleton_scene, 20),
-		WaveEnemy.new(enemy_spider_scene, 5),
-		WaveEnemy.new(enemy_bat_scene, 10),
-		WaveEnemy.new(enemy_dragoon_scene, 5)
-	], 1.2),
-	Wave.new([
-		WaveEnemy.new(enemy_skeleton_scene, 40),
-		WaveEnemy.new(enemy_spider_scene, 10),
-		WaveEnemy.new(enemy_bat_scene, 20),
-		WaveEnemy.new(enemy_dragoon_scene, 10)
-	], 1.2),
-	Wave.new([
-		WaveEnemy.new(enemy_skeleton_scene, 40),
-		WaveEnemy.new(enemy_spider_scene, 40),
-		WaveEnemy.new(enemy_bat_scene, 40),
-		WaveEnemy.new(enemy_dragoon_scene, 20)
-	], 0.4),
-	Wave.new([
-		WaveEnemy.new(enemy_skeleton_scene, 20),
-		WaveEnemy.new(enemy_spider_scene, 60),
-		WaveEnemy.new(enemy_bat_scene, 20),
-		WaveEnemy.new(enemy_dragoon_scene, 40)
-	], 0.02),
-	Wave.new([
-		WaveEnemy.new(enemy_skeleton_scene, 20),
-		WaveEnemy.new(enemy_spider_scene, 20),
-		WaveEnemy.new(enemy_bat_scene, 60),
-		WaveEnemy.new(enemy_dragoon_scene, 60)
-	], 0.02),
-	Wave.new([
-		WaveEnemy.new(enemy_skeleton_scene, 400)
-	], 0.01),
-	Wave.new([
-		WaveEnemy.new(enemy_spider_scene, 400)
-	], 0.01),
-	Wave.new([
-		WaveEnemy.new(enemy_bat_scene, 400)
-	], 0.01),
-	Wave.new([
-		WaveEnemy.new(enemy_dragoon_scene, 400)
-	], 0.01)
-]
-var current_wave_index = 0
+var current_wave_index = 1
 var current_wave
 
 var tiles = {}
@@ -111,8 +48,6 @@ func _enter_tree():
 	import_tilemap(tilemap, Tile.TILE_WALKABLE)
 
 func _ready():
-	get_node("enemy_timer").connect("timeout", self, "spawn_enemy")
-	
 	update_endpoints()
 	update_tile_directions()
 	run_bfs()
@@ -204,36 +139,44 @@ func run_bfs():
 				tile.goal_directions.push_back(direction)
 
 func next_wave():
-	if current_wave_index >= waves.size():
-		print("ERROR: current_wave_index out of size.")
+	if current_wave:
+		for enemy in current_wave.enemies:
+			enemy.disconnect("timeout", self, "spawn_enemy")
+			enemy.stop()
+			
+	
+	var node_path = str("waves/wave_", current_wave_index)
+	if !has_node(node_path):
+		print("WARN: No more waves @(",current_wave_index,")")
 		return
-	current_wave = waves[current_wave_index]
-	get_node("enemy_timer").set_wait_time(current_wave.spawn_cooldown)
-	get_node("enemy_timer").start()
+	current_wave = get_node(str("waves/wave_", current_wave_index))
+	
+	if current_wave:
+		for enemy in current_wave.enemies:
+			enemy.connect("timeout", self, "spawn_enemy", [enemy])
+			enemy.start()
+			enemy.amount_left = enemy.spawn_amount
+	
+	for start_node in get_node("starts").get_children():
+		start_node.hide()
+	for start_node in current_wave.starts_open:
+		start_node.show()
 	
 	current_wave_index += 1
 
-func spawn_enemy():
-	var start = starts[randi() % starts.size()]
+func spawn_enemy(wave_enemy):
+	var starts_avilable = []
+	for i in range(current_wave.starts_open_positions.size()):
+		if wave_enemy.starts_dict.has(i):
+			starts_avilable.push_back((current_wave.starts_open_positions[i]/cell_size).floor())
+	var start = starts_avilable[randi() % starts_avilable.size()]
 	var position = start*cell_size + cell_size/2
 	
-	var total_count = 0
+	if wave_enemy.amount_left == 0:
+		wave_enemy.stop()
+	else:
+		wave_enemy.amount_left -= 1
 	
-	for wave_enemy in current_wave.enemies:
-		total_count += wave_enemy.count
-	
-	if total_count == 0:
-		get_node("enemy_timer").stop()
-		return
-	
-	var enemy_id = randi() % total_count
-	
-	for wave_enemy in current_wave.enemies:
-		enemy_id -= wave_enemy.count
-		if enemy_id <= 0:
-			wave_enemy.count -= 1
-			
-			var enemy = wave_enemy.scene.instance()
-			enemy.set_pos(position)
-			add_child(enemy)
-			break
+		var enemy = wave_enemy.scene.instance()
+		enemy.set_pos(position)
+		add_child(enemy)
