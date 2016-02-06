@@ -13,25 +13,42 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"Script" }
+__meta__ = { "__editor_plugin_screen__":"2D" }
+camera_speed = 500
+camera_offset = 0
 
 [node name="level_control" type="Control" parent="."]
 
-margin/left = 208.0
-margin/top = 16.0
-margin/right = 1072.0
-margin/bottom = 784.0
+margin/right = 864.0
+margin/bottom = 768.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "_edit_group_":true, "_editor_collapsed":true }
+__meta__ = { "_edit_group_":true }
 
 [node name="level" parent="level_control" instance=ExtResource( 2 )]
 
 debug = false
 
-[node name="hud" parent="." instance=ExtResource( 3 )]
+[node name="camera" type="Camera2D" parent="level_control"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -65536
+limit/top = 65535
+limit/right = 65535
+limit/bottom = 65535
+drag_margin/h_enabled = false
+drag_margin/v_enabled = false
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
 
 [node name="sample_player" type="SamplePlayer" parent="."]
 
@@ -60,5 +77,7 @@ stream/autoplay = false
 stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
+
+[node name="hud" parent="." instance=ExtResource( 3 )]
 
 
