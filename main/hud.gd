@@ -47,6 +47,7 @@ func _fixed_process(delta):
 		add_damage(0)
 
 func _input(ev):
+	ev = level.make_input_local(ev)
 	if tower_placement and carried_tower:
 		if ev.type == InputEvent.MOUSE_MOTION:
 			var tile_pos = level.tilemap.world_to_map(ev.pos - level.get_global_pos())
