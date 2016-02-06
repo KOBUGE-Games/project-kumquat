@@ -6,6 +6,9 @@ extends Node
 const TILE_SIZE = 32
 const TILE_OFFSET = Vector2(0.5, 0.5)*TILE_SIZE
 
+# Variables
+var level_to_load
+
 # Nodes
 var game
 var level
@@ -20,3 +23,4 @@ func _ready():
 
 func go_to_level(level):
 	get_tree().change_scene_to(preload("res://main/game.tscn"))
+	level_to_load = level

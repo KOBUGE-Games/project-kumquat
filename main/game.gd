@@ -22,6 +22,10 @@ func _ready():
 	camera.set_limit(MARGIN_BOTTOM, size.height + camera_offset)
 	camera.set_limit(MARGIN_RIGHT, size.width + camera_offset)
 	
+	var level = get_node("/root/global").level_to_load
+	var level_scene = load(str("res://levels/level", level, ".tscn"))
+	get_node("level_control").add_child(level_scene.instance())
+	
 	set_fixed_process(true)
 
 func _fixed_process(delta):

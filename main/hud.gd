@@ -47,6 +47,9 @@ func _fixed_process(delta):
 		add_damage(0)
 
 func _input(ev):
+	if level == null:
+		level = global.level
+		return
 	ev = level.make_input_local(ev)
 	if tower_placement and carried_tower:
 		if ev.type == InputEvent.MOUSE_MOTION:
