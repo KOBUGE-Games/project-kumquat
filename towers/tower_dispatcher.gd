@@ -7,6 +7,11 @@ var active = false
 var tile_pos = Vector2()
 var current_tier = 1
 
+var reach_add = 0
+var frequency_add = 0
+var damage_add = 0
+var boost_reset_timeout = 0
+
 # Nodes
 var global
 var level
@@ -26,7 +31,6 @@ func _ready():
 	reach_indicator = get_node("reach_indicator")
 	
 	get_node("attack_timer").connect("timeout", self, "_attack")
-	get_node("attack_timer").start()
 	
 	get_node("hover").connect("mouse_enter", self, "_mouse_enter")
 	get_node("hover").connect("mouse_exit", self, "_mouse_exit")
@@ -50,8 +54,8 @@ func set_tier(tier):
 	tower_tier.tower = self
 	
 	# Update current status
-	set_reach(tower_tier.reach)
-	set_attack_time(1/tower_tier.frequency)
+	set_reach(tower_tier.reach + reach_add)
+	set_attack_time(1/(tower_tier.frequency + frequency_add))
 	get_node("sprite").set_frame(tier - 1)
 
 func has_tier(tier):
@@ -65,6 +69,18 @@ func can_upgrade_tier():
 
 func upgrade_tier():
 	set_tier(current_tier + 1)
+
+func set_boosts(_reach_add, _frequency_add, _damage_add, timeout):
+	var same = reach_add == _reach_add and frequency_add == _frequency_add and damage_add == _damage_add
+	
+	reach_add = max(_reach_add, reach_add)
+	frequency_add = max(_frequency_add, frequency_add)
+	damage_add = int(max(_damage_add, damage_add))
+	
+	boost_reset_timeout = timeout
+	
+	if !same:
+		set_tier(current_tier)
 
 func get_next_tier_price():
 	if can_upgrade_tier():
@@ -102,6 +118,7 @@ func set_carried(carried):
 	if !carried:
 		get_node("sprite").set_modulate(Color(1.0, 1.0, 1.0))
 		level.tiles[tile_pos].tower = self
+		get_node("attack_timer").start()
 
 func set_show_info(show_info):
 	reach_indicator.set_hidden(!show_info)
@@ -128,5 +145,9 @@ func _mouse_exit():
 func _attack():
 	if !active:
 		return
+	
+	boost_reset_timeout -= get_node("attack_timer").get_wait_time()
+	if boost_reset_timeout < 0:
+		set_boosts(0,0,0,1000)
 	
 	tower_tier.attack()

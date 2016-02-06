@@ -11,6 +11,7 @@ const DAMAGE_POISON = 2
 export var damage = 1
 export var damage_duration = 1.0 # Valid only for Slow and Poison
 export(int, "Direct", "Slow", "Poison") var damage_type = 0
+
 export var frequency = 1.0
 export var reach = 4.0
 export var name = "Unnamed"
@@ -29,12 +30,12 @@ func _ready():
 
 func deal_damage(target):
 	if damage_type == DAMAGE_DIRECT:
-		target.take_damage(damage)
+		target.take_damage(damage + tower.damage_add)
 	elif damage_type == DAMAGE_SLOW:
-		target.speed_multiplier = min(target.speed_multiplier, 1/float(damage))
+		target.speed_multiplier = min(target.speed_multiplier, 1/float(damage + tower.damage_add))
 		target.speed_multiplier_reset = max(target.speed_multiplier_reset, damage_duration)
 	elif damage_type == DAMAGE_POISON:
-		target.set_poisoned(damage, damage_duration)
+		target.set_poisoned(damage + tower.damage_add, damage_duration)
 
 ### Virtual functions (to be overriden) ###
 

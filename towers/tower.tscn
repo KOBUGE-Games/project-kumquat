@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://towers/tower_dispatcher.gd" type="Script" id=1]
 [ext_resource path="res://towers/tower_types/tower_base.gd" type="Script" id=2]
@@ -22,6 +22,11 @@ tracks/0/path = NodePath("attack_indicator:visibility/opacity")
 tracks/0/interp = 1
 tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.12, 0.16 ), "transitions":FloatArray( 1, 1, 1 ), "values":[ 0, 1, 0.0 ] }
 
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 16 )
+
 [node name="tower" type="Area2D"]
 
 input/pickable = false
@@ -32,8 +37,9 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+monitorable = false
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"2D" }
+__meta__ = { "__editor_plugin_screen__":"Script" }
 tower_type = "tower_base"
 
 [node name="tier_1" type="Node" parent="."]
@@ -120,5 +126,21 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 toggle_mode = false
+
+[node name="bounding_box" type="KinematicBody2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="bounding_box"]
+
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
 
 

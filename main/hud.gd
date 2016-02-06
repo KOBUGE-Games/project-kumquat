@@ -107,7 +107,7 @@ func cancel_tower_placement():
 
 func tower_build_mode(tower_scene, tower_tier):
 	if tower_placement and carried_tower:
-		carried_tower.free()
+		carried_tower.queue_free()
 	
 	tower_placement = true
 	carried_tower = tower_scene.instance()
@@ -118,7 +118,7 @@ func tower_build_mode(tower_scene, tower_tier):
 
 func tower_upgrade_mode(upgrade_scene):
 	if tower_placement and carried_tower:
-		carried_tower.free()
+		carried_tower.queue_free()
 	
 	tower_placement = true
 	carried_tower = upgrade_scene.instance()
