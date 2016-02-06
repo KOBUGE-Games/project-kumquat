@@ -1,13 +1,183 @@
-[gd_scene format=1]
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://menu/menu.gd" type="Script" id=1]
+[ext_resource path="res://menu/levels/level_1.png" type="Texture" id=2]
+[ext_resource path="res://menu/level_border.png" type="Texture" id=3]
+[ext_resource path="res://fonts/papercut.fnt" type="Font" id=4]
+[ext_resource path="res://menu/menu_left.png" type="Texture" id=5]
+[ext_resource path="res://menu/menu_right.png" type="Texture" id=6]
 
 [node name="menu" type="Control"]
 
-margin/right = 40
-margin/bottom = 40
+margin/right = 40.0
+margin/bottom = 40.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "__editor_plugin_screen__":"2D", "__editor_plugin_states__":{ "2D":{ "ofs":Vector2( -176, -133 ), "snap_grid":false, "snap_offset":Vector2( 0, 0 ), "snap_pixel":false, "snap_relative":false, "snap_rotation":false, "snap_rotation_offset":0, "snap_rotation_step":0.261799, "snap_show_grid":false, "snap_step":Vector2( 10, 10 ), "zoom":1 }, "3D":{ "ambient_light_color":Color( 0.15, 0.15, 0.15, 1 ), "default_light":true, "default_srgb":false, "deflight_rot_x":0.942478, "deflight_rot_y":0.628319, "fov":45, "show_grid":true, "show_origin":true, "viewport_mode":1, "viewports":[ { "distance":4, "listener":true, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 } ], "zfar":500, "znear":0.1 }, "Anim":{ "visible":false } }, "__editor_run_settings__":{ "custom_args":"-l $scene", "run_mode":0 } }
+script/script = ExtResource( 1 )
+__meta__ = { "__editor_plugin_screen__":"Script" }
+
+[node name="levels" type="Container" parent="."]
+
+margin/left = 171.0
+margin/top = 258.0
+margin/right = 211.0
+margin/bottom = 298.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="tween" type="Tween" parent="levels"]
+
+playback/process_mode = 1
+playback/active = true
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="level_box" type="TextureButton" parent="levels"]
+
+margin/left = 2.0
+margin/top = 23.0
+margin/right = 292.0
+margin/bottom = 273.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+textures/normal = ExtResource( 2 )
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="levels/level_box"]
+
+transform/pos = Vector2( 145, 125 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="levels/level_box"]
+
+margin/left = 1.0
+margin/top = 217.0
+margin/right = 289.0
+margin/bottom = 250.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 4 )
+text = "Level Name"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="level_box2" type="TextureButton" parent="levels"]
+
+margin/left = 649.0
+margin/top = 25.0
+margin/right = 939.0
+margin/bottom = 275.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+textures/normal = ExtResource( 2 )
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="levels/level_box2"]
+
+transform/pos = Vector2( 145, 125 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="levels/level_box2"]
+
+margin/left = 1.0
+margin/top = 217.0
+margin/right = 289.0
+margin/bottom = 250.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 4 )
+text = "Level Name"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="level_box1" type="TextureButton" parent="levels"]
+
+margin/left = 325.0
+margin/top = 25.0
+margin/right = 615.0
+margin/bottom = 275.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+textures/normal = ExtResource( 2 )
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="levels/level_box1"]
+
+transform/pos = Vector2( 145, 125 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="levels/level_box1"]
+
+margin/left = 1.0
+margin/top = 217.0
+margin/right = 289.0
+margin/bottom = 250.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 4 )
+text = "Level Name"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="navigation" type="Container" parent="."]
+
+margin/right = 40.0
+margin/bottom = 40.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="menu_left" type="TextureButton" parent="navigation"]
+
+margin/left = 10.0
+margin/top = 336.0
+margin/right = 152.0
+margin/bottom = 478.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+textures/normal = ExtResource( 5 )
+
+[node name="menu_right" type="TextureButton" parent="navigation"]
+
+margin/left = 1129.0
+margin/top = 338.0
+margin/right = 1271.0
+margin/bottom = 480.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+textures/normal = ExtResource( 6 )
+
+[connection signal="pressed" from="levels/level_box" to="." method="_on_level_box_pressed"]
+
+[connection signal="pressed" from="navigation/menu_right" to="." method="_on_menu_right_pressed"]
 
 
