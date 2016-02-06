@@ -1,9 +1,20 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://shared/fonts/railway.fnt" type="Font" id=1]
 [ext_resource path="res://main/buttons/btn_upgrade.gd" type="Script" id=2]
 [ext_resource path="res://towers/drop_upgrade/drop_upgrade.tscn" type="PackedScene" id=3]
-[ext_resource path="res://towers/drop_upgrade/drop_upgrade.png" type="Texture" id=4]
+[ext_resource path="res://shared/graphics/upgrade.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "reflection"
+length = 1.7
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:frame")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "values":[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 0 ] }
 
 [node name="btn_upgrade" type="Button"]
 
@@ -26,8 +37,18 @@ upgrade_scene = ExtResource( 3 )
 
 transform/pos = Vector2( 24, 32 )
 texture = ExtResource( 4 )
-hframes = 5
-frame = 2
+hframes = 16
+
+[node name="animation" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/reflection = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
 
 [connection signal="pressed" from="." to="." method="_on_btn_tower_pressed"]
 

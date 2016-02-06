@@ -20,6 +20,7 @@ func _ready():
 ### Signals ###
 
 func _on_btn_tower_mouse_enter():
+	get_node("animation").play("reflection")
 	tooltip.set_pos(get_pos() + Vector2(get_size().x + 10, get_parent().get_pos().y))
 	tooltip.get_node("name").set_text("Upgrade")
 	tooltip.get_node("damage").set_text("")
@@ -29,6 +30,8 @@ func _on_btn_tower_mouse_enter():
 	tooltip.show()
 
 func _on_btn_tower_mouse_exit():
+	get_node("animation").stop()
+	get_node("icon").set_frame(0)
 	tooltip.hide()
 
 func _on_btn_tower_pressed():

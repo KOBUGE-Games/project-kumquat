@@ -1,18 +1,17 @@
 [gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://towers/drop_upgrade/drop_upgrade.gd" type="Script" id=1]
-[ext_resource path="res://towers/drop_upgrade/drop_upgrade.png" type="Texture" id=2]
+[ext_resource path="res://shared/graphics/upgrade.png" type="Texture" id=2]
 
 [node name="upgrade" type="Node2D"]
 
 z/z = 2
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"2D" }
+__meta__ = { "__editor_plugin_screen__":"Script" }
 
 [node name="sprite" type="Sprite" parent="."]
 
 texture = ExtResource( 2 )
-hframes = 5
-frame = 2
+hframes = 16
 
 

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://main/buttons/btn_tower.gd" type="Script" id=1]
 [ext_resource path="res://towers/tower_sniper/tower_sniper.png" type="Texture" id=2]
-[ext_resource path="res://towers/drop_upgrade/drop_upgrade.png" type="Texture" id=3]
+[ext_resource path="res://shared/graphics/upgrade.png" type="Texture" id=3]
 
 [node name="btn_tower" type="Button"]
 
@@ -15,7 +15,7 @@ size_flags/vertical = 2
 toggle_mode = false
 flat = false
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"2D" }
+__meta__ = { "__editor_plugin_screen__":"Script" }
 tower_scene = null
 tower_tier = 1
 unlocked = false
@@ -28,12 +28,10 @@ vframes = 3
 
 [node name="upgrade" type="Sprite" parent="."]
 
-visibility/visible = false
 transform/pos = Vector2( 28, 44 )
-transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
-hframes = 5
-frame = 4
+hframes = 16
+frame = 14
 
 [connection signal="pressed" from="." to="." method="_on_btn_tower_pressed"]
 

@@ -62,6 +62,7 @@ func set_unlocked(enable):
 ### Signals ###
 
 func _on_btn_tower_mouse_enter():
+	get_node("upgrade").set_frame(15)
 	tooltip.set_pos(get_pos() + Vector2(get_size().x + 10, get_parent().get_pos().y))
 	tooltip.get_node("name").set_text(tower_name)
 	tooltip.get_node("damage").set_text("Damage: " + str(tower_damage))
@@ -74,6 +75,7 @@ func _on_btn_tower_mouse_enter():
 	tooltip.show()
 
 func _on_btn_tower_mouse_exit():
+	get_node("upgrade").set_frame(14)
 	tooltip.hide()
 
 func _on_btn_tower_pressed():
