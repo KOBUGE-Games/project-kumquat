@@ -15,5 +15,6 @@ var hud
 
 func _ready():
 	game = get_node("/root/game")
-	#level = game.get_node("level_control/level")
-	#hud = game.get_node("hud")
+	if game:
+		level = game.get_node("level_control/level")
+		hud = game.get_node("hud")
