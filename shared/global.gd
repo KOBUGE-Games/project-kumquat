@@ -14,7 +14,9 @@ var hud
 ### Callbacks
 
 func _ready():
-	game = get_node("/root/game")
-	if game:
-		level = game.get_node("level_control/level")
-		hud = game.get_node("hud")
+	pass
+
+### Functions
+
+func go_to_level(level):
+	get_tree().change_scene_to(preload("res://main/game.tscn"))

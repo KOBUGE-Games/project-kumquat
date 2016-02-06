@@ -42,6 +42,7 @@ var tile_types = {
 ### Callbacks ###
 
 func _enter_tree():
+	get_node("/root/global").level = self
 	tilemap = get_node("tilemap")
 	
 	tiles = {}

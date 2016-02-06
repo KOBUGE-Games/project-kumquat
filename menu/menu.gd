@@ -43,7 +43,6 @@ func _on_menu_right_pressed():
 		current_page += 1
 		toggle_navigation()
 
-
 func _on_menu_left_pressed():
 	if current_page > 0 and allow_navigation:
 		allow_navigation = false
@@ -53,6 +52,8 @@ func _on_menu_left_pressed():
 		current_page -= 1
 		toggle_navigation()
 
-
 func _on_tween_tween_complete( object, key ):
 	allow_navigation = true
+
+func _on_play_pressed():
+	get_node("/root/global").go_to_level(selected_level)

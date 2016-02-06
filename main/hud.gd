@@ -21,6 +21,9 @@ var second_left = 0
 
 ### Callbacks ###
 
+func _enter_tree():
+	get_node("/root/global").hud = self
+
 func _ready():
 	global = get_node("/root/global")
 	level = global.level

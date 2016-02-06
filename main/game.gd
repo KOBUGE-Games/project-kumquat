@@ -7,6 +7,9 @@ onready var camera = get_node("level_control/camera")
 
 ### Callbacks ###
 
+func _enter_tree():
+	get_node("/root/global").game = self
+
 func _ready():
 	randomize()
 	
