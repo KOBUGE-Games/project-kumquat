@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://menu/levels/level_1.png" type="Texture" id=1]
+[ext_resource path="res://menu/level_box.gd" type="Script" id=2]
+[ext_resource path="res://menu/level_border.png" type="Texture" id=3]
+[ext_resource path="res://fonts/papercut.fnt" type="Font" id=4]
+[ext_resource path="res://menu/play.png" type="Texture" id=5]
+
+[node name="level_box" type="TextureButton"]
+
+margin/right = 290.0
+margin/bottom = 250.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+textures/normal = ExtResource( 1 )
+script/script = ExtResource( 2 )
+__meta__ = { "__editor_plugin_screen__":"Script" }
+
+[node name="screenshot" type="Sprite" parent="."]
+
+transform/pos = Vector2( 145, 125 )
+texture = ExtResource( 3 )
+
+[node name="label" type="Label" parent="."]
+
+margin/left = 1.0
+margin/top = 217.0
+margin/right = 289.0
+margin/bottom = 250.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 4 )
+text = "Level Name"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="selected" type="Sprite" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 144.276, 126.444 )
+transform/scale = Vector2( 1, 1 )
+texture = ExtResource( 5 )
+
+[connection signal="pressed" from="." to="." method="_on_level_box_pressed"]
+
+

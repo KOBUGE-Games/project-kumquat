@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://menu/menu.gd" type="Script" id=1]
-[ext_resource path="res://menu/levels/level_1.png" type="Texture" id=2]
-[ext_resource path="res://menu/level_border.png" type="Texture" id=3]
-[ext_resource path="res://fonts/papercut.fnt" type="Font" id=4]
-[ext_resource path="res://menu/menu_left.png" type="Texture" id=5]
-[ext_resource path="res://menu/menu_right.png" type="Texture" id=6]
+[ext_resource path="res://menu/bg_1.png" type="Texture" id=2]
+[ext_resource path="res://fonts/papercut.fnt" type="Font" id=3]
+[ext_resource path="res://menu/menu_left.png" type="Texture" id=4]
+[ext_resource path="res://menu/menu_right.png" type="Texture" id=5]
 
 [node name="menu" type="Control"]
 
@@ -16,7 +15,40 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"Script" }
+__meta__ = { "__editor_plugin_screen__":"2D" }
+
+[node name="decor" type="Control" parent="."]
+
+margin/left = 152.0
+margin/top = 4.0
+margin/right = 192.0
+margin/bottom = 44.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="background" type="Sprite" parent="decor"]
+
+transform/pos = Vector2( 676.68, 399.856 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="decor"]
+
+margin/left = -56.0
+margin/top = 128.0
+margin/right = 992.0
+margin/bottom = 161.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 3 )
+text = "Project Kumquat"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="levels" type="Control" parent="."]
 
@@ -28,118 +60,14 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
 
 [node name="tween" type="Tween" parent="levels"]
 
 playback/process_mode = 0
-playback/active = true
+playback/active = false
 playback/repeat = false
 playback/speed = 1.0
-
-[node name="level_box" type="TextureButton" parent="levels"]
-
-margin/left = 2.0
-margin/top = 23.0
-margin/right = 292.0
-margin/bottom = 273.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-toggle_mode = false
-textures/normal = ExtResource( 2 )
-__meta__ = { "_editor_collapsed":true }
-
-[node name="Sprite" type="Sprite" parent="levels/level_box"]
-
-transform/pos = Vector2( 145, 125 )
-texture = ExtResource( 3 )
-
-[node name="Label" type="Label" parent="levels/level_box"]
-
-margin/left = 1.0
-margin/top = 217.0
-margin/right = 289.0
-margin/bottom = 250.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
-text = "Level Name"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="level_box2" type="TextureButton" parent="levels"]
-
-margin/left = 649.0
-margin/top = 25.0
-margin/right = 939.0
-margin/bottom = 275.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-toggle_mode = false
-textures/normal = ExtResource( 2 )
-__meta__ = { "_editor_collapsed":true }
-
-[node name="Sprite" type="Sprite" parent="levels/level_box2"]
-
-transform/pos = Vector2( 145, 125 )
-texture = ExtResource( 3 )
-
-[node name="Label" type="Label" parent="levels/level_box2"]
-
-margin/left = 1.0
-margin/top = 217.0
-margin/right = 289.0
-margin/bottom = 250.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
-text = "Level Name"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="level_box1" type="TextureButton" parent="levels"]
-
-margin/left = 325.0
-margin/top = 25.0
-margin/right = 615.0
-margin/bottom = 275.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-toggle_mode = false
-textures/normal = ExtResource( 2 )
-__meta__ = { "_editor_collapsed":true }
-
-[node name="Sprite" type="Sprite" parent="levels/level_box1"]
-
-transform/pos = Vector2( 145, 125 )
-texture = ExtResource( 3 )
-
-[node name="Label" type="Label" parent="levels/level_box1"]
-
-margin/left = 1.0
-margin/top = 217.0
-margin/right = 289.0
-margin/bottom = 250.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
-text = "Level Name"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="navigation" type="Control" parent="."]
 
@@ -162,7 +90,7 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 toggle_mode = false
-textures/normal = ExtResource( 5 )
+textures/normal = ExtResource( 4 )
 
 [node name="menu_right" type="TextureButton" parent="navigation"]
 
@@ -175,9 +103,56 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 toggle_mode = false
-textures/normal = ExtResource( 6 )
+textures/normal = ExtResource( 5 )
 
-[connection signal="pressed" from="levels/level_box" to="." method="_on_level_box_pressed"]
+[node name="play" type="Button" parent="navigation"]
+
+margin/left = 65.0
+margin/top = 618.0
+margin/right = 409.0
+margin/bottom = 722.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+text = "Play"
+flat = false
+
+[node name="settings" type="Button" parent="navigation"]
+
+margin/left = 464.0
+margin/top = 618.0
+margin/right = 808.0
+margin/bottom = 722.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+text = "Settings"
+flat = false
+
+[node name="credits" type="Button" parent="navigation"]
+
+margin/left = 869.0
+margin/top = 618.0
+margin/right = 1213.0
+margin/bottom = 722.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+text = "Credits"
+flat = false
+
+[connection signal="tween_complete" from="levels/tween" to="." method="_on_tween_tween_complete"]
+
+[connection signal="pressed" from="navigation/menu_left" to="." method="_on_menu_left_pressed"]
 
 [connection signal="pressed" from="navigation/menu_right" to="." method="_on_menu_right_pressed"]
 
