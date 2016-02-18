@@ -49,6 +49,7 @@ func _fixed_process(delta):
 func _input(ev):
 	if level == null:
 		level = global.level
+		get_node("next_wave").connect("pressed", level, "next_wave")
 		return
 	ev = level.make_input_local(ev)
 	if tower_placement and carried_tower:
