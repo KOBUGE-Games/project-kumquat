@@ -10,13 +10,17 @@ radius = 12.0
 
 [sub_resource type="Animation" id=2]
 
-length = 1.2
-loop = true
+length = 0.8
+loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 2
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.3, 0.6, 0.7, 0.8, 0.9, 0.9 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1 ), "values":[ 10, 13, 10, 9, 8, 0, 7 ] }
+tracks/0/path = NodePath(".:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.6, 0.8 ), "transitions":FloatArray( 1, 1, 1 ), "values":[ 1.0, 1.0, 0.0 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "values":[ 3, 14, 15, 16, 17, 18 ] }
 
 [sub_resource type="Animation" id=3]
 
@@ -31,19 +35,27 @@ tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.3, 0.6, 0.9 ), "transiti
 
 [sub_resource type="Animation" id=4]
 
-length = 0.8
-loop = false
+resource/name = "walk_left"
+length = 1.2
+loop = true
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:visibility/opacity")
-tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.6, 0.8 ), "transitions":FloatArray( 1, 1, 1 ), "values":[ 1.0, 1.0, 0.0 ] }
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "values":[ 3, 14, 15, 16, 17, 18 ] }
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 2
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.9, 1, 1.1, 1.2 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "values":[ 10, 11, 12, 13, 12, 11, 10, 9, 8, 0, 7, 8, 9, 10 ] }
 
 [sub_resource type="Animation" id=5]
+
+resource/name = "walk_right"
+length = 1.2
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 2
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.9, 1, 1.1, 1.2 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "values":[ 10, 11, 12, 13, 12, 11, 10, 9, 8, 0, 7, 8, 9, 10 ] }
+
+[sub_resource type="Animation" id=6]
 
 length = 1.2
 loop = true
@@ -52,17 +64,6 @@ tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.3, 0.6, 0.9 ), "transitions":FloatArray( 1, 1, 1, 1 ), "values":[ 3, 6, 3, 0 ] }
-
-[sub_resource type="Animation" id=6]
-
-resource/name = "walk_left"
-length = 1.2
-loop = true
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 2
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.3, 0.6, 0.7, 0.8, 0.9, 0.9 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1 ), "values":[ 10, 13, 10, 9, 8, 0, 7 ] }
 
 [node name="enemy" instance=ExtResource( 1 )]
 
@@ -94,10 +95,10 @@ transform/pos = Vector2( 2.46224, 0.769449 )
 
 [node name="movement_anim" parent="."]
 
-anims/walk_right = SubResource( 2 )
+anims/die = SubResource( 2 )
 anims/walk_down = SubResource( 3 )
-anims/die = SubResource( 4 )
-anims/walk_up = SubResource( 5 )
-anims/walk_left = SubResource( 6 )
+anims/walk_left = SubResource( 4 )
+anims/walk_right = SubResource( 5 )
+anims/walk_up = SubResource( 6 )
 
 
