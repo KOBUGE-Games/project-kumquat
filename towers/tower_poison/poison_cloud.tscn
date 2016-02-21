@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://towers/missile.gd" type="Script" id=1]
-[ext_resource path="res://towers/tower_fireball/particle.png" type="Texture" id=2]
-[ext_resource path="res://towers/tower_fireball/fireball.png" type="Texture" id=3]
+[ext_resource path="res://towers/tower_poison/poisonparticle.png" type="Texture" id=2]
+[ext_resource path="res://towers/tower_poison/poisonball.png" type="Texture" id=3]
 [ext_resource path="res://towers/tower_fireball/explosion_48.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -13,13 +13,13 @@ radius = 16.0
 [sub_resource type="Animation" id=2]
 
 resource/name = "burn"
-length = 0.6
+length = 0.7
 loop = true
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("missile_sprite:frame")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.6 ), "transitions":FloatArray( 1, 1 ), "values":[ 0, 5 ] }
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "values":[ 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6 ] }
 tracks/1/type = "value"
 tracks/1/path = NodePath("missile_sprite:visibility/opacity")
 tracks/1/interp = 1
@@ -36,6 +36,10 @@ tracks/4/type = "value"
 tracks/4/path = NodePath("missile_particles:config/emitting")
 tracks/4/interp = 1
 tracks/4/keys = { "cont":false, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ true ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("missile_sprite:transform/rot")
+tracks/5/interp = 1
+tracks/5/keys = { "cont":false, "times":FloatArray( 0, 0.35 ), "transitions":FloatArray( 1, 1 ), "values":[ 0.0, 90.0 ] }
 
 [sub_resource type="Animation" id=3]
 
@@ -89,37 +93,33 @@ _update_shape_index = 0
 config/amount = 32
 config/lifetime = 0.5
 config/preprocess = 0.1
-config/half_extents = Vector2( 5, 5 )
-config/local_space = false
 config/texture = ExtResource( 2 )
-config/h_frames = 8
 params/direction = 0.0
-params/spread = 20.0
-params/linear_velocity = 0.0
+params/spread = 180.0
+params/linear_velocity = 25.0
 params/spin_velocity = 0.0
 params/orbit_velocity = 0.0
 params/gravity_direction = 0.0
-params/gravity_strength = 9.8
+params/gravity_strength = 0.0
 params/radial_accel = 0.0
 params/tangential_accel = 0.0
 params/damping = 0.0
 params/initial_angle = 0.0
 params/initial_size = 1.0
-params/final_size = 1.0
+params/final_size = 0.0
 params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
 randomness/direction = 0.001662
 randomness/spread = -0.003656
 randomness/linear_velocity = 0.2
-color/color = Color( 0.0980101, 0.59375, 0.0115967, 1 )
 
 [node name="missile_sprite" type="Sprite" parent="."]
 
-transform/rot = 0.0426821
+transform/rot = 90.0
 texture = ExtResource( 3 )
-hframes = 6
-modulate = Color( 0.267854, 0.746094, 0.227325, 1 )
+hframes = 7
+frame = 1
 
 [node name="explosion_sprite" type="Sprite" parent="."]
 
