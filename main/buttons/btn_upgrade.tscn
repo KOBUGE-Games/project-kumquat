@@ -20,17 +20,18 @@ tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 
 
 margin/right = 128.0
 margin/bottom = 64.0
+rect/min_size = Vector2( 128, 64 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
+size_flags/horizontal = 1
+size_flags/vertical = 1
 custom_fonts/font = ExtResource( 1 )
 toggle_mode = false
 text = "Upgrade"
 flat = false
 align = 2
 script/script = ExtResource( 2 )
-__meta__ = { "__editor_plugin_screen__":"Script" }
+__meta__ = { "__editor_plugin_screen__":"2D" }
 upgrade_scene = ExtResource( 3 )
 
 [node name="icon" type="Sprite" parent="."]

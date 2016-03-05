@@ -1,18 +1,39 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=23 format=1]
 
 [ext_resource path="res://main/hud.gd" type="Script" id=1]
-[ext_resource path="res://main/buttons/btn_upgrade.tscn" type="PackedScene" id=2]
-[ext_resource path="res://main/buttons/btn_tower.tscn" type="PackedScene" id=3]
-[ext_resource path="res://towers/tower_sniper/tower_sniper.tscn" type="PackedScene" id=4]
-[ext_resource path="res://towers/tower_fireball/tower_fireball.tscn" type="PackedScene" id=5]
-[ext_resource path="res://towers/tower_slow/tower_slow.tscn" type="PackedScene" id=6]
-[ext_resource path="res://towers/tower_poison/tower_poison.tscn" type="PackedScene" id=7]
-[ext_resource path="res://towers/tower_boost/tower_boost.tscn" type="PackedScene" id=8]
-[ext_resource path="res://shared/fonts/railway.fnt" type="Font" id=9]
-[ext_resource path="res://main/heart.png" type="Texture" id=10]
-[ext_resource path="res://main/coin_sheet.png" type="Texture" id=11]
-[ext_resource path="res://main/stick-cross.png" type="Texture" id=12]
-[ext_resource path="res://main/icon_next_wave.png" type="Texture" id=13]
+[ext_resource path="res://main/healthbar_under.png" type="Texture" id=2]
+[ext_resource path="res://main/healthbar_fill.png" type="Texture" id=3]
+[ext_resource path="res://main/healthbar_over.png" type="Texture" id=4]
+[ext_resource path="res://shared/fonts/railway.fnt" type="Font" id=5]
+[ext_resource path="res://main/coin_sheet.png" type="Texture" id=6]
+[ext_resource path="res://main/stick-cross.png" type="Texture" id=7]
+[ext_resource path="res://main/icon_next_wave.png" type="Texture" id=8]
+[ext_resource path="res://main/buttons/btn_upgrade.tscn" type="PackedScene" id=9]
+[ext_resource path="res://main/buttons/btn_tower.tscn" type="PackedScene" id=10]
+[ext_resource path="res://towers/tower_sniper/tower_sniper.tscn" type="PackedScene" id=11]
+[ext_resource path="res://towers/tower_fireball/tower_fireball.tscn" type="PackedScene" id=12]
+[ext_resource path="res://towers/tower_slow/tower_slow.tscn" type="PackedScene" id=13]
+[ext_resource path="res://towers/tower_poison/tower_poison.tscn" type="PackedScene" id=14]
+[ext_resource path="res://towers/tower_boost/tower_boost.tscn" type="PackedScene" id=15]
+[ext_resource path="res://main/hud_tooltip.gd" type="Script" id=16]
+
+[sub_resource type="ImageTexture" id=7]
+
+flags = 5
+image = Image( 512, 1, 0, RGBA, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 253, 253, 253, 255, 251, 251, 251, 255, 250, 250, 250, 255, 248, 248, 248, 255, 246, 246, 246, 255, 244, 244, 244, 255, 243, 243, 243, 255, 241, 241, 241, 255, 239, 239, 239, 255, 237, 237, 237, 255, 236, 236, 236, 255, 234, 234, 234, 255, 232, 232, 232, 255, 230, 230, 230, 255, 229, 229, 229, 255, 227, 227, 227, 255, 225, 225, 225, 255, 223, 223, 223, 255, 222, 222, 222, 255, 220, 220, 220, 255, 218, 218, 218, 255, 216, 216, 216, 255, 215, 215, 215, 255, 213, 213, 213, 255, 211, 211, 211, 255, 209, 209, 209, 255, 208, 208, 208, 255, 206, 206, 206, 255, 204, 204, 204, 255, 202, 202, 202, 255, 200, 200, 200, 255, 199, 199, 199, 255, 197, 197, 197, 255, 195, 195, 195, 255, 193, 193, 193, 255, 192, 192, 192, 255, 190, 190, 190, 255, 188, 188, 188, 255, 186, 186, 186, 255, 185, 185, 185, 255, 183, 183, 183, 255, 181, 181, 181, 255, 179, 179, 179, 255, 178, 178, 178, 255, 176, 176, 176, 255, 174, 174, 174, 255, 172, 172, 172, 255, 171, 171, 171, 255, 169, 169, 169, 255, 167, 167, 167, 255, 165, 165, 165, 255, 164, 164, 164, 255, 162, 162, 162, 255, 160, 160, 160, 255, 158, 158, 158, 255, 157, 157, 157, 255, 155, 155, 155, 255, 153, 153, 153, 255, 151, 151, 151, 255, 149, 149, 149, 255, 148, 148, 148, 255, 146, 146, 146, 255, 144, 144, 144, 255, 142, 142, 142, 255, 141, 141, 141, 255, 139, 139, 139, 255, 137, 137, 137, 255, 135, 135, 135, 255, 134, 134, 134, 255, 132, 132, 132, 255, 130, 130, 130, 255, 128, 128, 128, 255, 127, 127, 127, 255, 125, 125, 125, 255, 123, 123, 123, 255, 121, 121, 121, 255, 120, 120, 120, 255, 118, 118, 118, 255, 116, 116, 116, 255, 114, 114, 114, 255, 113, 113, 113, 255, 111, 111, 111, 255, 109, 109, 109, 255, 107, 107, 107, 255, 106, 106, 106, 255, 104, 104, 104, 255, 102, 102, 102, 255, 100, 100, 100, 255, 98, 98, 98, 255, 97, 97, 97, 255, 95, 95, 95, 255, 93, 93, 93, 255, 91, 91, 91, 255, 90, 90, 90, 255, 88, 88, 88, 255, 86, 86, 86, 255, 84, 84, 84, 255, 83, 83, 83, 255, 81, 81, 81, 255, 79, 79, 79, 255, 77, 77, 77, 255, 76, 76, 76, 255, 74, 74, 74, 255, 72, 72, 72, 255, 70, 70, 70, 255, 69, 69, 69, 255, 67, 67, 67, 255, 65, 65, 65, 255, 63, 63, 63, 255, 62, 62, 62, 255, 60, 60, 60, 255, 58, 58, 58, 255, 56, 56, 56, 255, 55, 55, 55, 255, 53, 53, 53, 255, 51, 51, 51, 255, 49, 49, 49, 255, 47, 47, 47, 255, 46, 46, 46, 255, 44, 44, 44, 255, 42, 42, 42, 255, 40, 40, 40, 255, 39, 39, 39, 255, 37, 37, 37, 255, 35, 35, 35, 255, 33, 33, 33, 255, 32, 32, 32, 255, 30, 30, 30, 255, 28, 28, 28, 255, 26, 26, 26, 255, 25, 25, 25, 255, 23, 23, 23, 255, 21, 21, 21, 255, 19, 19, 19, 255, 18, 18, 18, 255, 16, 16, 16, 255, 14, 14, 14, 255, 12, 12, 12, 255, 11, 11, 11, 255, 9, 9, 9, 255, 7, 7, 7, 255, 5, 5, 5, 255, 4, 4, 4, 255, 2, 2, 2, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255 )
+size = Vector2( 512, 1 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="CanvasItemShaderGraph" id=5]
+
+_code = { "default_tex":[ "cramp_6", SubResource( 7 ) ], "fragment":"vec3 nd1sl3=vec3(SCREEN_UV,0);\nvec3 nd1sl2=vec3(UV,0);\nvec4 rt_default_tex2=tex(TEXTURE,nd1sl2.xy);\nvec3 nd2sl0=rt_default_tex2.rgb;\nfloat nd2sl1=rt_default_tex2.a;\nvec3 nd3sl0=texscreen(nd1sl3.xy);\nfloat nd4sl0=length(nd3sl0);\nuniform texture cramp_6;\nvec4 cramp_6_r=tex(cramp_6,vec2(nd4sl0,0));\nvec3 nd6sl0=cramp_6_r.rgb;\nfloat nd6sl1=cramp_6_r.a;\nvec3 nd5sl0=min(nd2sl0,nd6sl0);\nCOLOR.rgb=nd5sl0;\n", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
+_data = { "shaders":[ [ 0, 33, Vector2( 250, 20 ), null, null, [  ] ], [ 0, 33, Vector2( 689, 43 ), null, null, [ 0, 5, 0 ], 1, 0, Vector2( 52, 54 ), null, null, [  ], 2, 32, Vector2( 316, 57 ), null, null, [ 0, 1, 2, 2147483647, 0, null ], 3, 6, Vector2( 170, 146 ), null, [ 0, 0 ], [ 0, 1, 3, 2147483647, 0, null ], 4, 16, Vector2( 273, 145 ), null, null, [ 0, 3, 0, 2147483647, 0, null ], 5, 10, Vector2( 541.028, 64.9167 ), 2, null, [ 0, 2, 0, 1, 6, 0, 2147483647, 0, null, 2147483647, 1, Color( 0.863281, 0.863281, 0.863281, 1 ) ], 6, 24, Vector2( 376.028, 144.917 ), ColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1 ), FloatArray( 0, 0.59633, 0.880734, 1 ), [ 0, 4, 0, 2147483647, 0, null ] ], [ 0, 33, Vector2( 250, 20 ), null, null, [  ] ] ] }
+
+[sub_resource type="CanvasItemMaterial" id=6]
+
+shader/shader = SubResource( 5 )
+shader/shading_mode = 0
 
 [sub_resource type="Animation" id=1]
 
@@ -25,6 +46,56 @@ tracks/0/path = NodePath("icon:frame")
 tracks/0/interp = 1
 tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1 ), "values":[ 0, 1, 2, 3, 4, 5, 0 ] }
 
+[sub_resource type="Animation" id=2]
+
+resource/name = "enter"
+length = 0.3
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("tooltip:rect/scale")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "values":[ Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("tooltip:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/keys = { "cont":true, "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "values":[ 0.0, 1.0 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("tooltip:margin/left")
+tracks/2/interp = 1
+tracks/2/keys = { "cont":true, "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "values":[ 91, 10.0 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("tooltip:margin/top")
+tracks/3/interp = 1
+tracks/3/keys = { "cont":true, "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "values":[ 68, 10.0 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("tooltip:margin/bottom")
+tracks/4/interp = 1
+tracks/4/keys = { "cont":true, "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "values":[ -58, 10.0 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("tooltip:margin/right")
+tracks/5/interp = 1
+tracks/5/keys = { "cont":true, "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "values":[ -81.0, 10.0 ] }
+tracks/6/type = "value"
+tracks/6/path = NodePath("tooltip:visibility/visible")
+tracks/6/interp = 1
+tracks/6/keys = { "cont":false, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ true ] }
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "exit"
+length = 0.3
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("tooltip:visibility/visible")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "values":[ true, false ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("tooltip:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/keys = { "cont":true, "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "values":[ 1.0, 0.0 ] }
+
 [node name="hud" type="CanvasLayer"]
 
 layer = 1
@@ -32,356 +103,137 @@ offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"2D" }
+__meta__ = { "__editor_plugin_screen__":"Script" }
 budget_current = 2000
 health_current = 1000
 
-[node name="tower_buttons" type="Control" parent="."]
+[node name="top_bar" type="Panel" parent="."]
 
-margin/left = 15.0
-margin/top = 120.0
-margin/right = 55.0
-margin/bottom = 138.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-
-[node name="btn_upgrade" parent="tower_buttons" instance=ExtResource( 2 )]
-
-[node name="tower_sniper" type="HBoxContainer" parent="tower_buttons"]
-
-margin/top = 80.0
-margin/right = 140.0
-margin/bottom = 136.0
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-custom_constants/separation = 10
-alignment = 0
-
-[node name="tier1" parent="tower_buttons/tower_sniper" instance=ExtResource( 3 )]
-
-size_flags/horizontal = 3
-tower_scene = ExtResource( 4 )
-unlocked = true
-
-[node name="tier2" parent="tower_buttons/tower_sniper" instance=ExtResource( 3 )]
-
-margin/left = 50.0
-margin/right = 90.0
-size_flags/horizontal = 3
-tower_scene = ExtResource( 4 )
-tower_tier = 2
-
-[node name="tier3" parent="tower_buttons/tower_sniper" instance=ExtResource( 3 )]
-
-margin/left = 100.0
-margin/right = 140.0
-size_flags/horizontal = 3
-tower_scene = ExtResource( 4 )
-tower_tier = 3
-
-[node name="tower_fireball" type="HBoxContainer" parent="tower_buttons"]
-
-margin/top = 150.0
-margin/right = 140.0
-margin/bottom = 206.0
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-custom_constants/separation = 10
-alignment = 0
-
-[node name="tier1" parent="tower_buttons/tower_fireball" instance=ExtResource( 3 )]
-
-size_flags/horizontal = 3
-tower_scene = ExtResource( 5 )
-unlocked = true
-
-[node name="tier2" parent="tower_buttons/tower_fireball" instance=ExtResource( 3 )]
-
-margin/left = 50.0
-margin/right = 90.0
-size_flags/horizontal = 3
-tower_scene = ExtResource( 5 )
-tower_tier = 2
-
-[node name="tier3" parent="tower_buttons/tower_fireball" instance=ExtResource( 3 )]
-
-margin/left = 100.0
-margin/right = 140.0
-size_flags/horizontal = 3
-tower_scene = ExtResource( 5 )
-tower_tier = 3
-
-[node name="tower_slow" type="HBoxContainer" parent="tower_buttons"]
-
-margin/top = 220.0
-margin/right = 140.0
-margin/bottom = 276.0
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-custom_constants/separation = 10
-alignment = 0
-
-[node name="tier1" parent="tower_buttons/tower_slow" instance=ExtResource( 3 )]
-
-size_flags/horizontal = 3
-tower_scene = ExtResource( 6 )
-unlocked = true
-
-[node name="tier2" parent="tower_buttons/tower_slow" instance=ExtResource( 3 )]
-
-margin/left = 50.0
-margin/right = 90.0
-size_flags/horizontal = 3
-tower_scene = ExtResource( 6 )
-tower_tier = 2
-
-[node name="tier3" parent="tower_buttons/tower_slow" instance=ExtResource( 3 )]
-
-margin/left = 100.0
-margin/right = 140.0
-size_flags/horizontal = 3
-tower_scene = ExtResource( 6 )
-tower_tier = 3
-
-[node name="tower_poison" type="HBoxContainer" parent="tower_buttons"]
-
-margin/top = 290.0
-margin/right = 140.0
-margin/bottom = 346.0
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-custom_constants/separation = 10
-alignment = 0
-
-[node name="tier1" parent="tower_buttons/tower_poison" instance=ExtResource( 3 )]
-
-size_flags/horizontal = 3
-tower_scene = ExtResource( 7 )
-unlocked = true
-
-[node name="tier2" parent="tower_buttons/tower_poison" instance=ExtResource( 3 )]
-
-margin/left = 50.0
-margin/right = 90.0
-size_flags/horizontal = 3
-tower_scene = ExtResource( 7 )
-tower_tier = 2
-
-[node name="tier3" parent="tower_buttons/tower_poison" instance=ExtResource( 3 )]
-
-margin/left = 100.0
-margin/right = 140.0
-size_flags/horizontal = 3
-tower_scene = ExtResource( 7 )
-tower_tier = 3
-
-[node name="tower_boost" type="HBoxContainer" parent="tower_buttons"]
-
-margin/top = 360.0
-margin/right = 140.0
-margin/bottom = 416.0
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-custom_constants/separation = 10
-alignment = 0
-
-[node name="tier1" parent="tower_buttons/tower_boost" instance=ExtResource( 3 )]
-
-size_flags/horizontal = 3
-tower_scene = ExtResource( 8 )
-unlocked = true
-
-[node name="tier2" parent="tower_buttons/tower_boost" instance=ExtResource( 3 )]
-
-margin/left = 50.0
-margin/right = 90.0
-size_flags/horizontal = 3
-tower_scene = ExtResource( 8 )
-tower_tier = 2
-
-[node name="tier3" parent="tower_buttons/tower_boost" instance=ExtResource( 3 )]
-
-margin/left = 100.0
-margin/right = 140.0
-size_flags/horizontal = 3
-tower_scene = ExtResource( 8 )
-tower_tier = 3
-
-[node name="tower_tooltip" type="Panel" parent="."]
-
-visibility/visible = false
-visibility/opacity = 0.8
-margin/left = 10.0
-margin/top = 301.0
-margin/right = 124.0
-margin/bottom = 405.0
+anchor/right = 1
+margin/bottom = 60.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 __meta__ = { "_editor_collapsed":true }
 
-[node name="name" type="Label" parent="tower_tooltip"]
+[node name="container" type="VBoxContainer" parent="top_bar"]
 
-margin/left = 4.0
-margin/top = 5.0
-margin/right = 70.0
-margin/bottom = 23.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 9 )
-text = "Tower #1"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="damage" type="Label" parent="tower_tooltip"]
-
-margin/left = 4.0
-margin/top = 24.0
-margin/right = 106.0
-margin/bottom = 42.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 9 )
-text = "Damage: 300"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="range" type="Label" parent="tower_tooltip"]
-
-margin/left = 4.0
-margin/top = 43.0
-margin/right = 106.0
-margin/bottom = 61.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 9 )
-text = "Range: 200"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="reload" type="Label" parent="tower_tooltip"]
-
-margin/left = 4.0
-margin/top = 62.0
-margin/right = 106.0
-margin/bottom = 80.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 9 )
-text = "Reload: 10 sec"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="price" type="Label" parent="tower_tooltip"]
-
-margin/left = 4.0
-margin/top = 79.0
-margin/right = 106.0
-margin/bottom = 97.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 9 )
-text = "Price: 100"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="stats" type="Control" parent="."]
-
-margin/right = 40.0
-margin/bottom = 40.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-
-[node name="health" type="Control" parent="stats"]
-
-margin/left = 14.0
-margin/top = 11.0
-margin/right = 141.0
-margin/bottom = 30.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-
-[node name="icon" type="Sprite" parent="stats/health"]
-
-texture = ExtResource( 10 )
-centered = false
-region = true
-region_rect = Rect2( 0, 0, 20, 20 )
-
-[node name="label" type="Label" parent="stats/health"]
-
+anchor/right = 1
 anchor/bottom = 1
-margin/left = 34.0
-margin/right = 126.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+alignment = 0
+
+[node name="healthbar" type="Patch9Frame" parent="top_bar/container"]
+
+margin/right = 1280.0
+margin/bottom = 32.0
+rect/min_size = Vector2( 0, 32 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 9 )
-text = "Health: 100%"
+size_flags/vertical = 2
+texture = ExtResource( 2 )
+patch_margin/left = 30
+patch_margin/top = 15
+patch_margin/right = 30
+patch_margin/bottom = 15
+__meta__ = { "_editor_collapsed":true }
+
+[node name="fill" type="Patch9Frame" parent="top_bar/container/healthbar"]
+
+anchor/right = 2
+anchor/bottom = 1
+margin/right = 1.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+texture = ExtResource( 3 )
+patch_margin/left = 20
+patch_margin/top = 15
+patch_margin/right = 20
+patch_margin/bottom = 15
+
+[node name="overlay" type="Patch9Frame" parent="top_bar/container/healthbar"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+texture = ExtResource( 4 )
+patch_margin/left = 20
+patch_margin/top = 15
+patch_margin/right = 20
+patch_margin/bottom = 15
+
+[node name="label" type="Label" parent="top_bar/container/healthbar"]
+
+material/material = SubResource( 6 )
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 5 )
+text = "Health: 1000"
+align = 1
+valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="budget" type="Control" parent="stats"]
+[node name="stats" type="HBoxContainer" parent="top_bar/container"]
 
-margin/left = 14.0
-margin/top = 30.0
-margin/right = 141.0
-margin/bottom = 49.0
+margin/top = 36.0
+margin/right = 1280.0
+margin/bottom = 60.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 3
+alignment = 1
+__meta__ = { "_editor_collapsed":true }
+
+[node name="budget" type="Control" parent="top_bar/container/stats"]
+
+margin/left = 439.0
+margin/right = 567.0
+margin/bottom = 24.0
+rect/min_size = Vector2( 128, 0 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
 
-[node name="icon" type="Sprite" parent="stats/budget"]
+[node name="icon" type="Sprite" parent="top_bar/container/stats/budget"]
 
-texture = ExtResource( 11 )
+texture = ExtResource( 6 )
 centered = false
 hframes = 6
 region_rect = Rect2( 0, 0, 20, 20 )
 
-[node name="label" type="Label" parent="stats/budget"]
+[node name="label" type="Label" parent="top_bar/container/stats/budget"]
 
+anchor/right = 1
 anchor/bottom = 1
-margin/left = 34.0
-margin/right = 126.0
+margin/left = 25.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 5 )
 text = "Budget: 0"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="animation_player" type="AnimationPlayer" parent="stats/budget"]
+[node name="animation_player" type="AnimationPlayer" parent="top_bar/container/stats/budget"]
 
 playback/process_mode = 1
 playback/default_blend_time = 0.0
@@ -392,52 +244,475 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
-[node name="damage" type="Control" parent="stats"]
+[node name="damage" type="Control" parent="top_bar/container/stats"]
 
-margin/left = 14.0
-margin/top = 51.0
-margin/right = 141.0
-margin/bottom = 70.0
+margin/left = 571.0
+margin/right = 841.0
+margin/bottom = 24.0
+rect/min_size = Vector2( 270, 20 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 
-[node name="icon" type="Sprite" parent="stats/damage"]
+[node name="icon" type="Sprite" parent="top_bar/container/stats/damage"]
 
-texture = ExtResource( 12 )
+texture = ExtResource( 7 )
 centered = false
 region_rect = Rect2( 0, 0, 20, 20 )
 
-[node name="label" type="Label" parent="stats/damage"]
+[node name="label" type="Label" parent="top_bar/container/stats/damage"]
 
+anchor/right = 1
 anchor/bottom = 1
-margin/left = 34.0
-margin/right = 251.0
-margin/bottom = -35.0
+margin/left = 25.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 9 )
-text = "Damage:\n  0 Total\n  0 Per second"
+custom_fonts/font = ExtResource( 5 )
+text = "Damage: 0 Total / 0 Per second"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="next_wave" type="Button" parent="."]
+[node name="side_actions" type="VBoxContainer" parent="."]
 
-margin/left = 12.0
-margin/top = 730.0
-margin/right = 140.0
-margin/bottom = 762.0
+anchor/bottom = 1
+margin/left = 10.0
+margin/top = 60.0
+margin/right = 138.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+alignment = 1
+
+[node name="next_wave" type="Button" parent="side_actions"]
+
+margin/top = 356.0
+margin/right = 128.0
+margin/bottom = 383.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 5 )
 toggle_mode = false
 text = "Next Wave"
-icon = ExtResource( 13 )
+icon = ExtResource( 8 )
 flat = false
+
+[node name="towers_panel" type="Panel" parent="."]
+
+visibility/self_opacity = 0.9
+anchor/left = 1
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 220.0
+margin/top = 420.0
+margin/right = 20.0
+margin/bottom = 20.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="tower_buttons" type="VBoxContainer" parent="towers_panel"]
+
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 4.0
+margin/top = 4.0
+margin/right = 4.0
+margin/bottom = 4.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+alignment = 0
+
+[node name="btn_upgrade" parent="towers_panel/tower_buttons" instance=ExtResource( 9 )]
+
+margin/left = 32.0
+margin/right = 160.0
+
+[node name="tower_sniper" type="HBoxContainer" parent="towers_panel/tower_buttons"]
+
+margin/top = 68.0
+margin/right = 192.0
+margin/bottom = 129.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 3
+custom_constants/separation = 10
+alignment = 1
+__meta__ = { "_editor_collapsed":true }
+
+[node name="tier1" parent="towers_panel/tower_buttons/tower_sniper" instance=ExtResource( 10 )]
+
+margin/left = 8.0
+margin/top = 2.0
+margin/right = 48.0
+margin/bottom = 58.0
+tower_scene = ExtResource( 11 )
+unlocked = true
+
+[node name="tier2" parent="towers_panel/tower_buttons/tower_sniper" instance=ExtResource( 10 )]
+
+margin/left = 75.0
+margin/top = 2.0
+margin/right = 115.0
+margin/bottom = 58.0
+tower_scene = ExtResource( 11 )
+tower_tier = 2
+
+[node name="tier3" parent="towers_panel/tower_buttons/tower_sniper" instance=ExtResource( 10 )]
+
+margin/left = 143.0
+margin/top = 2.0
+margin/right = 183.0
+margin/bottom = 58.0
+tower_scene = ExtResource( 11 )
+tower_tier = 3
+
+[node name="tower_fireball" type="HBoxContainer" parent="towers_panel/tower_buttons"]
+
+margin/top = 133.0
+margin/right = 192.0
+margin/bottom = 194.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 3
+custom_constants/separation = 10
+alignment = 1
+__meta__ = { "_editor_collapsed":true }
+
+[node name="tier1" parent="towers_panel/tower_buttons/tower_fireball" instance=ExtResource( 10 )]
+
+margin/left = 8.0
+margin/top = 2.0
+margin/right = 48.0
+margin/bottom = 58.0
+tower_scene = ExtResource( 12 )
+unlocked = true
+
+[node name="tier2" parent="towers_panel/tower_buttons/tower_fireball" instance=ExtResource( 10 )]
+
+margin/left = 75.0
+margin/top = 2.0
+margin/right = 115.0
+margin/bottom = 58.0
+tower_scene = ExtResource( 12 )
+tower_tier = 2
+
+[node name="tier3" parent="towers_panel/tower_buttons/tower_fireball" instance=ExtResource( 10 )]
+
+margin/left = 143.0
+margin/top = 2.0
+margin/right = 183.0
+margin/bottom = 58.0
+tower_scene = ExtResource( 12 )
+tower_tier = 3
+
+[node name="tower_slow" type="HBoxContainer" parent="towers_panel/tower_buttons"]
+
+margin/top = 198.0
+margin/right = 192.0
+margin/bottom = 259.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 3
+custom_constants/separation = 10
+alignment = 1
+__meta__ = { "_editor_collapsed":true }
+
+[node name="tier1" parent="towers_panel/tower_buttons/tower_slow" instance=ExtResource( 10 )]
+
+margin/left = 8.0
+margin/top = 2.0
+margin/right = 48.0
+margin/bottom = 58.0
+tower_scene = ExtResource( 13 )
+unlocked = true
+
+[node name="tier2" parent="towers_panel/tower_buttons/tower_slow" instance=ExtResource( 10 )]
+
+margin/left = 75.0
+margin/top = 2.0
+margin/right = 115.0
+margin/bottom = 58.0
+tower_scene = ExtResource( 13 )
+tower_tier = 2
+
+[node name="tier3" parent="towers_panel/tower_buttons/tower_slow" instance=ExtResource( 10 )]
+
+margin/left = 143.0
+margin/top = 2.0
+margin/right = 183.0
+margin/bottom = 58.0
+tower_scene = ExtResource( 13 )
+tower_tier = 3
+
+[node name="tower_poison" type="HBoxContainer" parent="towers_panel/tower_buttons"]
+
+margin/top = 263.0
+margin/right = 192.0
+margin/bottom = 324.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 3
+custom_constants/separation = 10
+alignment = 1
+__meta__ = { "_editor_collapsed":true }
+
+[node name="tier1" parent="towers_panel/tower_buttons/tower_poison" instance=ExtResource( 10 )]
+
+margin/left = 8.0
+margin/top = 2.0
+margin/right = 48.0
+margin/bottom = 58.0
+tower_scene = ExtResource( 14 )
+unlocked = true
+
+[node name="tier2" parent="towers_panel/tower_buttons/tower_poison" instance=ExtResource( 10 )]
+
+margin/left = 75.0
+margin/top = 2.0
+margin/right = 115.0
+margin/bottom = 58.0
+tower_scene = ExtResource( 14 )
+tower_tier = 2
+
+[node name="tier3" parent="towers_panel/tower_buttons/tower_poison" instance=ExtResource( 10 )]
+
+margin/left = 143.0
+margin/top = 2.0
+margin/right = 183.0
+margin/bottom = 58.0
+tower_scene = ExtResource( 14 )
+tower_tier = 3
+
+[node name="tower_boost" type="HBoxContainer" parent="towers_panel/tower_buttons"]
+
+margin/top = 328.0
+margin/right = 192.0
+margin/bottom = 392.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 3
+custom_constants/separation = 10
+alignment = 1
+__meta__ = { "_editor_collapsed":true }
+
+[node name="tier1" parent="towers_panel/tower_buttons/tower_boost" instance=ExtResource( 10 )]
+
+margin/left = 8.0
+margin/top = 4.0
+margin/right = 48.0
+margin/bottom = 60.0
+tower_scene = ExtResource( 15 )
+unlocked = true
+
+[node name="tier2" parent="towers_panel/tower_buttons/tower_boost" instance=ExtResource( 10 )]
+
+margin/left = 75.0
+margin/top = 4.0
+margin/right = 115.0
+margin/bottom = 60.0
+tower_scene = ExtResource( 15 )
+tower_tier = 2
+
+[node name="tier3" parent="towers_panel/tower_buttons/tower_boost" instance=ExtResource( 10 )]
+
+margin/left = 143.0
+margin/top = 4.0
+margin/right = 183.0
+margin/bottom = 60.0
+tower_scene = ExtResource( 15 )
+tower_tier = 3
+
+[node name="tower_tooltip" type="ReferenceFrame" parent="."]
+
+anchor/left = 1
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 220.0
+margin/top = 572.0
+margin/right = 20.0
+margin/bottom = 420.0
+focus/ignore_mouse = true
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+script/script = ExtResource( 16 )
+__meta__ = { "_editor_collapsed":true }
+move_to_target = false
+hide_when_inactive = true
+debounce_time = 0.5
+
+[node name="tooltip" type="Panel" parent="tower_tooltip"]
+
+visibility/self_opacity = 0.8
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 10.0
+margin/top = 10.0
+margin/right = 10.0
+margin/bottom = 10.0
+focus/ignore_mouse = true
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="data" type="VBoxContainer" parent="tower_tooltip/tooltip"]
+
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 4.0
+margin/top = 4.0
+margin/right = 4.0
+margin/bottom = 4.0
+focus/ignore_mouse = true
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+alignment = 0
+
+[node name="name" type="Label" parent="tower_tooltip/tooltip/data"]
+
+margin/right = 172.0
+margin/bottom = 18.0
+rect/min_size = Vector2( 0, 1 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 1
+custom_fonts/font = ExtResource( 5 )
+text = "%s"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="seperator" type="HSeparator" parent="tower_tooltip/tooltip/data"]
+
+margin/left = 36.0
+margin/top = 22.0
+margin/right = 136.0
+margin/bottom = 25.0
+rect/min_size = Vector2( 100, 0 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 1
+size_flags/vertical = 2
+
+[node name="damage" type="Label" parent="tower_tooltip/tooltip/data"]
+
+margin/top = 29.0
+margin/right = 172.0
+margin/bottom = 47.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 1
+custom_fonts/font = ExtResource( 5 )
+text = "Damage: %s"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="reach" type="Label" parent="tower_tooltip/tooltip/data"]
+
+margin/top = 51.0
+margin/right = 172.0
+margin/bottom = 69.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 1
+custom_fonts/font = ExtResource( 5 )
+text = "Range: %s"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="reload" type="Label" parent="tower_tooltip/tooltip/data"]
+
+margin/top = 73.0
+margin/right = 172.0
+margin/bottom = 91.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 1
+custom_fonts/font = ExtResource( 5 )
+text = "Reload: %s/second"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="price" type="Label" parent="tower_tooltip/tooltip/data"]
+
+margin/top = 95.0
+margin/right = 172.0
+margin/bottom = 113.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 1
+custom_fonts/font = ExtResource( 5 )
+text = "Price: %s"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="unlock" type="Label" parent="tower_tooltip/tooltip/data"]
+
+margin/top = 117.0
+margin/right = 172.0
+margin/bottom = 135.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 1
+custom_fonts/font = ExtResource( 5 )
+text = "Unlock: %s"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="animation_player" type="AnimationPlayer" parent="tower_tooltip"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/enter = SubResource( 2 )
+anims/exit = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="timer" type="Timer" parent="tower_tooltip"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="tween" type="Tween" parent="."]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
 

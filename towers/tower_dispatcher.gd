@@ -63,7 +63,9 @@ func has_tier(tier):
 
 func can_upgrade_tier():
 	if has_tier(current_tier + 1):
-		return global.hud.get_node("tower_buttons/" + tower_type + "/tier" + str(current_tier + 1)).unlocked
+		var tower_buttons = global.hud.get_node("towers_panel/tower_buttons/")
+		var button_row = tower_buttons.get_node(tower_type)
+		return button_row.get_node(str("tier", current_tier + 1)).unlocked
 	else:
 		return false
 

@@ -1,5 +1,10 @@
 extends Node2D
 
+### Signals ###
+
+signal wave_started()
+signal wave_finished()
+
 ### Classes ###
 
 class Tile:
@@ -24,6 +29,7 @@ export var cell_size = Vector2(32, 32)
 export var debug = false
 var current_wave_index = 1
 var current_wave
+var total_enemy_amount_left = 0
 
 var tiles = {}
 
@@ -53,7 +59,6 @@ func _ready():
 	update_tile_directions()
 	run_bfs()
 	update()
-	next_wave()
 
 func _draw():
 	if not debug:
@@ -144,19 +149,20 @@ func next_wave():
 		for enemy in current_wave.enemies:
 			enemy.disconnect("timeout", self, "spawn_enemy")
 			enemy.stop()
-			
 	
 	var node_path = str("waves/wave_", current_wave_index)
 	if !has_node(node_path):
 		print("WARN: No more waves @(",current_wave_index,")")
 		return
-	current_wave = get_node(str("waves/wave_", current_wave_index))
 	
-	if current_wave:
-		for enemy in current_wave.enemies:
-			enemy.connect("timeout", self, "spawn_enemy", [enemy])
-			enemy.start()
-			enemy.amount_left = enemy.spawn_amount
+	current_wave = get_node(str("waves/wave_", current_wave_index))
+	total_enemy_amount_left = 0
+	
+	for enemy in current_wave.enemies:
+		enemy.connect("timeout", self, "spawn_enemy", [enemy])
+		enemy.start()
+		enemy.amount_left = enemy.spawn_amount
+		total_enemy_amount_left += enemy.amount_left
 	
 	for start_node in get_node("starts").get_children():
 		start_node.hide()
@@ -164,6 +170,7 @@ func next_wave():
 		start_node.show()
 	
 	current_wave_index += 1
+	emit_signal("wave_started")
 
 func spawn_enemy(wave_enemy):
 	var starts_avilable = []
@@ -175,8 +182,11 @@ func spawn_enemy(wave_enemy):
 	
 	if wave_enemy.amount_left == 0:
 		wave_enemy.stop()
+		if total_enemy_amount_left <= 0:
+			emit_signal("wave_finished")
 	else:
 		wave_enemy.amount_left -= 1
+		total_enemy_amount_left -= 1
 	
 		var enemy = wave_enemy.scene.instance()
 		enemy.set_pos(position)

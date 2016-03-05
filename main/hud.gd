@@ -6,7 +6,8 @@ extends CanvasLayer
 var global
 var level
 var budget
-var health
+var healthbar
+var tween
 
 export var budget_current = 1000
 export var health_current = 1000
@@ -18,6 +19,7 @@ var damage_per_last_second = 0
 var damage_per_second = 0
 var damage_total = 0
 var second_left = 0
+var health_max
 
 ### Callbacks ###
 
@@ -27,13 +29,17 @@ func _enter_tree():
 func _ready():
 	global = get_node("/root/global")
 	level = global.level
-	budget = get_node("stats/budget/label")
-	health = get_node("stats/health/label")
+	budget = get_node("top_bar/container/stats/budget/label")
+	healthbar = get_node("top_bar/container/healthbar")
+	tween = get_node("tween")
 	
-	get_node("next_wave").connect("pressed", level, "next_wave")
+	if level != null:
+		connect_level()
 	
-	budget.set_text("Budget: " + str(budget_current))
-	health.set_text("Health: " + str(health_current))
+	health_max = health_current
+	
+	update_budget_text()
+	update_health(0)
 	
 	set_process_input(true)
 	set_fixed_process(true)
@@ -49,7 +55,8 @@ func _fixed_process(delta):
 func _input(ev):
 	if level == null:
 		level = global.level
-		get_node("next_wave").connect("pressed", level, "next_wave")
+		if level != null:
+			connect_level()
 		return
 	ev = level.make_input_local(ev)
 	if tower_placement and carried_tower:
@@ -78,10 +85,17 @@ func _input(ev):
 
 ### Functions
 
+func connect_level():
+	var next_wave_button = get_node("side_actions/next_wave")
+	next_wave_button.connect("pressed", level, "next_wave")
+	level.connect("wave_started", next_wave_button, "hide")
+	level.connect("wave_finished", next_wave_button, "show")
+
 func add_damage(amount):
 	damage_total += amount
 	damage_per_second += amount
-	get_node("stats/damage/label").set_text(str("Damage:\n  Total: ", damage_total, "\n  Per second: ", damage_per_last_second))
+	var text = str("Damage: ", damage_total, " Total / ", damage_per_last_second, " Per second")
+	get_node("top_bar/container/stats/damage/label").set_text(text)
 
 func update_budget(amount):
 	budget_current += amount
@@ -104,7 +118,8 @@ func update_budget_text():
 
 func update_health(amount):
 	health_current += amount
-	health.set_text("Health: " + str(health_current))
+	healthbar.get_node("fill").set_margin(MARGIN_RIGHT, float(health_current)/health_max)
+	healthbar.get_node("label").set_text("Health: " + str(health_current))
 
 func cancel_tower_placement():
 	tower_placement = false

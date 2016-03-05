@@ -39,7 +39,7 @@ func _fixed_process(delta):
 ### Functions ###
 
 func set_attributes_from_tower_scene(tower_scene):
-	var tower = tower_scene.instance()
+	var tower = tower_scene.instance() # TODO: Use SceneData API
 	get_node("icon").set_texture(tower.get_node("sprite").get_texture())
 	get_node("icon").set_frame(tower_tier - 1)
 	
@@ -63,20 +63,21 @@ func set_unlocked(enable):
 
 func _on_btn_tower_mouse_enter():
 	get_node("upgrade").set_frame(15)
-	tooltip.set_pos(get_pos() + Vector2(get_size().x + 10, get_parent().get_pos().y))
-	tooltip.get_node("name").set_text(tower_name)
-	tooltip.get_node("damage").set_text("Damage: " + str(tower_damage))
-	tooltip.get_node("range").set_text("Range: " + str(tower_range))
-	tooltip.get_node("reload").set_text("Reload: " + str(tower_reload))
+	var data = {
+		name= tower_name,
+		damage = tower_damage,
+		reach = tower_range,
+		reload = tower_reload
+	}
 	if unlocked:
-		tooltip.get_node("price").set_text("Price: " + str(tower_price))
+		data.price = tower_price
 	else:
-		tooltip.get_node("price").set_text("Unlock: " + str(unlock_price))
-	tooltip.show()
+		data.unlock = unlock_price
+	tooltip.show_data(self, data)
 
 func _on_btn_tower_mouse_exit():
 	get_node("upgrade").set_frame(14)
-	tooltip.hide()
+	tooltip.hide_data()
 
 func _on_btn_tower_pressed():
 	if unlocked:

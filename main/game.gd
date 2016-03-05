@@ -29,11 +29,17 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
+	var camera_move = Vector2(0, 0)
+	
 	if Input.is_action_pressed("ui_up"):
-		camera.translate(Vector2(0, -1)*delta*camera_speed)
+		camera_move += Vector2(0, -1)
 	if Input.is_action_pressed("ui_down"):
-		camera.translate(Vector2(0, 1)*delta*camera_speed)
+		camera_move += Vector2(0, 1)
 	if Input.is_action_pressed("ui_left"):
-		camera.translate(Vector2(-1, 0)*delta*camera_speed)
+		camera_move += Vector2(-1, 0)
 	if Input.is_action_pressed("ui_right"):
-		camera.translate(Vector2(1, 0)*delta*camera_speed)
+		camera_move += Vector2(1, 0)
+	
+	if camera_move.length_squared() > 0.1:
+		var current_pos = camera.get_camera_screen_center()
+		camera.set_pos(current_pos + camera_move*delta*camera_speed)
