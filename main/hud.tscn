@@ -17,7 +17,7 @@
 [ext_resource path="res://towers/tower_boost/tower_boost.tscn" type="PackedScene" id=15]
 [ext_resource path="res://main/hud_tooltip.gd" type="Script" id=16]
 
-[sub_resource type="ImageTexture" id=7]
+[sub_resource type="ImageTexture" id=1]
 
 flags = 5
 image = Image( 512, 1, 0, RGBA, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 242, 242, 242, 255, 228, 228, 228, 255, 215, 215, 215, 255, 201, 201, 201, 255, 188, 188, 188, 255, 174, 174, 174, 255, 161, 161, 161, 255, 148, 148, 148, 255, 134, 134, 134, 255, 121, 121, 121, 255, 107, 107, 107, 255, 94, 94, 94, 255, 81, 81, 81, 255, 67, 67, 67, 255, 54, 54, 54, 255, 40, 40, 40, 255, 27, 27, 27, 255, 13, 13, 13, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255 )
@@ -25,30 +25,28 @@ size = Vector2( 512, 1 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="CanvasItemShaderGraph" id=5]
+[sub_resource type="CanvasItemShaderGraph" id=2]
 
-_code = { "default_tex":[ "cramp_6", SubResource( 7 ) ], "fragment":"vec3 nd1sl3=vec3(SCREEN_UV,0);\nvec3 nd1sl2=vec3(UV,0);\nvec4 rt_default_tex2=tex(TEXTURE,nd1sl2.xy);\nvec3 nd2sl0=rt_default_tex2.rgb;\nfloat nd2sl1=rt_default_tex2.a;\nvec3 nd3sl0=texscreen(nd1sl3.xy);\nfloat nd4sl0=length(nd3sl0);\nuniform texture cramp_6;\nvec4 cramp_6_r=tex(cramp_6,vec2(nd4sl0,0));\nvec3 nd6sl0=cramp_6_r.rgb;\nfloat nd6sl1=cramp_6_r.a;\nvec3 nd5sl0=min(nd2sl0,nd6sl0);\nCOLOR.rgb=nd5sl0;\n", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
+_code = { "default_tex":[ "cramp_6", SubResource( 1 ) ], "fragment":"vec3 nd1sl3=vec3(SCREEN_UV,0);\nvec3 nd1sl2=vec3(UV,0);\nvec4 rt_default_tex2=tex(TEXTURE,nd1sl2.xy);\nvec3 nd2sl0=rt_default_tex2.rgb;\nfloat nd2sl1=rt_default_tex2.a;\nvec3 nd3sl0=texscreen(nd1sl3.xy);\nfloat nd4sl0=length(nd3sl0);\nuniform texture cramp_6;\nvec4 cramp_6_r=tex(cramp_6,vec2(nd4sl0,0));\nvec3 nd6sl0=cramp_6_r.rgb;\nfloat nd6sl1=cramp_6_r.a;\nvec3 nd5sl0=min(nd2sl0,nd6sl0);\nCOLOR.rgb=nd5sl0;\n", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
 _data = { "shaders":[ [ 0, 33, Vector2( 250, 20 ), null, null, [  ] ], [ 0, 33, Vector2( 689, 43 ), null, null, [ 0, 5, 0 ], 1, 0, Vector2( 52, 54 ), null, null, [  ], 2, 32, Vector2( 316, 57 ), null, null, [ 0, 1, 2, 2147483647, 0, null ], 3, 6, Vector2( 170, 146 ), null, [ 0, 0 ], [ 0, 1, 3, 2147483647, 0, null ], 4, 16, Vector2( 273, 145 ), null, null, [ 0, 3, 0, 2147483647, 0, null ], 5, 10, Vector2( 541.028, 64.9167 ), 2, null, [ 0, 2, 0, 1, 6, 0, 2147483647, 0, null, 2147483647, 1, Color( 0.863281, 0.863281, 0.863281, 1 ) ], 6, 24, Vector2( 387.028, 142.917 ), ColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1 ), FloatArray( 0, 0.788991, 0.825688, 1 ), [ 0, 4, 0, 2147483647, 0, null ] ], [ 0, 33, Vector2( 250, 20 ), null, null, [  ] ] ] }
 
-[sub_resource type="CanvasItemMaterial" id=6]
+[sub_resource type="CanvasItemMaterial" id=3]
 
-shader/shader = SubResource( 5 )
+shader/shader = SubResource( 2 )
 shader/shading_mode = 0
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=4]
 
-resource/name = "no_money"
 length = 1.2
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("icon:frame")
+tracks/0/path = NodePath("icon/sprite:frame")
 tracks/0/interp = 1
 tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1 ), "values":[ 0, 1, 2, 3, 4, 5, 0 ] }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=5]
 
-resource/name = "enter"
 length = 0.3
 loop = false
 step = 0.1
@@ -81,9 +79,8 @@ tracks/6/path = NodePath("tooltip:visibility/visible")
 tracks/6/interp = 1
 tracks/6/keys = { "cont":false, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ true ] }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=6]
 
-resource/name = "exit"
 length = 0.3
 loop = false
 step = 0.1
@@ -110,31 +107,31 @@ health_current = 1000
 [node name="top_bar" type="Panel" parent="."]
 
 anchor/right = 1
-margin/bottom = 60.0
+margin/bottom = 32.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 
-[node name="container" type="VBoxContainer" parent="top_bar"]
+[node name="container" type="HBoxContainer" parent="top_bar"]
 
 anchor/right = 1
 anchor/bottom = 1
+margin/bottom = 1.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
 alignment = 0
-__meta__ = { "_editor_collapsed":true }
 
 [node name="healthbar" type="Patch9Frame" parent="top_bar/container"]
 
-margin/right = 1280.0
+margin/right = 776.0
 margin/bottom = 32.0
 rect/min_size = Vector2( 0, 32 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
+size_flags/horizontal = 3
 size_flags/vertical = 2
 texture = ExtResource( 2 )
 patch_margin/left = 30
@@ -174,7 +171,7 @@ patch_margin/bottom = 15
 
 [node name="label" type="Label" parent="top_bar/container/healthbar"]
 
-material/material = SubResource( 6 )
+material/material = SubResource( 3 )
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = true
@@ -190,40 +187,54 @@ max_lines_visible = -1
 
 [node name="stats" type="HBoxContainer" parent="top_bar/container"]
 
-margin/top = 36.0
+margin/left = 780.0
+margin/top = 6.0
 margin/right = 1280.0
-margin/bottom = 60.0
+margin/bottom = 26.0
+rect/min_size = Vector2( 500, 20 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
-size_flags/vertical = 3
+size_flags/vertical = 1
 alignment = 1
 __meta__ = { "_editor_collapsed":true }
 
-[node name="budget" type="Control" parent="top_bar/container/stats"]
+[node name="budget" type="HBoxContainer" parent="top_bar/container/stats"]
 
-margin/left = 439.0
-margin/right = 567.0
-margin/bottom = 24.0
-rect/min_size = Vector2( 128, 0 )
+margin/left = 36.0
+margin/right = 128.0
+margin/bottom = 20.0
+rect/min_size = Vector2( 0, 20 )
 focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 1
+size_flags/vertical = 2
+alignment = 0
+__meta__ = { "_editor_collapsed":true }
+
+[node name="icon" type="Control" parent="top_bar/container/stats/budget"]
+
+margin/right = 20.0
+margin/bottom = 20.0
+rect/min_size = Vector2( 20, 20 )
+focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 __meta__ = { "_editor_collapsed":true }
 
-[node name="icon" type="Sprite" parent="top_bar/container/stats/budget"]
+[node name="sprite" type="Sprite" parent="top_bar/container/stats/budget/icon"]
 
 texture = ExtResource( 6 )
 centered = false
 hframes = 6
-region_rect = Rect2( 0, 0, 20, 20 )
 
 [node name="label" type="Label" parent="top_bar/container/stats/budget"]
 
-anchor/right = 1
-anchor/bottom = 1
-margin/left = 25.0
+margin/left = 24.0
+margin/top = 1.0
+margin/right = 92.0
+margin/bottom = 19.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -238,24 +249,37 @@ max_lines_visible = -1
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/no_money = SubResource( 1 )
+anims/no_money = SubResource( 4 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
-[node name="damage" type="Control" parent="top_bar/container/stats"]
+[node name="damage" type="HBoxContainer" parent="top_bar/container/stats"]
 
-margin/left = 571.0
-margin/right = 841.0
-margin/bottom = 24.0
-rect/min_size = Vector2( 270, 20 )
+margin/left = 214.0
+margin/right = 455.0
+margin/bottom = 20.0
+rect/min_size = Vector2( 0, 20 )
 focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 1
+size_flags/vertical = 2
+size_flags/stretch_ratio = 2.0
+alignment = 0
+__meta__ = { "_editor_collapsed":true }
+
+[node name="icon" type="Control" parent="top_bar/container/stats/damage"]
+
+margin/right = 20.0
+margin/bottom = 20.0
+rect/min_size = Vector2( 20, 20 )
+focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 
-[node name="icon" type="Sprite" parent="top_bar/container/stats/damage"]
+[node name="sprite" type="Sprite" parent="top_bar/container/stats/damage/icon"]
 
 texture = ExtResource( 7 )
 centered = false
@@ -263,9 +287,10 @@ region_rect = Rect2( 0, 0, 20, 20 )
 
 [node name="label" type="Label" parent="top_bar/container/stats/damage"]
 
-anchor/right = 1
-anchor/bottom = 1
-margin/left = 25.0
+margin/left = 24.0
+margin/top = 1.0
+margin/right = 241.0
+margin/bottom = 19.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -694,8 +719,8 @@ max_lines_visible = -1
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/enter = SubResource( 2 )
-anims/exit = SubResource( 3 )
+anims/enter = SubResource( 5 )
+anims/exit = SubResource( 6 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
