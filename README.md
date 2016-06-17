@@ -3,12 +3,13 @@ Project Kumquat
 
 **WIP Tower Defense game - First Kobuge Hackathon**
 
-www.kobuge.org
-
 *Powered by Godot Engine*
 
 License
 -------
+
+Project Kumquat - Tower defense game made with Godot Engine  
+Copyright (C) 2015-2016 KOBUGE Games
 
 This project is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
