@@ -30,6 +30,8 @@ export var worth = 25 # the amount of money given to player after enemies death
 var speed_multiplier = 1
 var speed_multiplier_reset = 0
 
+var maxhp = 0
+
 var poison_damage = 0
 var poison_duration = 0
 
@@ -46,16 +48,26 @@ func _ready():
 	get_node("movement_anim").connect("finished", self, "_on_movement_anim_finished")
 	get_node("effect_timer").connect("timeout", self, "_on_effect_timer_timeout")
 	
+	maxhp = hp
+	
 	set_fixed_process(true)
 
 func _fixed_process(delta):
 	# Handle potential death
 	if hp <= 0:
+		#Health bar to zero
+		get_node("healthbar").hide()
 		# Stop walking
 		set_fixed_process(false)
 		get_node("movement_anim").play("die")
 		global.hud.update_budget(worth)
 		return
+	
+	#Show health bar only when damaged, set to current health fraction
+	if hp < maxhp:
+		get_node("healthbar").show()
+		get_node("healthbarbgd").show()
+		get_node("healthbar").set_scale(Vector2(hp/(1.0*maxhp), 0.5))
 	
 	# Handle slowness
 	speed_multiplier_reset -= delta
