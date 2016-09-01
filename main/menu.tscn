@@ -2,32 +2,34 @@
 
 [ext_resource path="res://menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://menu/bg_1.png" type="Texture" id=2]
-[ext_resource path="res://fonts/papercut.fnt" type="Font" id=3]
+[ext_resource path="res://fonts/papercut.fnt" type="BitmapFont" id=3]
 [ext_resource path="res://menu/menu_left.png" type="Texture" id=4]
 [ext_resource path="res://menu/menu_right.png" type="Texture" id=5]
 
 [node name="menu" type="Control"]
 
-margin/right = 40.0
-margin/bottom = 40.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
 script/script = ExtResource( 1 )
 __meta__ = { "__editor_plugin_screen__":"Script" }
 
 [node name="decor" type="Control" parent="."]
 
-margin/left = 152.0
-margin/top = 4.0
-margin/right = 192.0
-margin/bottom = 44.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "_editor_collapsed":true }
+margin/left = 152.0
+margin/top = 4.0
+margin/right = 192.0
+margin/bottom = 44.0
 
 [node name="background" type="Sprite" parent="decor"]
 
@@ -36,13 +38,14 @@ texture = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="decor"]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = -56.0
 margin/top = 128.0
 margin/right = 992.0
 margin/bottom = 161.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
 custom_fonts/font = ExtResource( 3 )
 text = "Project Kumquat"
 align = 1
@@ -52,15 +55,15 @@ max_lines_visible = -1
 
 [node name="levels" type="Control" parent="."]
 
-margin/left = 170.0
-margin/top = 258.0
-margin/right = 210.0
-margin/bottom = 298.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "_editor_collapsed":true }
+margin/left = 170.0
+margin/top = 258.0
+margin/right = 210.0
+margin/bottom = 298.0
 
 [node name="tween" type="Tween" parent="levels"]
 
@@ -71,82 +74,93 @@ playback/speed = 1.0
 
 [node name="navigation" type="Control" parent="."]
 
-margin/top = -1.0
-margin/right = 40.0
-margin/bottom = 39.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = -1.0
+margin/right = 40.0
+margin/bottom = 39.0
 
 [node name="menu_left" type="TextureButton" parent="navigation"]
 
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
 margin/left = 10.0
 margin/top = 336.0
 margin/right = 152.0
 margin/bottom = 478.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 textures/normal = ExtResource( 4 )
 
 [node name="menu_right" type="TextureButton" parent="navigation"]
 
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
 margin/left = 1129.0
 margin/top = 338.0
 margin/right = 1271.0
 margin/bottom = 480.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 textures/normal = ExtResource( 5 )
 
 [node name="play" type="Button" parent="navigation"]
 
-margin/left = 65.0
-margin/top = 618.0
-margin/right = 409.0
-margin/bottom = 722.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 65.0
+margin/top = 618.0
+margin/right = 409.0
+margin/bottom = 722.0
 custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "Play"
 flat = false
 
 [node name="settings" type="Button" parent="navigation"]
 
-margin/left = 464.0
-margin/top = 618.0
-margin/right = 808.0
-margin/bottom = 722.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 464.0
+margin/top = 618.0
+margin/right = 808.0
+margin/bottom = 722.0
 custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "Settings"
 flat = false
 
 [node name="credits" type="Button" parent="navigation"]
 
-margin/left = 869.0
-margin/top = 618.0
-margin/right = 1213.0
-margin/bottom = 722.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 869.0
+margin/top = 618.0
+margin/right = 1213.0
+margin/bottom = 722.0
 custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "Credits"
 flat = false
 
