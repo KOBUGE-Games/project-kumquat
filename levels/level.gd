@@ -77,8 +77,8 @@ func _draw():
 		for direction in tile.possible_directions:
 			draw_rect(Rect2(cell*cell_size + cell_size/8*3 + cell_size*direction/3, cell_size/4), Color(1, 1, 1, tile.goal_direction_weigths[direction]))
 		
-		for direction in tile.goal_directions:
-			draw_rect(Rect2(cell*cell_size + cell_size/8*3 + cell_size*direction/4, cell_size/4), Color(1, 0, 1, 0.5))
+		#for direction in tile.goal_directions:
+		#	draw_rect(Rect2(cell*cell_size + cell_size/8*3 + cell_size*direction/4, cell_size/4), Color(1, 0, 1, 0.5))
 	
 	for goal in goals:
 		draw_rect(Rect2(goal*cell_size, cell_size), Color(1, 1, 0, 0.6))

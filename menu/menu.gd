@@ -5,13 +5,13 @@ var total_levels = 12 #TODO get the number of levels
 var pages = total_levels / 3
 var current_page = 0
 
-var selected_level = 1
+var selected_level = -1
 var allow_navigation = true
 
-var level_counter = 0
-var level_spacing = 0
-
 func _ready():
+	var level_counter = 0
+	var level_spacing = 0
+	
 	for i in range(total_levels):
 		if level_counter == 3:
 			level_spacing += 150
@@ -19,6 +19,7 @@ func _ready():
 		level_counter += 1
 		var new_level_box = level_box.instance()
 		new_level_box.set_pos(Vector2(i*325+level_spacing,0))
+		new_level_box.level = level_counter
 		get_node("levels").add_child(new_level_box)
 	
 	toggle_navigation()
@@ -56,4 +57,5 @@ func _on_tween_tween_complete( object, key ):
 	allow_navigation = true
 
 func _on_play_pressed():
-	get_node("/root/global").go_to_level(selected_level)
+	if selected_level != -1:
+		get_node("/root/global").go_to_level(selected_level)
