@@ -23,7 +23,9 @@ func _ready():
 		get_node("levels").add_child(new_level_box)
 	
 	toggle_navigation()
-		
+	
+	selected_level = 1; _on_play_pressed()
+
 func toggle_navigation():
 	if current_page == 0:
 		get_node("navigation/menu_left").hide()
