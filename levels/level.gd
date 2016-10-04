@@ -14,7 +14,9 @@ class Tile:
 	
 	var type = TILE_WALKABLE
 	var possible_directions = []
-	var goal_directions = []
+	var goal = false
+	var goal_direction_weigths = {}
+	var goal_direction_focused_weigths = {}
 	var tower = null
 
 ### Variables ###
@@ -30,6 +32,7 @@ export var debug = false
 var current_wave_index = 1
 var current_wave
 var total_enemy_amount_left = 0
+var tilemap_rect = Rect2(0, 0, 0, 0)
 
 var tiles = {}
 
@@ -50,6 +53,7 @@ var tile_types = {
 func _enter_tree():
 	get_node("/root/global").level = self
 	tilemap = get_node("tilemap")
+	tilemap_rect = Rect2(0, 0, 0, 0)
 	
 	tiles = {}
 	import_tilemap(tilemap, Tile.TILE_WALKABLE)
@@ -71,7 +75,7 @@ func _draw():
 		draw_rect(Rect2(cell*cell_size, cell_size), colors[tile.type])
 		
 		for direction in tile.possible_directions:
-			draw_rect(Rect2(cell*cell_size + cell_size/8*3 + cell_size*direction/3, cell_size/4), Color(1, 1, 1, 0.5))
+			draw_rect(Rect2(cell*cell_size + cell_size/8*3 + cell_size*direction/3, cell_size/4), Color(1, 1, 1, tile.goal_direction_weigths[direction]))
 		
 		for direction in tile.goal_directions:
 			draw_rect(Rect2(cell*cell_size + cell_size/8*3 + cell_size*direction/4, cell_size/4), Color(1, 0, 1, 0.5))
@@ -87,6 +91,7 @@ func _draw():
 func import_tilemap(tilemap, default_tile_type):
 	var tileset = tilemap.get_tileset()
 	for cell in tilemap.get_used_cells():
+		tilemap_rect = tilemap_rect.expand(cell * cell_size)
 		var new_tile = Tile.new()
 		var cell_type = tilemap.get_cell(cell.x, cell.y)
 		var cell_name = tileset.tile_get_name(cell_type)
@@ -123,6 +128,7 @@ func run_bfs():
 	var distance = {}
 	for goal in goals:
 		distance[goal] = 0
+		tiles[goal].goal = true
 	
 	while scanline.size() > 0:
 		var new_scanline = []
@@ -137,12 +143,43 @@ func run_bfs():
 					new_scanline.push_back(other_cell)
 		scanline = new_scanline
 	
+	var mx = 0
+	var mn = 100000
+	
 	for cell in passed:
 		var tile = tiles[cell]
+		var total_weight = 0
+		var min_weight = 1000
+		var min_weight_direction = Vector2()
+		
 		for direction in tile.possible_directions:
 			var other_cell = cell + direction
+			tile.goal_direction_weigths[direction] = float(distance[cell]) - distance[other_cell] + 2
+			
 			if distance[cell] > distance[other_cell]:
-				tile.goal_directions.push_back(direction)
+				tile.goal_direction_focused_weigths[direction] = 1
+			else:
+				tile.goal_direction_focused_weigths[direction] = 0
+			
+			if tile.goal_direction_weigths[direction] < min_weight:
+				min_weight = tile.goal_direction_weigths[direction]
+				min_weight_direction = direction
+			elif tile.goal_direction_weigths[direction] == min_weight:
+				min_weight_direction = Vector2()
+			
+			total_weight += tile.goal_direction_weigths[direction]
+		
+		if min_weight_direction != Vector2():
+			tile.goal_direction_weigths[min_weight_direction] = 0
+			total_weight -= min_weight
+		
+		for direction in tile.possible_directions:
+			if total_weight != 0:
+				tile.goal_direction_weigths[direction] = tile.goal_direction_weigths[direction] / total_weight
+			mx = max(mx, tile.goal_direction_weigths[direction])
+			mn = min(mn, tile.goal_direction_weigths[direction])
+	
+	printt(mx, mn)
 
 func next_wave():
 	if current_wave:
@@ -177,6 +214,8 @@ func spawn_enemy(wave_enemy):
 	for i in range(current_wave.starts_open_positions.size()):
 		if wave_enemy.starts_dict.has(i):
 			starts_avilable.push_back((current_wave.starts_open_positions[i]/cell_size).floor())
+	if starts_avilable.size() == 0:
+		starts_avilable = current_wave.starts_open_positions
 	var start = starts_avilable[randi() % starts_avilable.size()]
 	var position = start*cell_size + cell_size/2
 	
@@ -191,3 +230,6 @@ func spawn_enemy(wave_enemy):
 		var enemy = wave_enemy.scene.instance()
 		enemy.set_pos(position)
 		add_child(enemy)
+
+func get_tilemap_rect():
+	return tilemap_rect

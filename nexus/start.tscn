@@ -13,7 +13,7 @@ tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "values":[ 0, 4 ] }
 
-[node name="start" type="Position2D"]
+[node name="start" type="Node2D"]
 
 __meta__ = { "__editor_plugin_screen__":"2D" }
 

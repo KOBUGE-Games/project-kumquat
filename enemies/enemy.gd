@@ -20,9 +20,10 @@ var cur_tile # Our current position in tilemap coordinates
 var dest_tile # The tile we are moving to
 var motion_dir = Vector2() # The current direction we move in
 var old_motion_dir = Vector2() # Previous motion dir, saved for animation
+var passed = {}
 
 export var type = "enemy1" # Enemy type
-export var speed = 2.0 # tiles/second
+export var speed = 2.0 # pixels/second
 export var hp = 100 # health points
 export var damage = 10 # the damage which it gives when reaches the dest
 export var worth = 25 # the amount of money given to player after enemies death
@@ -79,10 +80,10 @@ func _fixed_process(delta):
 	
 	# Update target coordinates
 	if cur_tile == dest_tile:
+		passed[cur_tile] = true
 		# Intermediate target tile reached, find the next destination
-		var goal_dirs = level.tiles[cur_tile].goal_directions
-		if goal_dirs.size() == 0:
-			# Dead-end, assuming it's the goal
+		var directions = level.tiles[cur_tile].possible_directions
+		if level.tiles[cur_tile].goal:
 			set_fixed_process(false)
 			get_node("movement_anim").stop()
 			get_node("effect_anim").stop()
@@ -90,8 +91,30 @@ func _fixed_process(delta):
 			queue_free()
 			return
 		
-		var index = randi() % goal_dirs.size()
-		dest_tile = cur_tile + goal_dirs[index]
+		var total_weight = 0
+		var weights = {}
+		
+		for direction in directions:
+			weights[direction] = level.tiles[cur_tile].goal_direction_weigths[direction]
+			weights[direction] += (2 / speed) * level.tiles[cur_tile].goal_direction_focused_weigths[direction]
+			weights[direction] *= (direction.dot(motion_dir) + 1) / 2
+			if passed.has(cur_tile + direction):
+				weights[direction] *= 0.1
+			weights[direction] += 0.01 # Small bias just in case
+			total_weight += weights[direction]
+		
+		var selected = randf()
+		
+		for direction in directions:
+			selected -= weights[direction] / total_weight
+			if selected <= 0.001:
+				dest_tile = cur_tile + direction
+				selected = -1
+				break
+		
+		if selected > 0:
+			dest_tile = cur_tile + directions[directions.size() - 1]
+		
 		old_motion_dir = motion_dir
 		motion_dir = dest_tile - cur_tile
 		

@@ -13,18 +13,17 @@ func _enter_tree():
 func _ready():
 	randomize()
 	
-	var size = get_node("level_control").get_size()
-	camera.set_pos(size/2)
-	# Camera has a weird bug: https://github.com/godotengine/godot/issues/1912
-	size /= camera.get_zoom()
-	camera.set_limit(MARGIN_TOP, -camera_offset)
-	camera.set_limit(MARGIN_LEFT, -camera_offset)
-	camera.set_limit(MARGIN_BOTTOM, size.height + camera_offset)
-	camera.set_limit(MARGIN_RIGHT, size.width + camera_offset)
-	
 	var level = get_node("/root/global").level_to_load
 	var level_scene = load(str("res://levels/level", level, ".tscn"))
-	get_node("level_control").add_child(level_scene.instance())
+	var level_instance = level_scene.instance()
+	get_node("level_control").add_child(level_instance)
+	
+	var rect = level_instance.get_tilemap_rect()
+	camera.set_pos(rect.pos + rect.size/2)
+	camera.set_limit(MARGIN_TOP, rect.pos.y - camera_offset)
+	camera.set_limit(MARGIN_LEFT, rect.pos.x - camera_offset)
+	camera.set_limit(MARGIN_BOTTOM, rect.size.height + rect.pos.y + camera_offset)
+	camera.set_limit(MARGIN_RIGHT, rect.size.width + rect.pos.x + camera_offset)
 	
 	set_fixed_process(true)
 
