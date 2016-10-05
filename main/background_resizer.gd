@@ -1,8 +1,12 @@
-extends TextureFrame
+extends ParallaxBackground
+
+onready var viewport = get_parent().get_viewport()
+onready var texture = get_node("layer/texture")
 
 func _ready():
-	viewport_resized()
-	get_viewport().connect("size_changed", self, "viewport_resized")
+	update_values()
+	viewport.connect("size_changed", self, "update_values")
 
-func viewport_resized():
-	set_size(get_viewport_rect().size)
+func update_values():
+	texture.set_size(viewport.get_rect().size / viewport.get_canvas_transform().get_scale())
+	set_scroll_base_scale(viewport.get_canvas_transform().get_scale())

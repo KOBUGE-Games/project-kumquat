@@ -24,7 +24,6 @@ func _ready():
 	
 	toggle_navigation()
 	
-	selected_level = 1; _on_play_pressed()
 
 func toggle_navigation():
 	if current_page == 0:
