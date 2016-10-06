@@ -1,21 +1,23 @@
-[gd_scene load_steps=23 format=1]
+[gd_scene load_steps=25 format=1]
 
 [ext_resource path="res://main/hud.gd" type="Script" id=1]
-[ext_resource path="res://main/healthbar_under.png" type="Texture" id=2]
-[ext_resource path="res://main/healthbar_fill.png" type="Texture" id=3]
-[ext_resource path="res://main/healthbar_over.png" type="Texture" id=4]
-[ext_resource path="res://shared/fonts/railway.fnt" type="BitmapFont" id=5]
-[ext_resource path="res://main/coin_sheet.png" type="Texture" id=6]
-[ext_resource path="res://main/stick-cross.png" type="Texture" id=7]
-[ext_resource path="res://main/icon_next_wave.png" type="Texture" id=8]
-[ext_resource path="res://main/buttons/btn_upgrade.tscn" type="PackedScene" id=9]
-[ext_resource path="res://main/buttons/btn_tower.tscn" type="PackedScene" id=10]
-[ext_resource path="res://towers/tower_sniper/tower_sniper.tscn" type="PackedScene" id=11]
-[ext_resource path="res://towers/tower_fireball/tower_fireball.tscn" type="PackedScene" id=12]
-[ext_resource path="res://towers/tower_slow/tower_slow.tscn" type="PackedScene" id=13]
-[ext_resource path="res://towers/tower_poison/tower_poison.tscn" type="PackedScene" id=14]
-[ext_resource path="res://towers/tower_boost/tower_boost.tscn" type="PackedScene" id=15]
-[ext_resource path="res://main/hud_tooltip.gd" type="Script" id=16]
+[ext_resource path="res://main/finish/lose.tscn" type="PackedScene" id=2]
+[ext_resource path="res://main/finish/win.tscn" type="PackedScene" id=3]
+[ext_resource path="res://main/healthbar_under.png" type="Texture" id=4]
+[ext_resource path="res://main/healthbar_fill.png" type="Texture" id=5]
+[ext_resource path="res://main/healthbar_over.png" type="Texture" id=6]
+[ext_resource path="res://shared/fonts/railway.fnt" type="BitmapFont" id=7]
+[ext_resource path="res://main/coin_sheet.png" type="Texture" id=8]
+[ext_resource path="res://main/stick-cross.png" type="Texture" id=9]
+[ext_resource path="res://main/icon_next_wave.png" type="Texture" id=10]
+[ext_resource path="res://main/buttons/btn_upgrade.tscn" type="PackedScene" id=11]
+[ext_resource path="res://main/buttons/btn_tower.tscn" type="PackedScene" id=12]
+[ext_resource path="res://towers/tower_sniper/tower_sniper.tscn" type="PackedScene" id=13]
+[ext_resource path="res://towers/tower_fireball/tower_fireball.tscn" type="PackedScene" id=14]
+[ext_resource path="res://towers/tower_slow/tower_slow.tscn" type="PackedScene" id=15]
+[ext_resource path="res://towers/tower_poison/tower_poison.tscn" type="PackedScene" id=16]
+[ext_resource path="res://towers/tower_boost/tower_boost.tscn" type="PackedScene" id=17]
+[ext_resource path="res://main/hud_tooltip.gd" type="Script" id=18]
 
 [sub_resource type="ImageTexture" id=1]
 
@@ -112,7 +114,9 @@ scale = Vector2( 1, 1 )
 script/script = ExtResource( 1 )
 __meta__ = { "__editor_plugin_screen__":"2D" }
 budget_current = 2000
-health_current = 1000
+health_current = 100
+lose_scene = ExtResource( 2 )
+win_scene = ExtResource( 3 )
 
 [node name="top_bar" type="Panel" parent="."]
 
@@ -151,7 +155,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 776.0
 margin/bottom = 32.0
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 patch_margin/left = 30
 patch_margin/top = 15
 patch_margin/right = 30
@@ -169,7 +173,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 1.0
 margin/bottom = 0.0
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 patch_margin/left = 20
 patch_margin/top = 15
 patch_margin/right = 20
@@ -187,7 +191,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.0
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 patch_margin/left = 20
 patch_margin/top = 15
 patch_margin/right = 20
@@ -206,7 +210,7 @@ margin/left = 0.0
 margin/top = 4.0
 margin/right = 0.0
 margin/bottom = 0.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 7 )
 text = "Health: 1000"
 align = 1
 valign = 1
@@ -257,7 +261,7 @@ margin/bottom = 20.0
 
 [node name="sprite" type="Sprite" parent="top_bar/container/stats/budget/icon"]
 
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 centered = false
 hframes = 6
 
@@ -271,7 +275,7 @@ margin/left = 24.0
 margin/top = 1.0
 margin/right = 92.0
 margin/bottom = 19.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 7 )
 text = "Budget: 0"
 percent_visible = 1.0
 lines_skipped = 0
@@ -317,7 +321,7 @@ margin/bottom = 20.0
 
 [node name="sprite" type="Sprite" parent="top_bar/container/stats/damage/icon"]
 
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 centered = false
 region_rect = Rect2( 0, 0, 20, 20 )
 
@@ -331,7 +335,7 @@ margin/left = 24.0
 margin/top = 1.0
 margin/right = 241.0
 margin/bottom = 19.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 7 )
 text = "Damage: 0 Total / 0 Per second"
 percent_visible = 1.0
 lines_skipped = 0
@@ -360,12 +364,12 @@ margin/left = 0.0
 margin/top = 356.0
 margin/right = 128.0
 margin/bottom = 383.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 7 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "Next Wave"
-icon = ExtResource( 8 )
+icon = ExtResource( 10 )
 flat = false
 
 [node name="towers_panel" type="Panel" parent="."]
@@ -399,7 +403,7 @@ margin/right = 4.0
 margin/bottom = 4.0
 alignment = 0
 
-[node name="btn_upgrade" parent="towers_panel/tower_buttons" instance=ExtResource( 9 )]
+[node name="btn_upgrade" parent="towers_panel/tower_buttons" instance=ExtResource( 11 )]
 
 margin/left = 32.0
 margin/top = 0.0
@@ -421,7 +425,7 @@ margin/bottom = 129.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="tier1" parent="towers_panel/tower_buttons/tower_sniper" instance=ExtResource( 10 )]
+[node name="tier1" parent="towers_panel/tower_buttons/tower_sniper" instance=ExtResource( 12 )]
 
 margin/left = 8.0
 margin/top = 2.0
@@ -429,10 +433,10 @@ margin/right = 48.0
 margin/bottom = 58.0
 enabled_focus_mode = 2
 shortcut = null
-tower_scene = ExtResource( 11 )
+tower_scene = ExtResource( 13 )
 unlocked = true
 
-[node name="tier2" parent="towers_panel/tower_buttons/tower_sniper" instance=ExtResource( 10 )]
+[node name="tier2" parent="towers_panel/tower_buttons/tower_sniper" instance=ExtResource( 12 )]
 
 margin/left = 75.0
 margin/top = 2.0
@@ -440,10 +444,10 @@ margin/right = 115.0
 margin/bottom = 58.0
 enabled_focus_mode = 2
 shortcut = null
-tower_scene = ExtResource( 11 )
+tower_scene = ExtResource( 13 )
 tower_tier = 2
 
-[node name="tier3" parent="towers_panel/tower_buttons/tower_sniper" instance=ExtResource( 10 )]
+[node name="tier3" parent="towers_panel/tower_buttons/tower_sniper" instance=ExtResource( 12 )]
 
 margin/left = 143.0
 margin/top = 2.0
@@ -451,7 +455,7 @@ margin/right = 183.0
 margin/bottom = 58.0
 enabled_focus_mode = 2
 shortcut = null
-tower_scene = ExtResource( 11 )
+tower_scene = ExtResource( 13 )
 tower_tier = 3
 
 [node name="tower_fireball" type="HBoxContainer" parent="towers_panel/tower_buttons"]
@@ -468,7 +472,7 @@ margin/bottom = 194.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="tier1" parent="towers_panel/tower_buttons/tower_fireball" instance=ExtResource( 10 )]
+[node name="tier1" parent="towers_panel/tower_buttons/tower_fireball" instance=ExtResource( 12 )]
 
 margin/left = 8.0
 margin/top = 2.0
@@ -476,10 +480,10 @@ margin/right = 48.0
 margin/bottom = 58.0
 enabled_focus_mode = 2
 shortcut = null
-tower_scene = ExtResource( 12 )
+tower_scene = ExtResource( 14 )
 unlocked = true
 
-[node name="tier2" parent="towers_panel/tower_buttons/tower_fireball" instance=ExtResource( 10 )]
+[node name="tier2" parent="towers_panel/tower_buttons/tower_fireball" instance=ExtResource( 12 )]
 
 margin/left = 75.0
 margin/top = 2.0
@@ -487,10 +491,10 @@ margin/right = 115.0
 margin/bottom = 58.0
 enabled_focus_mode = 2
 shortcut = null
-tower_scene = ExtResource( 12 )
+tower_scene = ExtResource( 14 )
 tower_tier = 2
 
-[node name="tier3" parent="towers_panel/tower_buttons/tower_fireball" instance=ExtResource( 10 )]
+[node name="tier3" parent="towers_panel/tower_buttons/tower_fireball" instance=ExtResource( 12 )]
 
 margin/left = 143.0
 margin/top = 2.0
@@ -498,7 +502,7 @@ margin/right = 183.0
 margin/bottom = 58.0
 enabled_focus_mode = 2
 shortcut = null
-tower_scene = ExtResource( 12 )
+tower_scene = ExtResource( 14 )
 tower_tier = 3
 
 [node name="tower_slow" type="HBoxContainer" parent="towers_panel/tower_buttons"]
@@ -515,7 +519,7 @@ margin/bottom = 259.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="tier1" parent="towers_panel/tower_buttons/tower_slow" instance=ExtResource( 10 )]
+[node name="tier1" parent="towers_panel/tower_buttons/tower_slow" instance=ExtResource( 12 )]
 
 margin/left = 8.0
 margin/top = 2.0
@@ -523,10 +527,10 @@ margin/right = 48.0
 margin/bottom = 58.0
 enabled_focus_mode = 2
 shortcut = null
-tower_scene = ExtResource( 13 )
+tower_scene = ExtResource( 15 )
 unlocked = true
 
-[node name="tier2" parent="towers_panel/tower_buttons/tower_slow" instance=ExtResource( 10 )]
+[node name="tier2" parent="towers_panel/tower_buttons/tower_slow" instance=ExtResource( 12 )]
 
 margin/left = 75.0
 margin/top = 2.0
@@ -534,10 +538,10 @@ margin/right = 115.0
 margin/bottom = 58.0
 enabled_focus_mode = 2
 shortcut = null
-tower_scene = ExtResource( 13 )
+tower_scene = ExtResource( 15 )
 tower_tier = 2
 
-[node name="tier3" parent="towers_panel/tower_buttons/tower_slow" instance=ExtResource( 10 )]
+[node name="tier3" parent="towers_panel/tower_buttons/tower_slow" instance=ExtResource( 12 )]
 
 margin/left = 143.0
 margin/top = 2.0
@@ -545,7 +549,7 @@ margin/right = 183.0
 margin/bottom = 58.0
 enabled_focus_mode = 2
 shortcut = null
-tower_scene = ExtResource( 13 )
+tower_scene = ExtResource( 15 )
 tower_tier = 3
 
 [node name="tower_poison" type="HBoxContainer" parent="towers_panel/tower_buttons"]
@@ -562,7 +566,7 @@ margin/bottom = 324.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="tier1" parent="towers_panel/tower_buttons/tower_poison" instance=ExtResource( 10 )]
+[node name="tier1" parent="towers_panel/tower_buttons/tower_poison" instance=ExtResource( 12 )]
 
 margin/left = 8.0
 margin/top = 2.0
@@ -570,10 +574,10 @@ margin/right = 48.0
 margin/bottom = 58.0
 enabled_focus_mode = 2
 shortcut = null
-tower_scene = ExtResource( 14 )
+tower_scene = ExtResource( 16 )
 unlocked = true
 
-[node name="tier2" parent="towers_panel/tower_buttons/tower_poison" instance=ExtResource( 10 )]
+[node name="tier2" parent="towers_panel/tower_buttons/tower_poison" instance=ExtResource( 12 )]
 
 margin/left = 75.0
 margin/top = 2.0
@@ -581,10 +585,10 @@ margin/right = 115.0
 margin/bottom = 58.0
 enabled_focus_mode = 2
 shortcut = null
-tower_scene = ExtResource( 14 )
+tower_scene = ExtResource( 16 )
 tower_tier = 2
 
-[node name="tier3" parent="towers_panel/tower_buttons/tower_poison" instance=ExtResource( 10 )]
+[node name="tier3" parent="towers_panel/tower_buttons/tower_poison" instance=ExtResource( 12 )]
 
 margin/left = 143.0
 margin/top = 2.0
@@ -592,7 +596,7 @@ margin/right = 183.0
 margin/bottom = 58.0
 enabled_focus_mode = 2
 shortcut = null
-tower_scene = ExtResource( 14 )
+tower_scene = ExtResource( 16 )
 tower_tier = 3
 
 [node name="tower_boost" type="HBoxContainer" parent="towers_panel/tower_buttons"]
@@ -609,7 +613,7 @@ margin/bottom = 392.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="tier1" parent="towers_panel/tower_buttons/tower_boost" instance=ExtResource( 10 )]
+[node name="tier1" parent="towers_panel/tower_buttons/tower_boost" instance=ExtResource( 12 )]
 
 margin/left = 8.0
 margin/top = 4.0
@@ -617,10 +621,10 @@ margin/right = 48.0
 margin/bottom = 60.0
 enabled_focus_mode = 2
 shortcut = null
-tower_scene = ExtResource( 15 )
+tower_scene = ExtResource( 17 )
 unlocked = true
 
-[node name="tier2" parent="towers_panel/tower_buttons/tower_boost" instance=ExtResource( 10 )]
+[node name="tier2" parent="towers_panel/tower_buttons/tower_boost" instance=ExtResource( 12 )]
 
 margin/left = 75.0
 margin/top = 4.0
@@ -628,10 +632,10 @@ margin/right = 115.0
 margin/bottom = 60.0
 enabled_focus_mode = 2
 shortcut = null
-tower_scene = ExtResource( 15 )
+tower_scene = ExtResource( 17 )
 tower_tier = 2
 
-[node name="tier3" parent="towers_panel/tower_buttons/tower_boost" instance=ExtResource( 10 )]
+[node name="tier3" parent="towers_panel/tower_buttons/tower_boost" instance=ExtResource( 12 )]
 
 margin/left = 143.0
 margin/top = 4.0
@@ -639,7 +643,7 @@ margin/right = 183.0
 margin/bottom = 60.0
 enabled_focus_mode = 2
 shortcut = null
-tower_scene = ExtResource( 15 )
+tower_scene = ExtResource( 17 )
 tower_tier = 3
 
 [node name="tower_tooltip" type="ReferenceFrame" parent="."]
@@ -657,7 +661,7 @@ margin/left = 220.0
 margin/top = 572.0
 margin/right = 20.0
 margin/bottom = 420.0
-script/script = ExtResource( 16 )
+script/script = ExtResource( 18 )
 move_to_target = false
 hide_when_inactive = true
 debounce_time = 0.5
@@ -701,7 +705,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 172.0
 margin/bottom = 18.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 7 )
 text = "%s"
 align = 1
 percent_visible = 1.0
@@ -730,7 +734,7 @@ margin/left = 0.0
 margin/top = 29.0
 margin/right = 172.0
 margin/bottom = 47.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 7 )
 text = "Damage: %s"
 percent_visible = 1.0
 lines_skipped = 0
@@ -746,7 +750,7 @@ margin/left = 0.0
 margin/top = 51.0
 margin/right = 172.0
 margin/bottom = 69.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 7 )
 text = "Range: %s"
 percent_visible = 1.0
 lines_skipped = 0
@@ -762,7 +766,7 @@ margin/left = 0.0
 margin/top = 73.0
 margin/right = 172.0
 margin/bottom = 91.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 7 )
 text = "Reload: %s/second"
 percent_visible = 1.0
 lines_skipped = 0
@@ -778,7 +782,7 @@ margin/left = 0.0
 margin/top = 95.0
 margin/right = 172.0
 margin/bottom = 113.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 7 )
 text = "Price: %s"
 percent_visible = 1.0
 lines_skipped = 0
@@ -794,7 +798,7 @@ margin/left = 0.0
 margin/top = 117.0
 margin/right = 172.0
 margin/bottom = 135.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 7 )
 text = "Unlock: %s"
 percent_visible = 1.0
 lines_skipped = 0

@@ -31,7 +31,9 @@ export var cell_size = Vector2(32, 32)
 export var debug = false
 var current_wave_index = 1
 var current_wave
+var last_wave = false
 var total_enemy_amount_left = 0
+var alive_enemies = 0
 var tilemap_rect = Rect2(0, 0, 0, 0)
 
 var tiles = {}
@@ -187,12 +189,14 @@ func next_wave():
 			enemy.disconnect("timeout", self, "spawn_enemy")
 			enemy.stop()
 	
-	var node_path = str("waves/wave_", current_wave_index)
+	if !has_node(str("waves/wave_", current_wave_index + 1)):
+		last_wave = true
+	
+	var node_path = NodePath(str("waves/wave_", current_wave_index))
 	if !has_node(node_path):
-		print("WARN: No more waves @(",current_wave_index,")")
 		return
 	
-	current_wave = get_node(str("waves/wave_", current_wave_index))
+	current_wave = get_node(node_path)
 	total_enemy_amount_left = 0
 	
 	for enemy in current_wave.enemies:
@@ -226,10 +230,19 @@ func spawn_enemy(wave_enemy):
 	else:
 		wave_enemy.amount_left -= 1
 		total_enemy_amount_left -= 1
+		alive_enemies += 1
 	
 		var enemy = wave_enemy.scene.instance()
 		enemy.set_pos(position)
 		add_child(enemy)
+
+func enemy_died():
+	alive_enemies -= 1
+	if alive_enemies <= 0 and total_enemy_amount_left <= 0 and last_wave:
+		get_node("/root/global").hud.end_game(true)
+
+func is_last_wave():
+	return last_wave
 
 func get_tilemap_rect():
 	return tilemap_rect

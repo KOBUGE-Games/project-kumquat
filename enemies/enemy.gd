@@ -62,6 +62,7 @@ func _fixed_process(delta):
 		set_fixed_process(false)
 		get_node("movement_anim").play("die")
 		global.hud.update_budget(worth)
+		global.level.enemy_died()
 		return
 	
 	#Show health bar only when damaged, set to current health fraction

@@ -11,6 +11,10 @@ var tween
 
 export var budget_current = 1000
 export var health_current = 1000
+export(PackedScene) var lose_scene
+export(PackedScene) var win_scene
+
+onready var health_max = health_current
 
 var tower_placement = false
 var carried_tower = null
@@ -19,7 +23,7 @@ var damage_per_last_second = 0
 var damage_per_second = 0
 var damage_total = 0
 var second_left = 0
-var health_max
+var game_ended = false
 
 ### Callbacks ###
 
@@ -35,8 +39,6 @@ func _ready():
 	
 	if level != null:
 		connect_level()
-	
-	health_max = health_current
 	
 	update_budget_text()
 	update_health(0)
@@ -89,7 +91,7 @@ func connect_level():
 	var next_wave_button = get_node("side_actions/next_wave")
 	next_wave_button.connect("pressed", level, "next_wave")
 	level.connect("wave_started", next_wave_button, "hide")
-	level.connect("wave_finished", next_wave_button, "show")
+	level.connect("wave_finished", self, "show_next_wave", [level])
 
 func add_damage(amount):
 	damage_total += amount
@@ -120,11 +122,23 @@ func update_health(amount):
 	health_current += amount
 	healthbar.get_node("fill").set_margin(MARGIN_RIGHT, float(health_current)/health_max)
 	healthbar.get_node("label").set_text("Health: " + str(health_current))
+	
+	if health_current <= 0:
+		end_game(false)
 
 func cancel_tower_placement():
 	tower_placement = false
 	update_budget(0)
 	carried_tower.queue_free()
+
+func end_game(win):
+	if game_ended:
+		return
+	game_ended = true
+	if win:
+		add_child(win_scene.instance())
+	else:
+		add_child(lose_scene.instance())
 
 ### Signals ###
 
@@ -148,3 +162,8 @@ func tower_upgrade_mode(upgrade_scene):
 	level.add_child(carried_tower)
 	carried_tower.set_pos(Vector2(48, 48))
 	carried_tower.set_carried(true)
+
+func show_next_wave(level):
+	if !level.is_last_wave():
+		var next_wave_button = get_node("side_actions/next_wave")
+		next_wave_button.show()

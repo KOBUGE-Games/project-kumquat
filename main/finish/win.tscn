@@ -1,0 +1,155 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://main/coin_sheet.png" type="Texture" id=1]
+[ext_resource path="res://shared/fonts/railway_large.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://shared/fonts/railway.fnt" type="BitmapFont" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0, 0, 0, 1 )
+light_color = Color( 0.8, 0.8, 0.8, 1 )
+dark_color = Color( 0.8, 0.8, 0.8, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
+[sub_resource type="ColorRamp" id=2]
+
+offsets = FloatArray( 0, 0.116959, 0.865497, 1 )
+colors = ColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="win" type="Control"]
+
+visibility/self_opacity = 0.4
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+
+[node name="backdrop" type="Panel" parent="."]
+
+visibility/self_opacity = 0.7
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="center" type="CenterContainer" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+use_top_left = false
+
+[node name="center" type="Control" parent="center"]
+
+visibility/behind_parent = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 640.0
+margin/top = 400.0
+margin/right = 640.0
+margin/bottom = 400.0
+
+[node name="particles" type="Particles2D" parent="center/center"]
+
+transform/pos = Vector2( 0, 100 )
+config/amount = 96
+config/lifetime = 4.0
+config/half_extents = Vector2( 19, 19 )
+config/texture = ExtResource( 1 )
+config/h_frames = 6
+params/direction = 180.0
+params/spread = 20.0
+params/linear_velocity = 600.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 400.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 6.0
+params/anim_initial_pos = 7.0
+randomness/linear_velocity = 0.2
+randomness/anim_speed_scale = 0.1
+randomness/anim_initial_pos = 1.0
+color/color_ramp = SubResource( 2 )
+
+[node name="text" type="VBoxContainer" parent="center"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 507.0
+margin/top = 356.0
+margin/right = 773.0
+margin/bottom = 443.0
+alignment = 0
+
+[node name="title" type="Label" parent="center/text"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 266.0
+margin/bottom = 65.0
+custom_fonts/font = ExtResource( 2 )
+text = "YOU WIN!"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="subtitle" type="Label" parent="center/text"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 69.0
+margin/right = 266.0
+margin/bottom = 87.0
+custom_fonts/font = ExtResource( 3 )
+text = "Here is your reward!"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+
