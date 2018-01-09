@@ -7,7 +7,6 @@
 
 [node name="tower" instance=ExtResource( 1 )]
 
-linear_damp = 0.1
 tower_type = "tower_poison"
 
 [node name="tier_1" parent="."]
@@ -27,9 +26,10 @@ missile_scene = ExtResource( 3 )
 
 texture = ExtResource( 4 )
 
-[node name="attack_timer" parent="."]
+[node name="hover" parent="."]
 
-wait_time = 0.2
+enabled_focus_mode = 2
+shortcut = null
 
 [node name="tier_2" type="Node" parent="."]
 

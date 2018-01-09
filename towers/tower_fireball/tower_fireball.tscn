@@ -8,13 +8,12 @@
 
 [node name="tower" instance=ExtResource( 1 )]
 
-linear_damp = 0.1
 tower_type = "tower_fireball"
 
 [node name="tier_1" parent="."]
 
 script/script = ExtResource( 2 )
-damage = 3
+damage = 4
 frequency = 0.6
 reach = 2.0
 name = "Fireball"
@@ -38,10 +37,15 @@ texture = ExtResource( 4 )
 
 wait_time = 1.0
 
+[node name="hover" parent="."]
+
+enabled_focus_mode = 2
+shortcut = null
+
 [node name="tier_2" type="Node" parent="."]
 
 script/script = ExtResource( 2 )
-damage = 3
+damage = 6
 damage_duration = 1.0
 damage_type = 0
 frequency = 0.9
