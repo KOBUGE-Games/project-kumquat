@@ -53,9 +53,9 @@ func _fixed_process(delta):
 	if Input.is_action_pressed("ui_right"):
 		camera_move += Vector2(1, 0)
 	
-	if Input.is_action_just_released("zoom_in") or Input.is_action_pressed("zoom_in"):
+	if Input.is_action_pressed("zoom_in"): # once in 3.0, add: `or Input.is_action_just_released("zoom_in")`
 		camera_zoom -= 1
-	if Input.is_action_just_released("zoom_out") or Input.is_action_pressed("zoom_out"):
+	if Input.is_action_pressed("zoom_out"): # once in 3.0, add: `or Input.is_action_just_released("zoom_out")`
 		camera_zoom += 1
 	
 	if camera_move.length_squared() > 0.1:

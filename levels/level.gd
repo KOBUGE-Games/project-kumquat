@@ -180,8 +180,6 @@ func run_bfs():
 				tile.goal_direction_weigths[direction] = tile.goal_direction_weigths[direction] / total_weight
 			mx = max(mx, tile.goal_direction_weigths[direction])
 			mn = min(mn, tile.goal_direction_weigths[direction])
-	
-	printt(mx, mn)
 
 func next_wave():
 	if current_wave:
