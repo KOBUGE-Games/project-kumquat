@@ -3,7 +3,7 @@
 [ext_resource path="res://menu/levels/level_1.png" type="Texture" id=1]
 [ext_resource path="res://menu/level_box.gd" type="Script" id=2]
 [ext_resource path="res://menu/level_border.png" type="Texture" id=3]
-[ext_resource path="res://fonts/papercut.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://shared/fonts/papercut.fnt" type="BitmapFont" id=4]
 [ext_resource path="res://menu/play.png" type="Texture" id=5]
 
 [node name="level_box" type="TextureButton"]

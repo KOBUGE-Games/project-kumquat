@@ -2,7 +2,7 @@
 
 [ext_resource path="res://menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://menu/bg_1.png" type="Texture" id=2]
-[ext_resource path="res://fonts/papercut.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://shared/fonts/papercut.fnt" type="BitmapFont" id=3]
 [ext_resource path="res://menu/menu_left.png" type="Texture" id=4]
 [ext_resource path="res://menu/menu_right.png" type="Texture" id=5]
 
