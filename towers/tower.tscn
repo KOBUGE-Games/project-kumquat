@@ -20,7 +20,13 @@ step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("attack_indicator:visibility/opacity")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.12, 0.16 ), "transitions":FloatArray( 1, 1, 1 ), "values":[ 0, 1, 0.0 ] }
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.12, 0.16 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 1, 0.0 ]
+}
 
 [sub_resource type="RectangleShape2D" id=3]
 
@@ -39,7 +45,9 @@ linear_damp = 0.1
 angular_damp = 1.0
 monitorable = false
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"Script" }
+__meta__ = {
+"__editor_plugin_screen__": "Script"
+}
 tower_type = "tower_base"
 
 [node name="tier_1" type="Node" parent="."]
@@ -117,15 +125,19 @@ autostart = false
 
 [node name="hover" type="TextureButton" parent="."]
 
-margin/left = -16.0
-margin/top = -16.0
-margin/right = 16.0
-margin/bottom = 16.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = -16.0
+margin/top = -16.0
+margin/right = 16.0
+margin/bottom = 16.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+params/resize_mode = 0
+params/stretch_mode = 0
 
 [node name="bounding_box" type="KinematicBody2D" parent="."]
 

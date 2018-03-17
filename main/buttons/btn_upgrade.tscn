@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=1]
 
-[ext_resource path="res://shared/fonts/railway.fnt" type="Font" id=1]
+[ext_resource path="res://shared/fonts/railway.fnt" type="BitmapFont" id=1]
 [ext_resource path="res://main/buttons/btn_upgrade.gd" type="Script" id=2]
 [ext_resource path="res://towers/drop_upgrade/drop_upgrade.tscn" type="PackedScene" id=3]
 [ext_resource path="res://shared/graphics/upgrade.png" type="Texture" id=4]
@@ -14,24 +14,36 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("icon:frame")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "values":[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 0 ] }
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 0 ]
+}
 
 [node name="btn_upgrade" type="Button"]
 
-margin/right = 128.0
-margin/bottom = 64.0
 rect/min_size = Vector2( 128, 64 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 1
 size_flags/vertical = 1
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 128.0
+margin/bottom = 64.0
 custom_fonts/font = ExtResource( 1 )
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "Upgrade"
 flat = false
 align = 2
 script/script = ExtResource( 2 )
-__meta__ = { "__editor_plugin_screen__":"2D" }
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}
 upgrade_scene = ExtResource( 3 )
 
 [node name="icon" type="Sprite" parent="."]
@@ -51,10 +63,10 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
-[connection signal="pressed" from="." to="." method="_on_btn_tower_pressed"]
-
 [connection signal="mouse_enter" from="." to="." method="_on_btn_tower_mouse_enter"]
 
 [connection signal="mouse_exit" from="." to="." method="_on_btn_tower_mouse_exit"]
+
+[connection signal="pressed" from="." to="." method="_on_btn_tower_pressed"]
 
 

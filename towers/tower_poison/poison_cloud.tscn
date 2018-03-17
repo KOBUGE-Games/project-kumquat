@@ -19,27 +19,63 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("missile_sprite:frame")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "values":[ 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6 ] }
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6 ]
+}
 tracks/1/type = "value"
 tracks/1/path = NodePath("missile_sprite:visibility/opacity")
 tracks/1/interp = 1
-tracks/1/keys = { "cont":true, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ 1.0 ] }
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
 tracks/2/type = "value"
 tracks/2/path = NodePath("explosion_sprite:visibility/opacity")
 tracks/2/interp = 1
-tracks/2/keys = { "cont":true, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ 0.0 ] }
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 tracks/3/type = "value"
 tracks/3/path = NodePath("missile_particles:visibility/opacity")
 tracks/3/interp = 1
-tracks/3/keys = { "cont":true, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ 1.0 ] }
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
 tracks/4/type = "value"
 tracks/4/path = NodePath("missile_particles:config/emitting")
 tracks/4/interp = 1
-tracks/4/keys = { "cont":false, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ true ] }
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 tracks/5/type = "value"
 tracks/5/path = NodePath("missile_sprite:transform/rot")
 tracks/5/interp = 1
-tracks/5/keys = { "cont":false, "times":FloatArray( 0, 0.35 ), "transitions":FloatArray( 1, 1 ), "values":[ 0.0, 90.0 ] }
+tracks/5/imported = false
+tracks/5/keys = {
+"times": FloatArray( 0, 0.35 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ 0.0, 90.0 ]
+}
 
 [sub_resource type="Animation" id=3]
 
@@ -50,23 +86,53 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("explosion_sprite:frame")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.35 ), "transitions":FloatArray( 1, 1 ), "values":[ 0, 7 ] }
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.35 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 7 ]
+}
 tracks/1/type = "value"
 tracks/1/path = NodePath("explosion_sprite:visibility/opacity")
 tracks/1/interp = 1
-tracks/1/keys = { "cont":true, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ 1.0 ] }
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
 tracks/2/type = "value"
 tracks/2/path = NodePath("missile_sprite:visibility/opacity")
 tracks/2/interp = 1
-tracks/2/keys = { "cont":true, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ 0.0 ] }
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 tracks/3/type = "value"
 tracks/3/path = NodePath("missile_particles:visibility/opacity")
 tracks/3/interp = 1
-tracks/3/keys = { "cont":true, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ 0.0 ] }
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 tracks/4/type = "value"
 tracks/4/path = NodePath("missile_particles:config/emitting")
 tracks/4/interp = 1
-tracks/4/keys = { "cont":false, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ false ] }
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [node name="missile" type="Area2D"]
 
@@ -79,7 +145,9 @@ gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"2D" }
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}
 speed = 3.0
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="."]
@@ -93,6 +161,7 @@ _update_shape_index = 0
 config/amount = 32
 config/lifetime = 0.5
 config/preprocess = 0.1
+config/process_mode = 1
 config/texture = ExtResource( 2 )
 params/direction = 0.0
 params/spread = 180.0

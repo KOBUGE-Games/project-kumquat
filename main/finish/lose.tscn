@@ -82,6 +82,7 @@ visibility/opacity = 0.3
 z/z = -1
 config/amount = 12
 config/lifetime = 2.0
+config/process_mode = 1
 config/half_extents = Vector2( 400, 400 )
 config/texture = ExtResource( 1 )
 params/direction = 0.0

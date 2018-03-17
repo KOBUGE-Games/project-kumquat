@@ -6,17 +6,23 @@
 
 [node name="btn_tower" type="Button"]
 
-margin/right = 40.0
-margin/bottom = 56.0
 rect/min_size = Vector2( 40, 56 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 1
 size_flags/vertical = 1
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 56.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 flat = false
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"2D" }
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}
 tower_scene = null
 tower_tier = 1
 unlocked = false
@@ -34,10 +40,10 @@ texture = ExtResource( 3 )
 hframes = 16
 frame = 14
 
-[connection signal="pressed" from="." to="." method="_on_btn_tower_pressed"]
-
 [connection signal="mouse_enter" from="." to="." method="_on_btn_tower_mouse_enter"]
 
 [connection signal="mouse_exit" from="." to="." method="_on_btn_tower_mouse_exit"]
+
+[connection signal="pressed" from="." to="." method="_on_btn_tower_pressed"]
 
 

@@ -29,8 +29,31 @@ lossy_quality = 0.7
 
 [sub_resource type="CanvasItemShaderGraph" id=2]
 
-_code = { "default_tex":[ "cramp_6", SubResource( 1 ) ], "fragment":"vec3 nd1sl3=vec3(SCREEN_UV,0);\nvec3 nd1sl2=vec3(UV,0);\nvec4 rt_default_tex2=tex(TEXTURE,nd1sl2.xy);\nvec3 nd2sl0=rt_default_tex2.rgb;\nfloat nd2sl1=rt_default_tex2.a;\nvec3 nd3sl0=texscreen(nd1sl3.xy);\nfloat nd4sl0=length(nd3sl0);\nuniform texture cramp_6;\nvec4 cramp_6_r=tex(cramp_6,vec2(nd4sl0,0));\nvec3 nd6sl0=cramp_6_r.rgb;\nfloat nd6sl1=cramp_6_r.a;\nvec3 nd5sl0=min(nd2sl0,nd6sl0);\nCOLOR.rgb=nd5sl0;\n", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
-_data = { "shaders":[ [ 0, 33, Vector2( 250, 20 ), null, null, [  ] ], [ 0, 33, Vector2( 689, 43 ), null, null, [ 0, 5, 0 ], 1, 0, Vector2( 52, 54 ), null, null, [  ], 2, 32, Vector2( 316, 57 ), null, null, [ 0, 1, 2, 2147483647, 0, null ], 3, 6, Vector2( 170, 146 ), null, [ 0, 0 ], [ 0, 1, 3, 2147483647, 0, null ], 4, 16, Vector2( 273, 145 ), null, null, [ 0, 3, 0, 2147483647, 0, null ], 5, 10, Vector2( 541.028, 64.9167 ), 2, null, [ 0, 2, 0, 1, 6, 0, 2147483647, 0, null, 2147483647, 1, Color( 0.863281, 0.863281, 0.863281, 1 ) ], 6, 24, Vector2( 387.028, 142.917 ), ColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1 ), FloatArray( 0, 0.788991, 0.825688, 1 ), [ 0, 4, 0, 2147483647, 0, null ] ], [ 0, 33, Vector2( 250, 20 ), null, null, [  ] ] ] }
+_code = {
+"default_tex": [ "cramp_6", SubResource( 1 ) ],
+"fragment": "vec3 nd1sl3=vec3(SCREEN_UV,0);
+vec3 nd1sl2=vec3(UV,0);
+vec4 rt_default_tex2=tex(TEXTURE,nd1sl2.xy);
+vec3 nd2sl0=rt_default_tex2.rgb;
+float nd2sl1=rt_default_tex2.a;
+vec3 nd3sl0=texscreen(nd1sl3.xy);
+float nd4sl0=length(nd3sl0);
+uniform texture cramp_6;
+vec4 cramp_6_r=tex(cramp_6,vec2(nd4sl0,0));
+vec3 nd6sl0=cramp_6_r.rgb;
+float nd6sl1=cramp_6_r.a;
+vec3 nd5sl0=min(nd2sl0,nd6sl0);
+COLOR.rgb=nd5sl0;
+",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+_data = {
+"shaders": [ [ 0, 33, Vector2( 250, 20 ), null, null, [  ] ], [ 0, 33, Vector2( 689, 43 ), null, null, [ 0, 5, 0 ], 1, 0, Vector2( 52, 54 ), null, null, [  ], 2, 32, Vector2( 316, 57 ), null, null, [ 0, 1, 2, 2147483647, 0, null ], 3, 6, Vector2( 170, 146 ), null, [ 0, 0 ], [ 0, 1, 3, 2147483647, 0, null ], 4, 16, Vector2( 273, 145 ), null, null, [ 0, 3, 0, 2147483647, 0, null ], 5, 10, Vector2( 541.028, 64.9167 ), 2, null, [ 0, 2, 0, 1, 6, 0, 2147483647, 0, null, 2147483647, 1, Color( 0.863281, 0.863281, 0.863281, 1 ) ], 6, 24, Vector2( 387.028, 142.917 ), ColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1 ), FloatArray( 0, 0.788991, 0.825688, 1 ), [ 0, 4, 0, 2147483647, 0, null ] ], [ 0, 33, Vector2( 250, 20 ), null, null, [  ] ] ]
+}
 
 [sub_resource type="CanvasItemMaterial" id=3]
 
@@ -46,7 +69,12 @@ tracks/0/type = "value"
 tracks/0/path = NodePath("icon/sprite:frame")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 0, 1, 2, 3, 4, 5, 0 ] }
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 0 ]
+}
 
 [sub_resource type="Animation" id=5]
 
@@ -57,37 +85,72 @@ tracks/0/type = "value"
 tracks/0/path = NodePath("tooltip:rect/scale")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ] }
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
+}
 tracks/1/type = "value"
 tracks/1/path = NodePath("tooltip:visibility/opacity")
 tracks/1/interp = 1
 tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, 1.0 ] }
+tracks/1/keys = {
+"times": FloatArray( 0, 0.3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
 tracks/2/type = "value"
 tracks/2/path = NodePath("tooltip:margin/left")
 tracks/2/interp = 1
 tracks/2/imported = false
-tracks/2/keys = { "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 91, 10.0 ] }
+tracks/2/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 91, 10.0 ]
+}
 tracks/3/type = "value"
 tracks/3/path = NodePath("tooltip:margin/top")
 tracks/3/interp = 1
 tracks/3/imported = false
-tracks/3/keys = { "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 68, 10.0 ] }
+tracks/3/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 68, 10.0 ]
+}
 tracks/4/type = "value"
 tracks/4/path = NodePath("tooltip:margin/bottom")
 tracks/4/interp = 1
 tracks/4/imported = false
-tracks/4/keys = { "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ -58, 10.0 ] }
+tracks/4/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ -58, 10.0 ]
+}
 tracks/5/type = "value"
 tracks/5/path = NodePath("tooltip:margin/right")
 tracks/5/interp = 1
 tracks/5/imported = false
-tracks/5/keys = { "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ -81.0, 10.0 ] }
+tracks/5/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ -81.0, 10.0 ]
+}
 tracks/6/type = "value"
 tracks/6/path = NodePath("tooltip:visibility/visible")
 tracks/6/interp = 1
 tracks/6/imported = false
-tracks/6/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+tracks/6/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=6]
 
@@ -98,12 +161,22 @@ tracks/0/type = "value"
 tracks/0/path = NodePath("tooltip:visibility/visible")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ true, false ] }
+tracks/0/keys = {
+"times": FloatArray( 0, 0.3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 tracks/1/type = "value"
 tracks/1/path = NodePath("tooltip:visibility/opacity")
 tracks/1/interp = 1
 tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 1.0, 0.0 ] }
+tracks/1/keys = {
+"times": FloatArray( 0, 0.3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
 
 [node name="hud" type="CanvasLayer"]
 
@@ -112,7 +185,9 @@ offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"2D" }
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}
 budget_current = 2000
 health_current = 100
 lose_scene = ExtResource( 2 )
@@ -406,10 +481,7 @@ alignment = 0
 [node name="btn_upgrade" parent="towers_panel/tower_buttons" instance=ExtResource( 11 )]
 
 margin/left = 32.0
-margin/top = 0.0
 margin/right = 160.0
-enabled_focus_mode = 2
-shortcut = null
 
 [node name="tower_sniper" type="HBoxContainer" parent="towers_panel/tower_buttons"]
 
@@ -431,8 +503,6 @@ margin/left = 8.0
 margin/top = 2.0
 margin/right = 48.0
 margin/bottom = 58.0
-enabled_focus_mode = 2
-shortcut = null
 tower_scene = ExtResource( 13 )
 unlocked = true
 
@@ -442,8 +512,6 @@ margin/left = 75.0
 margin/top = 2.0
 margin/right = 115.0
 margin/bottom = 58.0
-enabled_focus_mode = 2
-shortcut = null
 tower_scene = ExtResource( 13 )
 tower_tier = 2
 
@@ -453,8 +521,6 @@ margin/left = 143.0
 margin/top = 2.0
 margin/right = 183.0
 margin/bottom = 58.0
-enabled_focus_mode = 2
-shortcut = null
 tower_scene = ExtResource( 13 )
 tower_tier = 3
 
@@ -478,8 +544,6 @@ margin/left = 8.0
 margin/top = 2.0
 margin/right = 48.0
 margin/bottom = 58.0
-enabled_focus_mode = 2
-shortcut = null
 tower_scene = ExtResource( 14 )
 unlocked = true
 
@@ -489,8 +553,6 @@ margin/left = 75.0
 margin/top = 2.0
 margin/right = 115.0
 margin/bottom = 58.0
-enabled_focus_mode = 2
-shortcut = null
 tower_scene = ExtResource( 14 )
 tower_tier = 2
 
@@ -500,8 +562,6 @@ margin/left = 143.0
 margin/top = 2.0
 margin/right = 183.0
 margin/bottom = 58.0
-enabled_focus_mode = 2
-shortcut = null
 tower_scene = ExtResource( 14 )
 tower_tier = 3
 
@@ -525,8 +585,6 @@ margin/left = 8.0
 margin/top = 2.0
 margin/right = 48.0
 margin/bottom = 58.0
-enabled_focus_mode = 2
-shortcut = null
 tower_scene = ExtResource( 15 )
 unlocked = true
 
@@ -536,8 +594,6 @@ margin/left = 75.0
 margin/top = 2.0
 margin/right = 115.0
 margin/bottom = 58.0
-enabled_focus_mode = 2
-shortcut = null
 tower_scene = ExtResource( 15 )
 tower_tier = 2
 
@@ -547,8 +603,6 @@ margin/left = 143.0
 margin/top = 2.0
 margin/right = 183.0
 margin/bottom = 58.0
-enabled_focus_mode = 2
-shortcut = null
 tower_scene = ExtResource( 15 )
 tower_tier = 3
 
@@ -572,8 +626,6 @@ margin/left = 8.0
 margin/top = 2.0
 margin/right = 48.0
 margin/bottom = 58.0
-enabled_focus_mode = 2
-shortcut = null
 tower_scene = ExtResource( 16 )
 unlocked = true
 
@@ -583,8 +635,6 @@ margin/left = 75.0
 margin/top = 2.0
 margin/right = 115.0
 margin/bottom = 58.0
-enabled_focus_mode = 2
-shortcut = null
 tower_scene = ExtResource( 16 )
 tower_tier = 2
 
@@ -594,8 +644,6 @@ margin/left = 143.0
 margin/top = 2.0
 margin/right = 183.0
 margin/bottom = 58.0
-enabled_focus_mode = 2
-shortcut = null
 tower_scene = ExtResource( 16 )
 tower_tier = 3
 
@@ -619,8 +667,6 @@ margin/left = 8.0
 margin/top = 4.0
 margin/right = 48.0
 margin/bottom = 60.0
-enabled_focus_mode = 2
-shortcut = null
 tower_scene = ExtResource( 17 )
 unlocked = true
 
@@ -630,8 +676,6 @@ margin/left = 75.0
 margin/top = 4.0
 margin/right = 115.0
 margin/bottom = 60.0
-enabled_focus_mode = 2
-shortcut = null
 tower_scene = ExtResource( 17 )
 tower_tier = 2
 
@@ -641,8 +685,6 @@ margin/left = 143.0
 margin/top = 4.0
 margin/right = 183.0
 margin/bottom = 60.0
-enabled_focus_mode = 2
-shortcut = null
 tower_scene = ExtResource( 17 )
 tower_tier = 3
 

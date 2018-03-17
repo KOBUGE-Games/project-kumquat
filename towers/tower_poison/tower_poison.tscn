@@ -30,6 +30,8 @@ texture = ExtResource( 4 )
 
 enabled_focus_mode = 2
 shortcut = null
+params/resize_mode = 0
+params/stretch_mode = 0
 
 [node name="tier_2" type="Node" parent="."]
 

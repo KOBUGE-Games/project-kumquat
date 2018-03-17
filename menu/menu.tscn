@@ -17,7 +17,9 @@ margin/top = 0.0
 margin/right = 40.0
 margin/bottom = 40.0
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"Script" }
+__meta__ = {
+"__editor_plugin_screen__": "Script"
+}
 
 [node name="decor" type="Control" parent="."]
 
@@ -97,6 +99,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 textures/normal = ExtResource( 4 )
+params/resize_mode = 0
+params/stretch_mode = 0
 
 [node name="menu_right" type="TextureButton" parent="navigation"]
 
@@ -112,6 +116,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 textures/normal = ExtResource( 5 )
+params/resize_mode = 0
+params/stretch_mode = 0
 
 [node name="play" type="Button" parent="navigation"]
 

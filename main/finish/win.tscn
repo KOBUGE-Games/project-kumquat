@@ -82,6 +82,7 @@ margin/bottom = 400.0
 transform/pos = Vector2( 0, 100 )
 config/amount = 96
 config/lifetime = 4.0
+config/process_mode = 1
 config/half_extents = Vector2( 19, 19 )
 config/texture = ExtResource( 1 )
 config/h_frames = 6

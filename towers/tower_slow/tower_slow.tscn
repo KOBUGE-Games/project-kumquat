@@ -9,7 +9,6 @@
 [node name="tower" instance=ExtResource( 1 )]
 
 transform/pos = Vector2( 0, 1 )
-linear_damp = 0.1
 tower_type = "tower_slow"
 
 [node name="tier_1" parent="."]
@@ -23,7 +22,6 @@ reach = 2.0
 name = "Tar"
 price = 150
 unlock_price = 120
-show_attack_indicator = true
 
 [node name="attack_indicator" parent="."]
 
@@ -34,9 +32,12 @@ modulate = Color( 0, 0, 0, 1 )
 
 texture = ExtResource( 3 )
 
-[node name="attack_timer" parent="."]
+[node name="hover" parent="."]
 
-wait_time = 0.2
+enabled_focus_mode = 2
+shortcut = null
+params/resize_mode = 0
+params/stretch_mode = 0
 
 [node name="tier_2" type="Node" parent="."]
 

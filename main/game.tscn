@@ -7,7 +7,9 @@
 [node name="game" type="Node2D"]
 
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"Script" }
+__meta__ = {
+"__editor_plugin_screen__": "Script"
+}
 camera_offset = -500
 camera_speed = 500
 camera_zoom_speed = 5
@@ -17,7 +19,9 @@ max_camera_zoom = 3
 
 [node name="level_holder" type="Node2D" parent="."]
 
-__meta__ = { "_edit_group_":true }
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="camera" type="Camera2D" parent="level_holder"]
 
@@ -29,7 +33,6 @@ limit/left = -65536
 limit/top = 65535
 limit/right = 65535
 limit/bottom = 65535
-limit/smoothed = false
 drag_margin/h_enabled = false
 drag_margin/v_enabled = false
 smoothing/enable = false

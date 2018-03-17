@@ -16,11 +16,23 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visibility/opacity")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.6, 0.8 ), "transitions":FloatArray( 1, 1, 1 ), "values":[ 1.0, 1.0, 0.0 ] }
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.6, 0.8 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:frame")
 tracks/1/interp = 1
-tracks/1/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "values":[ 3, 14, 15, 16, 17, 18 ] }
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 14, 15, 16, 17, 18 ]
+}
 
 [sub_resource type="Animation" id=3]
 
@@ -31,7 +43,13 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.3, 0.6, 0.9 ), "transitions":FloatArray( 1, 1, 1, 1 ), "values":[ 3, 6, 3, 0 ] }
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 3, 6, 3, 0 ]
+}
 
 [sub_resource type="Animation" id=4]
 
@@ -42,7 +60,13 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 2
-tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.9, 1, 1.1, 1.2 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "values":[ 10, 11, 12, 13, 12, 11, 10, 9, 8, 0, 7, 8, 9, 10 ] }
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.9, 1, 1.1, 1.2 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13, 12, 11, 10, 9, 8, 0, 7, 8, 9, 10 ]
+}
 
 [sub_resource type="Animation" id=5]
 
@@ -53,7 +77,13 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 2
-tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.9, 1, 1.1, 1.2 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "values":[ 10, 11, 12, 13, 12, 11, 10, 9, 8, 0, 7, 8, 9, 10 ] }
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.9, 1, 1.1, 1.2 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13, 12, 11, 10, 9, 8, 0, 7, 8, 9, 10 ]
+}
 
 [sub_resource type="Animation" id=6]
 
@@ -63,12 +93,17 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.3, 0.6, 0.9 ), "transitions":FloatArray( 1, 1, 1, 1 ), "values":[ 3, 6, 3, 0 ] }
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 3, 6, 3, 0 ]
+}
 
 [node name="enemy" instance=ExtResource( 1 )]
 
 transform/pos = Vector2( 0, 0 )
-linear_damp = 0.1
 type = "enemy2"
 speed = 0.5
 hp = 200

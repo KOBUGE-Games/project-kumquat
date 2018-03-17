@@ -5,25 +5,22 @@
 
 [node name="tower" instance=ExtResource( 1 )]
 
-linear_damp = 0.1
 tower_type = "tower_sniper"
 
 [node name="tier_1" parent="."]
 
 script/script = ExtResource( 2 )
 damage = 8
-damage_duration = 1.0
-damage_type = 0
 frequency = 0.8
 reach = 3.0
 name = "Arrow"
-price = 100
-unlock_price = 100
-show_attack_indicator = true
 
-[node name="attack_timer" parent="."]
+[node name="hover" parent="."]
 
-wait_time = 0.2
+enabled_focus_mode = 2
+shortcut = null
+params/resize_mode = 0
+params/stretch_mode = 0
 
 [node name="tier_2" type="Node" parent="."]
 

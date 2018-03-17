@@ -41,6 +41,8 @@ wait_time = 1.0
 
 enabled_focus_mode = 2
 shortcut = null
+params/resize_mode = 0
+params/stretch_mode = 0
 
 [node name="tier_2" type="Node" parent="."]
 
